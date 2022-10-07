@@ -1,20 +1,43 @@
 .search-form {
-    position: absolute;
+    position: relative;
     width: 280px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @include mq(tablet){
+        width: 336px;
+    }
+
+    @include mq(desktop) {
+        width: 394px;
+    }
 
     &__input {
-        width: 280px;
-
-        border-bottom: 0.5px solid #FFFFFF;
+        width: 100%;
+        padding: 4px 0;
+        outline: transparent;
         background-color: transparent;
+        border: none;
+        border-bottom: 0.5px solid var(--header-text-cl);
+
+        color: var(--header-text-cl);
+
+        @include fonts(400, 14px, 16px);
+    }
+
+    &__input::placeholder{
+        color: var(--header-text-cl);
+
+        @include fonts(400, 14px, 16px);
     }
 
     &__btn {
         position: absolute;
         right: 0;
         height: 100%;
-
         background-color: transparent;
+        border: none;
+        padding: 6px 0 6px 20px;
     }
 
 }
