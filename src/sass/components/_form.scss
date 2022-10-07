@@ -1,0 +1,20 @@
+.search-form {
+    position: absolute;
+    width: 280px;
+
+    &__input {
+        width: 280px;
+
+        border-bottom: 0.5px solid #FFFFFF;
+        background-color: transparent;
+    }
+
+    &__btn {
+        position: absolute;
+        right: 0;
+        height: 100%;
+
+        background-color: transparent;
+    }
+
+}
