@@ -1,24 +1,10 @@
-@import 
-'abstracts/variables',
-'abstracts/mixins',
-'abstracts/visually-hidden';
+@import 'abstracts/variables', 'abstracts/mixins', 'abstracts/visually-hidden';
 
-@import 
-'vendors/normalize';
+@import 'vendors/normalize';
 
-@import 
-'base/base',
-'base/typography',
-'base/reset',
-'base/container',
-'base/animations';
+@import 'base/base', 'base/typography', 'base/reset', 'base/container',
+  'base/animations';
 
-@import 
-'layout/header',
-'layout/home',
-'layout/library',
-'layout/footer';
+@import 'layout/header', 'layout/home', 'layout/library', 'layout/footer';
 
-@import 
-'components/form',
-'components/footer-modal';
+@import 'components/form', 'components/footer-modal', 'components/pagination';
