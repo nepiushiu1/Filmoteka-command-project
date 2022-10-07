@@ -1,0 +1,60 @@
+.page-header{
+    height: 230px;
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-image: url(../images/bg-header_mob.jpg);
+
+    @include mq(retina) {
+        background-image: url(../images/bg-header_mob@2x.jpg);
+    }
+
+    @include mq(tablet){
+        background-image: url(../images/bg-header_tab.jpg);
+
+        @include mq(retina){
+            background-image: url(../images/bg-header_tab@2x.jpg);
+        }
+    }
+
+    @include mq(desktop) {
+        background-image: url(../images/bg-header_des.jpg);
+    
+        @include mq(retina) {
+            background-image: url(../images/bg-header_des@2x.jpg);
+        }
+    }
+
+    &__container {
+        padding-top: 40px;
+        padding-bottom: 92px;
+    }
+}
+
+.navigation{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 54px;
+}
+
+.logo{
+    height: 24px;
+}
+
+.menu{
+    display: flex;
+
+    &__item:not(:last-child){
+        margin-right: 40px;
+    }
+
+    &__item{
+        color: var(--header-text-cl);
+        @include fonts(500, 12px, 14.06px, uppercase);
+    }
+}
+
+
