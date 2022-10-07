@@ -1,0 +1,38 @@
+.footer {
+    min-width: 320px;
+    background-color: var(--secondary-bg-cl);
+
+    padding-top: 29px;
+    padding-bottom: 29px;
+}
+
+.footer__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+
+    @include mq(tablet){
+        gap: 4px;
+    }
+}
+
+.footer__item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.footer__text {
+    @include fonts(400, 14px, 16px);
+    color: var(--footer-text-cl);
+
+    @include mq(tablet){
+        @include fonts(400, 16px, 19px);
+    }
+}
+
+.footer__icon {
+    animation: puff-out-center 1s cubic-bezier(0.165, 0.840, 0.440, 1.000) infinite both;
+    fill: #ff6b08;
+}
