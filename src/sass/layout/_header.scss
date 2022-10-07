@@ -11,6 +11,8 @@
     }
 
     @include mq(tablet){
+        height: 216px;
+
         background-image: url(../images/bg-header_tab.jpg);
 
         @include mq(retina){
@@ -27,8 +29,8 @@
     }
 
     &__container {
+        height: 100%;
         padding-top: 40px;
-        padding-bottom: 92px;
     }
 }
 
@@ -37,22 +39,43 @@
     justify-content: space-between;
     align-items: center;
 
-    margin-bottom: 54px;
+    margin-bottom: 50px;
+
+    @include mq(tablet){
+        margin-bottom: 36px;
+    }
 }
 
 .logo{
+    display: flex;
+    align-items: center;
+    gap: 8px;
     height: 24px;
+
+    color: var(--header-text-cl);
+
+    @include fonts(500, 30px, 35px);
+
+    @include mq(desktop) {
+            gap: 10px;
+        }
+
+    &__text{
+        display: none;
+
+    @include mq(tablet){
+        display: block;
+    }  
+    }
 }
 
 .menu{
     display: flex;
-
-    &__item:not(:last-child){
-        margin-right: 40px;
-    }
+    gap: 40px;
 
     &__item{
         color: var(--header-text-cl);
+
         @include fonts(500, 12px, 14.06px, uppercase);
     }
 }
