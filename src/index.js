@@ -1,21 +1,38 @@
-import './pagination';
+// PAGINATION FOR A MAIN PAGE
+import './js/pagination';
+import './js/api/main-home-file';
 
-import MoviesApiService from './js/fetch-trending-movies.js';
-import makingMarkup from './js/render-card-markup.js';
+// import MoviesApiService from './js/api/fetch-trending-movies.js';
+// import makingMarkup from './js/render-card-markup.js';
 
-const moviesApiService = new MoviesApiService();
-const container = document.querySelector('.container');
+// const moviesApiService = new MoviesApiService();
+// const container = document.querySelector('.container');
 
-moviesApiService
-  .fetchTrendingMovies()
-  .then(insertImgMarkup)
-  .catch(error => console.log(error));
+// const homeCardsContainer = document.querySelector('.cards__list--home');
+// console.log(homeCardsContainer);
+// // GETTING GENRES TO LOCALSTORAGE
+// moviesApiService
+//   .fetchGenres()
+//   .then(({ genres }) => {
+//     for (const { id, name } of genres) {
+//       //   console.log(id);
+//       //   console.log(name);
+//       localStorage.setItem(`genre_${id}`, name);
+//     }
+//   })
+//   .catch(error => console.log(error));
 
-moviesApiService
-  .fetchGenres()
-  .then(console.log('ok'))
-  .catch(error => console.log(error));
+// moviesApiService
+//   .fetchTrendingMovies()
+//   .then(({ results }) => {
+//     // console.log(results);
+//     return makingMarkup(results);
+//   })
+//   .then(array => {
+//     homeCardsContainer.insertAdjacentHTML('beforeend', array);
+//   })
+//   .catch(error => console.log(error));
 
-function insertImgMarkup(films) {
-  container.insertAdjacentHTML('beforeend', makingMarkup(films));
-}
+// // function insertImgMarkup(films) {
+// //   container.insertAdjacentHTML('beforeend', makingMarkup(films));
+// // }
