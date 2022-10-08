@@ -36,7 +36,7 @@ const BASE_POSTER_URL = `https://image.tmdb.org/t/p/w500`;
 // }
 
 export default function makingMarkup(results) {
-  return (markup = results.map(({ title, name, poster_path, genre_ids }) => {
+  const markup = results.map(({ title, name, poster_path, genre_ids }) => {
     return `<div class="movie-card">
                 <img class="movie-card__img" src="${BASE_POSTER_URL}/${poster_path}" alt="" loading="lazy"/>
                 <div class="info">
@@ -54,5 +54,6 @@ export default function makingMarkup(results) {
                     </p>
                 </div>
             </div>`;
-  }));
+  });
+  return markup;
 }
