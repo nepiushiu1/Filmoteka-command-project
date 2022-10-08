@@ -7,13 +7,13 @@ import { BASE_GENRE_URL } from './constants/baseUrls';
 export default class MoviesApiService {
   constructor() {
     this.searchQuery = '';
-    this.page = 1;
+    this._page = 1;
     // this.url = `${BASE_TRENDING_MOVIES_URL}trending/all/day?&api_key=${API_KEY}`;
   }
 
   // FETCHING FILMS FOR THE FIRST TIME
   fetchTrendingMovies() {
-    const url = `${BASE_TRENDING_MOVIES_URL}trending/all/day?&api_key=${API_KEY}&page=${this.page}`;
+    const url = `${BASE_TRENDING_MOVIES_URL}trending/all/day?&api_key=${API_KEY}&page=${this._page}`;
 
     return fetch(url).then(response => {
       return response.json();
@@ -36,23 +36,23 @@ export default class MoviesApiService {
     this.searchQuery = newQuery;
   }
 
-  incrementPage() {
-    this.page += 1;
-  }
+  // incrementPage() {
+  //   this.page += 1;
+  // }
 
-  decrementPage() {
-    this.page -= 1;
-  }
+  // decrementPage() {
+  //   this.page -= 1;
+  // }
 
   resetPage() {
     this.page = 1;
   }
 
   get page() {
-    return this.page;
+    return this._page;
   }
 
   set page(newPage) {
-    this.page = newPage;
+    this._page = newPage;
   }
 }
