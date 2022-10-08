@@ -1,6 +1,7 @@
 import MoviesApiService from './moviesApiServiceClass';
 import makingMarkup from './render-card-markup';
-import { refs } from '../refs';
+// import { refs } from '../refs';
+import { createPagination } from '../pagination';
 
 const moviesApiService = new MoviesApiService();
 
@@ -20,11 +21,13 @@ moviesApiService
 // RENDERING MARKUP USING GENRES FROM LOCALSTORAGE
 moviesApiService
   .fetchTrendingMovies()
-  .then(({ results }) => makingMarkup(results))
-  .then(insertFilmsMarkup)
+  .then(({ results, total_results }) => {
+    makingMarkup(results);
+    createPagination(total_results);
+  })
   .catch(error => console.log(error));
 
-// FUNCTION FOR INSERTING MARKUP TO HOME-CARDS-CONTAINER
-function insertFilmsMarkup(filmsMarkup) {
-  refs.homeCardsContainer.insertAdjacentHTML('beforeend', filmsMarkup);
-}
+// // FUNCTION FOR INSERTING MARKUP TO HOME-CARDS-CONTAINER
+// export function insertFilmsMarkup(filmsMarkup) {
+//   refs.homeCardsContainer.insertAdjacentHTML('beforeend', filmsMarkup);
+// }

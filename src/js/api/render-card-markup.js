@@ -1,4 +1,5 @@
 import gettingGenresList from './gettingGenresList';
+import { refs } from '../refs';
 
 const BASE_POSTER_URL = `https://image.tmdb.org/t/p/w500`;
 
@@ -55,5 +56,10 @@ export default function makingMarkup(results) {
                 </div>
             </div>`;
   });
-  return markup;
+  return insertFilmsMarkup(markup);
+}
+
+// // FUNCTION FOR INSERTING MARKUP TO HOME-CARDS-CONTAINER
+function insertFilmsMarkup(filmsMarkup) {
+  refs.homeCardsContainer.insertAdjacentHTML('beforeend', filmsMarkup);
 }
