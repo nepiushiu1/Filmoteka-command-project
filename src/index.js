@@ -1,6 +1,7 @@
-// PAGINATION FOR A MAIN PAGE
-import './js/pagination';
 import './js/api/main-home-file';
+// PAGINATION FOR A MAIN PAGE
+
+import * as fetchingApi from './js/pagination';
 
 // import MoviesApiService from './js/api/fetch-trending-movies.js';
 // import makingMarkup from './js/render-card-markup.js';
