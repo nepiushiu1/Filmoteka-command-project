@@ -1,4 +1,5 @@
-
+import { makingMarkup } from "./api/render-card-markup";
+  
   let arrayFilmsWatched = [];
   let arrayFilmsQueue = [];
   
@@ -28,8 +29,8 @@
       try {
           const saveFilms = localStorage.getItem('watched');
           const parsedFilms = JSON.parse(saveFilms);
-          /** Замість console.log будемо рендерити фільми на сторінку */
-          console.log(parsedFilms);
+
+          makingMarkup(parsedFilms);
       } catch (error) {
           console.log(error);
       }
@@ -42,8 +43,8 @@
       try {
           const saveFilms = localStorage.getItem('queue');
           const parsedFilms = JSON.parse(saveFilms);
-          /** Замість console.log будемо рендерити фільми на сторінку */
-          console.log(parsedFilms);
+
+          makingMarkup(parsedFilms);
       } catch (error) {
           console.log(error);
       }
