@@ -1,22 +1,11 @@
 import Pagination from 'tui-pagination';
-// import 'tui-pagination/dist/tui-pagination.css';
+import MoviesApiService from './api/moviesApiServiceClass';
+import makingMarkup from './api/render-card-markup';
+import { refs } from './refs';
 
-// Функция getFilms() создана только для проверки пагинации. ///////////////////////////////////////////////////////////////////////////////////
-async function getFilms() {
-  const response = await fetch(
-    `https://api.themoviedb.org/3/trending/all/day?api_key=e09f06c48afcb3ebfd8a25b0b6965d1e`
-  );
-  const data = await response.json();
-  console.log(data);
+const moviesApiService = new MoviesApiService();
 
-  createPagination(data.total_results);
-}
-
-getFilms();
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-function createPagination(total_results) {
+export function createPagination(total_results) {
   const container = document.getElementById('pagination');
   const options = {
     totalItems: total_results,
@@ -47,8 +36,13 @@ function createPagination(total_results) {
   const pagination = new Pagination(container, options);
 
   pagination.on('afterMove', event => {
-    page = event.page;
-    console.log(page);
-    console.log('вызов функции загрузки следующих фильмов');
+    refs.homeCardsContainer.innerHTML = '';
+    moviesApiService.page = event.page;
+    moviesApiService
+      .fetchTrendingMovies()
+      .then(({ results }) => {
+        makingMarkup(results);
+      })
+      .catch(error => console.log(error));
   });
 }

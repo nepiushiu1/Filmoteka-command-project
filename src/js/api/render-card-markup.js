@@ -1,4 +1,5 @@
 import gettingGenresList from './gettingGenresList';
+import { refs } from '../refs';
 
 const BASE_POSTER_URL = `https://image.tmdb.org/t/p/w500`;
 
@@ -36,9 +37,10 @@ const BASE_POSTER_URL = `https://image.tmdb.org/t/p/w500`;
 // }
 
 export default function makingMarkup(results) {
-  const markup = results.map(({ title, name, poster_path, genre_ids }) => {
-    return `<div class="movie-card">
-                <img class="movie-card__img" src="${BASE_POSTER_URL}/${poster_path}" alt="" loading="lazy"/>
+  const markup = results
+    .map(({ title, name, poster_path, genre_ids }) => {
+      return `<div class="movie-card">
+                <img width="280" height="402" class="movie-card__img" src="${BASE_POSTER_URL}/${poster_path}" alt="" loading="lazy"/>
                 <div class="info">
                     <p class="info-item">
                         <b>${title || name}</b>
@@ -54,6 +56,12 @@ export default function makingMarkup(results) {
                     </p>
                 </div>
             </div>`;
-  });
-  return markup;
+    })
+    .join('');
+  return insertFilmsMarkup(markup);
+}
+
+// FUNCTION FOR INSERTING MARKUP TO HOME-CARDS-CONTAINER
+function insertFilmsMarkup(filmsMarkup) {
+  refs.homeCardsContainer.insertAdjacentHTML('beforeend', filmsMarkup);
 }
