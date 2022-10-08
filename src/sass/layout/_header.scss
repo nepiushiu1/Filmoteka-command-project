@@ -134,37 +134,45 @@
     @include mq(desktop) {
         gap: 16px;
     }
-}
 
-.library-btn{
-    min-width: 130px;
-    padding: 13px 36px;
-    border: 1px solid #FFFFFF;
-    border-radius: 5px;
-
-    background-color: transparent;
-    color: var(--header-text-cl);
-
-    @include fonts(500, 12px, 16px, uppercase);
-
-    transition: background-color var(--transition-duration) var(--transition-timing-function),
+    &__item{
+        min-width: 130px;
+        padding: 13px 36px;
+        border: 1px solid var(--header-text-cl);
+        border-radius: 5px;
+        cursor: pointer;
+        
+        background-color: transparent;
+        color: var(--header-text-cl);
+        
+        @include fonts(500, 12px, 16px, uppercase);
+        
+        transition: background-color var(--transition-duration) var(--transition-timing-function),
                 border-color var(--transition-duration) var(--transition-timing-function);
-    
-    @include mq(tablet){
-        min-width: 152px;
-        padding: 13px 46px;
-    } 
-    
-    @include mq(desktop) {
-        min-width: 148px;
-        padding: 13px 42px;
+        
+        @include mq(tablet) {
+            min-width: 152px;
+            padding: 13px 46px;
+        }
+        
+        @include mq(desktop) {
+            min-width: 148px;
+            padding: 13px 42px;
+        }
+    }
+
+    &__item--watched{
+        background-color: var(--button-bg-cl);
+        border-color: var(--button-bg-cl);
+    }
+
+    &__item:hover,
+    &__item:focus {
+        background-color: var(--button-bg-cl);
+        border-color: var(--button-bg-cl);
     }
 }
 
-.library-btn:hover,
-.library-btn:focus{
-    background-color: var(--button-bg-cl);
-    border-color: var(--button-bg-cl);
-}
+
 
 

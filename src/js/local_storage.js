@@ -1,5 +1,16 @@
-import { makingMarkup } from "./api/render-card-markup";
-  
+// import { refs } from './refs';
+import makingMarkup from "./api/render-card-markup";
+// import { insertFilmsMarkup } from './api/main-home-file';
+
+// Створено для перевірки роботи ф-ції getWatchedFilms
+const header = document.querySelector('.page-header');
+function insertFilmsLibrary(filmsMarkup) {
+    header.insertAdjacentHTML('afterend', filmsMarkup);
+  }
+ ///////////////////////////////////////////////////////////////////////////////////////// 
+
+
+  // MAIN CODE FOR PROJECT
   let arrayFilmsWatched = [];
   let arrayFilmsQueue = [];
   
@@ -23,32 +34,27 @@ import { makingMarkup } from "./api/render-card-markup";
       return arrayFilmsQueue;
   }
   
-  // console.log('arrayFilmsWatched', arrayFilmsWatched);
-  
   export function getWatchedFilms() {
       try {
           const saveFilms = localStorage.getItem('watched');
           const parsedFilms = JSON.parse(saveFilms);
 
-          makingMarkup(parsedFilms);
+          const renderWatched = makingMarkup(parsedFilms);
+          insertFilmsLibrary(renderWatched);
       } catch (error) {
           console.log(error);
       }
   }
-  
-  // Запускаємо функцію при клікові на кнопку Watched
-//   getWatchedFilms();
   
   export function getQueueFilms () {
       try {
           const saveFilms = localStorage.getItem('queue');
           const parsedFilms = JSON.parse(saveFilms);
 
-          makingMarkup(parsedFilms);
+          const renderQueue = makingMarkup(parsedFilms);
+          insertFilmsLibrary(renderQueue);
       } catch (error) {
           console.log(error);
       }
   }
   
-  // Запускаємо функцію при клікові на кнопку Queue
-  // getQueueFilms()
