@@ -1,18 +1,18 @@
 import { refs } from './refs';
 
-btnWatched.addEventListener('click', onBtnWatchedClick);
-btnQueue.addEventListener('click', onBtnQueueClick);
+refs.btnWatched.addEventListener('click', onBtnWatchedClick);
+refs.btnQueue.addEventListener('click', onBtnQueueClick);
 
 function onBtnWatchedClick(e) {
-  btnWatched.style.backgroundColor = 'var(--button-bg-cl)';
-  btnWatched.style.borderColor = 'var(--button-bg-cl)';
-  btnQueue.style.backgroundColor = 'transparent';
-  btnQueue.style.borderColor = 'var(--header-text-cl)';
+  refs.btnWatched.style.backgroundColor = 'var(--button-bg-cl)';
+  refs.btnWatched.style.borderColor = 'var(--button-bg-cl)';
+  refs.btnQueue.style.backgroundColor = 'transparent';
+  refs.btnQueue.style.borderColor = 'var(--header-text-cl)';
 }
 
 function onBtnQueueClick(e) {
-  btnQueue.style.backgroundColor = 'var(--button-bg-cl)';
-  btnQueue.style.borderColor = 'var(--button-bg-cl)';
-  btnWatched.style.backgroundColor = 'transparent';
-  btnWatched.style.borderColor = 'var(--header-text-cl)';
+  refs.btnQueue.style.backgroundColor = 'var(--button-bg-cl)';
+  refs.btnQueue.style.borderColor = 'var(--button-bg-cl)';
+  refs.btnWatched.style.backgroundColor = 'transparent';
+  refs.btnWatched.style.borderColor = 'var(--header-text-cl)';
 }

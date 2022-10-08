@@ -6,4 +6,7 @@ export const refs = {
   // buttons
   btnWatched: document.querySelector('.watched'),
   btnQueue: document.querySelector('.queue'),
+
+  btnAddToWatched: document.querySelector('.modal_watched'),
+  btnAddToQueue: document.querySelector('.modal_queue'),
 };
