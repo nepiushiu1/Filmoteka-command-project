@@ -1,4 +1,4 @@
-// import './pagination';
+import './pagination';
 
 import MoviesApiService from './js/fetch-trending-movies.js';
 import makingMarkup from './js/render-card-markup.js';
