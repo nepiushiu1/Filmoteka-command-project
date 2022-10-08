@@ -1,0 +1,137 @@
+.box_btn,
+.box-modal_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn_library {
+  width: 148px;
+  height: 42px;
+  color: white;
+  margin-top: 40px;
+
+  // @media screen and (max-width: #{$tablet - 0.02}) {
+  //   width: 129.53px;
+  //   height: 44px;
+  //   margin-top: 62px;
+  // }
+
+  // @media screen and (min-width: $tablet) and (max-width: #{$desktop - 0.02}) {
+  //   width: 152px;
+  //   height: 44px;
+  // }
+
+  /* transform: translateX(-50%); */
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  /* or 133% */
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  text-transform: uppercase;
+
+  color: #ffffff;
+
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.56);
+  /* transition: font-weight 250ms linear, color 250ms linear,
+    background-color 250ms linear; */
+}
+
+.watched {
+  margin-right: 16px;
+  /* margin-left: 484px; */
+  // @media screen and (max-width: #{$tablet - 0.02}) {
+  //   margin-right: 20px;
+  // }
+
+  // @media screen and (min-width: $tablet) and (max-width: #{$desktop - 0.02}) {
+  //   margin-right: 32px;
+  // }
+}
+
+.btn:current {
+  background-color: #ff6b01;
+}
+
+.btn:hover,
+:focus {
+  background-color: #ff6b01;
+}
+
+.btn_modal {
+  width: 136px;
+  height: 44px;
+  margin-top: 20px;
+
+  // @media screen and (max-width: #{$tablet - 0.02}) {
+  //   width: 110px;
+  //
+  // }
+
+  // @media screen and (min-width: $tablet) and (max-width: #{$desktop - 0.02}) {
+  //   width: 125px;
+  // }
+
+  /* transform: translateX(-50%); */
+  border: 1px solid #000000;
+  border-radius: 5px;
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  /* or 133% */
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  text-transform: uppercase;
+
+  color: #000000;
+
+  cursor: pointer;
+  background-color: #ffffff;
+  /* transition: font-weight 250ms linear, color 250ms linear,
+    background-color 250ms linear; */
+}
+
+.watched {
+  margin-right: 15px;
+  /* margin-left: 484px; */
+  // @media screen and (max-width: #{$tablet - 0.02}) {
+  //   margin-right: 20px;
+  // }
+
+  // @media screen and (min-width: $tablet) and (max-width: #{$desktop - 0.02}) {
+  //   margin-right: 15px;
+  // }
+}
+
+.btn:current {
+  background-color: #ff6b01;
+  border-radius: 5px;
+  background-color: #ff6b01;
+
+  color: #ffffff;
+}
+
+.btn:hover,
+:focus {
+  background: #ff6b01;
+  border-radius: 5px;
+  background-color: #ff6b01;
+  border: 1px solid #ff6b01;
+  color: #ffffff;
+}
