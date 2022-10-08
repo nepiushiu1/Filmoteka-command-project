@@ -1,7 +1,8 @@
-import './js/api/main-home-file';
-// PAGINATION FOR A MAIN PAGE
+// FETCHING FOR THE FIRST TIME
+import * as fetchingApi from './js/api/main-home-file';
 
-import * as fetchingApi from './js/pagination';
+// PAGINATION FOR A MAIN PAGE
+import './js/pagination';
 
 // import MoviesApiService from './js/api/fetch-trending-movies.js';
 // import makingMarkup from './js/render-card-markup.js';
