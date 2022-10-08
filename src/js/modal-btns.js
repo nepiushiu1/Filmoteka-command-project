@@ -1,10 +1,10 @@
-const watched = document.querySelector('.watched');
-const queue = document.querySelector('.queue');
+import { refs } from './refs';
+
 // const modalWatched = document.querySelector('.modal_watched');
 // const modalQueue = document.querySelector('.modal_queue');
 
-watched.addEventListener('click', changeText);
-queue.addEventListener('click', changeText);
+btnWatched.addEventListener('click', changeText);
+btnQueue.addEventListener('click', changeText);
 modalWatched.addEventListener('click', changeText);
 modalQueue.addEventListener('click', changeText);
 

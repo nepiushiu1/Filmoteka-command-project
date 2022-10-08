@@ -1,3 +1,5 @@
+// CHANGE COLOR OF HEADER-BUTTONS
+import './js/library-header-btns';
 
-import './js/library-btns';
-import './js/btn_library';
+// CHANGE TEXT OF MODAL-BTNS
+import './js/modal-btns';

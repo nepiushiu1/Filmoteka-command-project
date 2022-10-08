@@ -1,5 +1,9 @@
 export const refs = {
+  // containers
   homeCardsContainer: document.querySelector('.cards__list--home'),
   libraryCardsContainer: document.querySelector('.cards__list--library'),
-  // YOUR ELEMENT IN DOM
+
+  // buttons
+  btnWatched: document.querySelector('.watched'),
+  btnQueue: document.querySelector('.queue'),
 };
