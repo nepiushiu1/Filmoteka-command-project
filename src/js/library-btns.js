@@ -1,5 +1,5 @@
-const btnWatched = document.querySelector('.library-btns__item--watched');
-const btnQueue = document.querySelector('.library-btns__item--queue');
+const btnWatched = document.querySelector('.watched');
+const btnQueue = document.querySelector('.queue');
 
 btnWatched.addEventListener('click', onBtnWatchedClick);
 btnQueue.addEventListener('click', onBtnQueueClick);
