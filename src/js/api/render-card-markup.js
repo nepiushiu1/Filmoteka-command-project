@@ -29,7 +29,7 @@ export default function makingMarkup(results) {
                 <div class="movie-card__cont">
                   <h2 class="movie-card__title">${title || name}</h2>
                     <p class="movie-card__info">
-                        <b>${gettingGenresList(genre_ids)} | </b>
+                        <b>${gettingGenresList(genre_ids) || `Thriller`} | </b>
                     </p>
                     <p class="movie-card__info">
                         <b>${
