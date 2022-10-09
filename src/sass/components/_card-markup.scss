@@ -2,7 +2,6 @@
     height: 100%;
     display: grid;
     justify-content: center;
-    grid-column-gap: 20px;
     grid-row-gap: 20px;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -10,14 +9,14 @@
 
     @include mq(tablet) {
         grid-template-columns: repeat(2, auto);
-        grid-column-gap: 30px;
-        grid-row-gap: 30px;
+        grid-column-gap: 32px;
         padding-bottom: 50px;
         padding-top: 60px;
     }
 
     @include mq(desktop) {
         grid-template-columns: repeat(3, auto);
+        grid-column-gap: 16px;
     }
 
 }
