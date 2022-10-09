@@ -7,5 +7,10 @@ import './js/pagination';
 // CHANGE TEXT OF MODAL-BTNS
 import './js/modal-btns';
 
+// searchFilmByKeyword
+import './js/searchFilmByKeyword/search_films_by_keyword_input';
+import './js/searchFilmByKeyword/search_films_by_keyword_submit';
+ 
 // OPEN MODAL CARD
 import './js/api/loadModalCard';
+
