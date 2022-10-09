@@ -31,11 +31,12 @@ moviesApiService
     makingMarkup(results);
 
     createPagination(total_results);
+    localStorage.setItem(`currentFilm`, JSON.stringify(results));
 
-    for (const result of results) {
-      // console.log(result);
-      localStorage.setItem(`film_${result.id}`, JSON.stringify(result));
-    }
+    // for (const result of results) {
+    //   // console.log(result);
+    //   localStorage.setItem(`film_${result.id}`, JSON.stringify(result));
+    // }
   })
   .catch(error => console.log(error));
 

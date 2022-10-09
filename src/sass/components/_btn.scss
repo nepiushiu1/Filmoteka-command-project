@@ -110,19 +110,11 @@
   // }
 }
 
-.btn:current {
-  background-color: #ff6b01;
+.btn:hover,
+.btn:focus {
+  background: #ff6b01;
   border-radius: 5px;
-
+  background-color: #ff6b01;
+  border: 1px solid #ff6b01;
   color: #ffffff;
 }
-
-
-// ? навіщо код нижче? він ламає розмітку в хедері
-// .btn:hover,
-// :focus {
-//   border-radius: 5px;
-//   background-color: #ff6b01;
-//   border: 1px solid #ff6b01;
-//   color: #ffffff;
-// }
