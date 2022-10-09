@@ -31,10 +31,10 @@
         @include fonts(400, 14px, 16px);
     }
 
-    &__btn {
+    &__button {
         position: absolute;
         right: 0;
-        height: 100%;
+        height: 25px;
         padding: 6px 0 6px 20px;
         cursor: pointer;
 
