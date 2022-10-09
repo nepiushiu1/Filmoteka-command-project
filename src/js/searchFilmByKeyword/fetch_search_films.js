@@ -5,12 +5,10 @@ export default async function fetchFilms(filmName) {
   // https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}`;
   // const params = `&query=`;
   // const totalKeyword = `${linkForSearchByKeyword}${params}${filmName}`;
-  const response = await fetch(totalKeyword);
-
-  if (!response.ok) {
-    throw new Error(response.status);
-  }
-
-  const films = await response.json();
-  return films;
+  // const response = await fetch(totalKeyword);
+  // if (!response.ok) {
+  //   throw new Error(response.status);
+  // }
+  // const films = await response.json();
+  // return films;
 }

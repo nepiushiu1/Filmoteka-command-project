@@ -1,5 +1,5 @@
 import { refs } from './../refs';
-import fetchFilms from './fetch_search_films';
+// import fetchFilms from './fetch_search_films';
 import MoviesApiService from '../api/moviesApiServiceClass';
 import makingMarkup from '../api/render-card-markup';
 import { createPagination } from '../pagination';
@@ -16,21 +16,24 @@ function onSearchFilmByKeyword(e) {
   movieApiServise.query = searchFilms;
 
   try {
-    fetchFilms(searchFilms).then(({ results, total_results }) => {
-      if(results.length === 0) {
-        const markup = '<p class="search-form--badrequest">Search result not successful. Enter the correct movie name!</p>';
-        refs.filmsSearchList.innerHTML = markup;
-        return;
-      }
-      refs.homeCardsContainer.innerHTML = '';
-      makingMarkup(results);
-      createPagination(total_results);
-    });
+    movieApiServise
+      .fetchSearchingMovies()
+      .then(({ results, total_results }) => {
+        if (results.length === 0) {
+          const markup =
+            '<p class="search-form--badrequest">Search result not successful. Enter the correct movie name!</p>';
+          refs.filmsSearchList.innerHTML = markup;
+          return;
+        }
+        refs.homeCardsContainer.innerHTML = '';
+        makingMarkup(results);
+        createPagination(total_results);
+      });
   } catch (err) {
     err => console.log(err);
-  };
+  }
 
   refs.inputSearch.value = '';
   refs.filmsSearchList.innerHTML = '';
   refs.filmsSearchList.classList.remove('search-form__list--bgc');
-};
+}
