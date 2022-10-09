@@ -14,5 +14,9 @@ export const refs = {
   DEBOUNCE_DELAY: 300,
   formSearch: document.querySelector('.search-form'),
   filmsSearchList: document.querySelector('.search-form__list'),
+
+  //modal-card
+  modalCardContainer: document.querySelector('.modal_card'),
+
   inputSearch: document.querySelector('.search-form__input'),
 };
