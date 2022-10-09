@@ -1,0 +1,88 @@
+.cards__container {
+    height: 100%;
+    display: grid;
+    justify-content: center;
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+
+    @include mq(tablet) {
+        grid-template-columns: repeat(2, auto);
+        grid-column-gap: 30px;
+        grid-row-gap: 30px;
+        padding-bottom: 50px;
+        padding-top: 60px;
+    }
+
+    @include mq(desktop) {
+        grid-template-columns: repeat(3, auto);
+    }
+
+}
+
+.movie-card {
+    position: relative;
+    transition: transform var(--transition-duration) var(--transition-timing-function);
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.9;
+
+    &:hover,
+    &:focus {
+        transform: scale(1.03);
+        cursor: pointer;
+    }
+
+    &__link {
+        text-decoration: none;
+        color: black;
+    }
+
+    &__img {
+        width: 280px;
+        height: 443px;
+        border-radius: 6px;
+
+        @include mq(tablet) {
+            width: 336px;
+            height: 495px;
+        }
+
+        @include mq(desktop) {
+            width: 395px;
+            height: 634px;
+        }
+    }
+
+    &__cont {
+        padding: 5px;
+    }
+
+    &__title {
+        @include fonts(500, 12px, 16px, 0.05em);
+        text-transform: uppercase;
+        margin-top: 10px;
+        text-align: start;
+    }
+
+    &__info {
+        @include fonts(500, 12px, 16px, 0.05em);
+        display: inline;
+        text-align: start;
+        color: var(--secondary-text-cl);
+    }
+
+    &__raiting {
+        @include fonts(500, 12px, 16px, 0.05em);
+
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        padding: 1px 10px;
+        background: var(--secondary-text-cl);
+        border-radius: 5px;
+        color: var(--main-bg-cl);
+    }
+}
