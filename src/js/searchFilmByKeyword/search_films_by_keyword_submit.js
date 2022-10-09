@@ -30,4 +30,5 @@ function onSearchFilmByKeyword(e) {
 
   refs.inputSearch.value = '';
   refs.filmsSearchList.innerHTML = '';
+  refs.filmsSearchList.classList.remove('search-form__list--bgc');
 };
