@@ -22,8 +22,20 @@ moviesApiService
 moviesApiService
   .fetchTrendingMovies()
   .then(({ results, total_results }) => {
+    // for (const result of results) {
+    //   if (localStorage.getItem(`film_${result.id}`)) {
+    //     localStorage.removeItem(`film_${result.id}`);
+    //   }
+    // }
+
     makingMarkup(results);
+
     createPagination(total_results);
+
+    for (const result of results) {
+      // console.log(result);
+      localStorage.setItem(`film_${result.id}`, JSON.stringify(result));
+    }
   })
   .catch(error => console.log(error));
 
