@@ -4,6 +4,9 @@
     margin-left: auto;
     margin-right: auto;
 
+    -webkit-animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) 1s both;
+            animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) 1s both;
+
     @include mq(tablet){
         width: 336px;
     }

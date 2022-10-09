@@ -60,6 +60,10 @@
     @include mq(desktop) {
             gap: 10px;
         }
+    
+    &__icon{
+        @include()
+    }    
 
     &__text{
         display: none;
