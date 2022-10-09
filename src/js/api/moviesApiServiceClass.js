@@ -13,7 +13,7 @@ export default class MoviesApiService {
 
   // FETCHING FILMS FOR THE FIRST TIME
   fetchTrendingMovies() {
-    const url = `${BASE_TRENDING_MOVIES_URL}trending/all/day?&api_key=${API_KEY}&page=${this._page}`;
+    const url = `${BASE_TRENDING_MOVIES_URL}trending/all/day?&api_key=${API_KEY}&page=${this._page}&query=${this.searchQuery}`;
 
     return fetch(url).then(response => {
       return response.json();
