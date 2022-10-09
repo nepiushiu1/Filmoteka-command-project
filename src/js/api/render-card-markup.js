@@ -23,7 +23,7 @@ export default function makingMarkup(results) {
 
         return `<li class="movie-card">
         <a class="movie-card__link" href="#">
-                <img width="280" height="402" class="movie-card__img" src="${imagePath}" alt="${
+                <img data-id="${id}" width="280" height="402" class="movie-card__img" src="${imagePath}" alt="${
           title || name
         }" loading="lazy"/>
                 <div class="movie-card__cont">

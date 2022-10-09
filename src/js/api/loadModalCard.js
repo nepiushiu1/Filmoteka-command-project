@@ -14,9 +14,18 @@ function clickOnMovie(e) {
   if (e.target.nodeName !== 'IMG' && e.target.nodeName !== 'B') {
     return;
   }
-  console.log('YEEEEEEES');
-  console.log(e.target);
 
+  // console.log(e.target);
+  const currentId = e.target.dataset.id;
+  // console.log(currentId);
+  const unParsedCurrentArrayFilms = localStorage.getItem('currentFilm');
+  const parsedCurrentArrayFilms = JSON.parse(unParsedCurrentArrayFilms);
+  // console.log(parsedCurrentArrayFilms);
+  console.log(parsedCurrentArrayFilms.find(obj => obj.id == currentId));
+
+  // return modalCard(parsedCurrentArrayFilms.find(obj => obj.id == currentId));
+
+  // currentArrayFilms.find();
   // const eventId = e.target.getAttribute('id');
   // console.log(eventId);
   // moviesApiService
