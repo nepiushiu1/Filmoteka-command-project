@@ -62,7 +62,10 @@
         }
     
     &__icon{
-        @include()
+        @include mq(mobile-only){
+            // -webkit-animation: slide-in-elliptic-right-fwd 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+            //     animation: slide-in-elliptic-right-fwd 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        }
     }    
 
     &__text{
@@ -70,6 +73,8 @@
 
     @include mq(tablet){
         display: block;
+        -webkit-animation: tracking-in-contract-bck 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+            animation: tracking-in-contract-bck 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
     }  
     }
 }
