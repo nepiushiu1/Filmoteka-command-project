@@ -15,10 +15,13 @@ function clickOnMovie(e) {
     return;
   }
   console.log('YEEEEEEES');
-  const eventId = e.target.getAttribute('id');
-  moviesApiService
-    .fetchTrendingMovies(eventId)
-    .then(event => renderModalCard(event));
+  console.log(e.target);
+
+  // const eventId = e.target.getAttribute('id');
+  // console.log(eventId);
+  // moviesApiService
+  //   .fetchTrendingMovies(eventId)
+  //   .then(event => renderModalCard(event));
 }
 
 function renderModalCard(arr) {
@@ -38,6 +41,7 @@ function modalClose() {
   window.removeEventListener('keydown', modalCloseByEsc);
   localStorage.removeItem('key');
 }
+
 function modalCloseByEsc(e) {
   if (e.code === 'Escape') {
     modalClose();
