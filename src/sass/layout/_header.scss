@@ -39,6 +39,8 @@
     align-items: flex-end;
 
     margin-bottom: 60px;
+    padding-top: 44px;
+    padding-bottom: 3px;
 
     @include mq(tablet){
         margin-bottom: 40px;
@@ -82,8 +84,8 @@
         position: relative;
 
         display: block;
-        padding-top: 44px;
-        padding-bottom: 3px;
+        // padding-top: 44px;
+        // padding-bottom: 3px;
     }
 
     &__link--current::after {

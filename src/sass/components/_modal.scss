@@ -62,8 +62,7 @@
 
     transition: all 250ms linear;
 
-    &:hover,
-    &:focus {
+      &:focus {
         background-color: var(--button-bg-cl);
         border: 1px solid transparent;
         color: var(--main-bg-cl);

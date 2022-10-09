@@ -54,10 +54,10 @@ export function createPagination(total_results) {
       .fetchTrendingMovies()
       .then(({ results }) => {
         makingMarkup(results);
-
-        for (const result of results) {
-          localStorage.setItem(`film_${result.id}`, JSON.stringify(result));
-        }
+        localStorage.setItem(`currentFilm`, JSON.stringify(results));
+        // for (const result of results) {
+        //   localStorage.setItem(`film_${result.id}`, JSON.stringify(result));
+        // }
       })
       .catch(error => console.log(error));
   });
