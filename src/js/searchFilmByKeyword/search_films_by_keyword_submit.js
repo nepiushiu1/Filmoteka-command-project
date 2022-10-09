@@ -1,28 +1,26 @@
 import { refs } from './../refs';
 import fetchFilms from './fetch_search_films';
+import MoviesApiService from '../api/moviesApiServiceClass';
+import makingMarkup from '../api/render-card-markup';
+import { createPagination } from '../pagination';
+
 import renderMarkupSearchFilms from './render_search_films';
 
-// refs.inputSearch.addEventListener('submit', onSearchFilmByKeyword);
+refs.inputSearch.addEventListener('submit', onSearchFilmByKeyword);
 
 //* функція обробляє результат fetch та викликає на його основі рендеринг головної сторінки
 function onSearchFilmByKeyword(e) {
   e.preventDefault();
 
-  const { elements: { searchInput }} = e.target;
-  const searchFilms = searchInput.value.trim();
+  const searchFilms = e.currentTarget.elements.searchInput.value.trim();
 
-  if(!searchFilms) {
-    refs.filmsSearchList.innerHTML = '';
-    return;
-  };
-
-  //! треба вставити коректний функцію розмітки замість renderMarkupSearchFilms
-  //! і потім розкомітити слухача на сабміт
   try {
-    fetchFilms(searchFilms).then(films => {
-      renderMarkupSearchFilms(films)
-      });
+    fetchFilms(searchFilms).then(({ results, total_results }) => {
+      refs.homeCardsContainer.innerHTML = '';
+      makingMarkup(results);
+      createPagination(total_results);
+    });
   } catch (err) {
     err => console.log(err);
   }
-}; 
+}
