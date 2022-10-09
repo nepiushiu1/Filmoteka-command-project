@@ -1,7 +1,10 @@
 import { debounce } from 'debounce';
 import { refs } from './../refs';
-import fetchFilms from './fetch_search_films';
+// import fetchFilms from './fetch_search_films';
+import MoviesApiService from '../api/moviesApiServiceClass';
 import renderMarkupSearchFilms from './render_search_films';
+
+const moviesApiService = new MoviesApiService();
 
 refs.formSearch.addEventListener(
   'input',
@@ -19,10 +22,10 @@ function onSearchByKeyword(e) {
   }
 
   try {
-    fetchFilms(filmName).then(films => {
+    moviesApiService.fetchSearchingMovies().then(films => {
       renderMarkupSearchFilms(films);
     });
   } catch (err) {
     err => console.log(err);
   }
-};
+}
