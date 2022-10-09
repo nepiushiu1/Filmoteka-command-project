@@ -1,4 +1,4 @@
-<header class="page-header">
+<header class="page-header page-header--library">
   <div class="container page-header__container">
     <nav class="navigation">
       <a class="logo link" href="./index.html">
@@ -10,26 +10,27 @@
 
       <ul class="menu list">
         <li class="menu__item">
-          <a class="menu__link link menu__link--ancurrent" href="./index.html"
-            >Home</a
-          >
+          <a class="menu__link link menu__link--ancurrent" href="./index.html">Home
+          </a>
         </li>
         <li class="menu__item">
-          <a class="menu__link link menu__link--current" href="./library.html"
-            >My library</a
-          >
+          <a class="menu__link link menu__link--current" href="./library.html">My library
+          </a>
         </li>
       </ul>
     </nav>
 
     <div class="library-btns">
       <button
-        class="library-btns__item library-btns__item--watched watched"
-        type="button"
-      >
-        Watched
+        id="watched"
+        class="library-btns__item library-btns__item--watched"
+        type="button">Watched
       </button>
-      <button class="library-btns__item queue" type="button">Queue</button>
+      <button 
+        id="queue"
+        class="library-btns__item" 
+        type="button">Queue
+      </button>
     </div>
   </div>
 </header>
