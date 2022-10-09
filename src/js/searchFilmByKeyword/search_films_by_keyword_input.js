@@ -3,7 +3,7 @@ import { refs } from './../refs';
 import fetchFilms from './fetch_search_films';
 import renderMarkupSearchFilms from './render_search_films';
 
-refs.inputSearch.addEventListener(
+refs.formSearch.addEventListener(
   'input',
   debounce(onSearchByKeyword, refs.DEBOUNCE_DELAY)
 );
@@ -25,4 +25,4 @@ function onSearchByKeyword(e) {
   } catch (err) {
     err => console.log(err);
   }
-}
+};
