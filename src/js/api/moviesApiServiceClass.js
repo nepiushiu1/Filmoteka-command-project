@@ -1,7 +1,5 @@
 import API_KEY from './constants/apiKeys';
-
 import { BASE_TRENDING_MOVIES_URL } from './constants/baseUrls';
-
 import { BASE_GENRE_URL } from './constants/baseUrls';
 
 export default class MoviesApiService {
@@ -13,7 +11,7 @@ export default class MoviesApiService {
 
   // FETCHING FILMS FOR THE FIRST TIME
   fetchTrendingMovies() {
-    const url = `${BASE_TRENDING_MOVIES_URL}trending/all/day?&api_key=${API_KEY}&page=${this._page}`;
+    const url = `${BASE_TRENDING_MOVIES_URL}trending/all/day?&api_key=${API_KEY}&page=${this._page}&query=${this.searchQuery}`;
 
     return fetch(url).then(response => {
       return response.json();
@@ -23,6 +21,15 @@ export default class MoviesApiService {
   // FETCHING GENRES FOR THE FIRST TIME
   fetchGenres() {
     const url = `${BASE_GENRE_URL}&language=en-US&api_key=${API_KEY}`;
+    return fetch(url).then(response => {
+      return response.json();
+    });
+  }
+
+  // FETCHING FILMS USING FORM
+  fetchSearchingMovies() {
+    const url = `${BASE_TRENDING_MOVIES_URL}search/movie?api_key=${API_KEY}&page=${this._page}&query=${this.searchQuery}`;
+
     return fetch(url).then(response => {
       return response.json();
     });
