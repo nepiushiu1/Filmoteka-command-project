@@ -34,7 +34,9 @@
     &__button {
         position: absolute;
         right: 0;
+        top: 0;
         height: 25px;
+        min-width: 32px;
         padding: 6px 0 6px 20px;
         cursor: pointer;
 
