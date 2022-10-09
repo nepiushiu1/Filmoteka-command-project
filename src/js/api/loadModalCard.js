@@ -72,9 +72,9 @@ function makingModalCardMarkup(obj) {
                         </tr>
                         <tr class="movie__info-rows movie__info-rows--last">
                             <td class="movie__info-name">Genre</td>
-                            <td class="movie__info-value">${gettingGenresList(
-                              obj.genre_ids
-                            )}</td>
+                            <td class="movie__info-value">${
+                              gettingGenresList(obj.genre_ids) || 'Thriller'
+                            }</td>
                         </tr>
                     </tbody>
                 </table>
