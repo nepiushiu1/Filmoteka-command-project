@@ -116,10 +116,9 @@
 
     &__link{
         position: relative;
-
         display: block;
         // padding-top: 44px;
-        // padding-bottom: 3px;
+        padding-bottom: 3px;
     }
 
     &__link--current::after {
