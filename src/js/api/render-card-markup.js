@@ -16,14 +16,14 @@ export default function makingMarkup(results) {
         vote_average,
         id,
       }) => {
-        const imagePath =
-          poster_path === null
-            ? `https://raw.githubusercontent.com/marvall/filmoteka/main/src/images/no-poster.png`
-            : `${BASE_POSTER_URL}/${poster_path}`;
+        let imagePath = ``;
+        poster_path === null
+          ? (imagePath = `https://raw.githubusercontent.com/marvall/filmoteka/main/src/images/no-poster.png`)
+          : (imagePath = `${BASE_POSTER_URL}/${BASE_POSTER_URL}/${poster_path}`);
 
         return `<li class="movie-card">
         <a class="movie-card__link" href="#">
-                <img width="280" height="402" class="movie-card__img" src="${imagePath}" alt="${
+                <img data-id="${id}" width="280" height="402" class="movie-card__img" src="${imagePath}" alt="${
           title || name
         }" loading="lazy"/>
                 <div class="movie-card__cont">

@@ -59,14 +59,14 @@
   // }
 }
 
-.btn:current {
-  background-color: #ff6b01;
-}
+// .btn:current {
+//   background-color: #ff6b01;
+// }
 
-.btn:hover,
-:focus {
-  background-color: #ff6b01;
-}
+// .btn:hover,
+// :focus {
+//   background-color: #ff6b01;
+// }
 
 .btn_modal {
   width: 136px;
@@ -119,16 +119,16 @@
   // }
 }
 
-.btn:current {
-  background-color: #ff6b01;
-  border-radius: 5px;
-  background-color: #ff6b01;
+// .btn:current {
+//   background-color: #ff6b01;
+//   border-radius: 5px;
+//   background-color: #ff6b01;
 
-  color: #ffffff;
-}
+//   color: #ffffff;
+// }
 
 .btn:hover,
-:focus {
+.btn:focus {
   background: #ff6b01;
   border-radius: 5px;
   background-color: #ff6b01;
