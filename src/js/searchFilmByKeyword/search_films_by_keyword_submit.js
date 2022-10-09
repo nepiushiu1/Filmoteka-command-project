@@ -18,6 +18,8 @@ function onSearchFilmByKeyword(e) {
   try {
     fetchFilms(searchFilms).then(({ results, total_results }) => {
       if(results.length === 0) {
+        const markup = '<p class="search-form--badrequest">Search result not successful. Enter the correct movie name!</p>';
+        refs.filmsSearchList.innerHTML = markup;
         return;
       }
       refs.homeCardsContainer.innerHTML = '';
