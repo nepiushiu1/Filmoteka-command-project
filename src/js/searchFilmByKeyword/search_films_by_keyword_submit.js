@@ -29,4 +29,5 @@ function onSearchFilmByKeyword(e) {
   };
 
   refs.inputSearch.value = '';
+  refs.filmsSearchList.innerHTML = '';
 };

@@ -10,6 +10,7 @@ export default async function fetchFilms(filmName) {
   if (!response.ok) {
     throw new Error(response.status);
   };
+  
   const films = await response.json();
   return films;
 };
