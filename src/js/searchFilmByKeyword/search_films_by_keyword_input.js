@@ -25,4 +25,4 @@ function onSearchByKeyword(e) {
   } catch (err) {
     err => console.log(err);
   }
-}
+};
