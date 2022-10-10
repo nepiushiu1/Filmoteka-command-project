@@ -3,7 +3,6 @@ import makingMarkup from './api/render-card-markup';
 import { insertFilmsMarkupToLibrary } from './api/insertingIntoDifferentContainers';
 // import { insertFilmsMarkup } from './api/main-home-file';
 
-//
 // function insertFilmsLibrary(filmsMarkup) {
 //   refs.libraryCardsContainer.insertAdjacentHTML('beforeend', filmsMarkup);
 // }
@@ -34,9 +33,19 @@ export function addQueueLocalStorage(obj) {
 }
 
 export function getWatchedFilms() {
+  clearLibrary();
   try {
     const saveFilms = localStorage.getItem('watched');
+    //Якщо в localStorage немає ключа watched - показуємо заглушку
+          if(saveFilms === null) {
+            addScreenSaver();
+            return;
+           }
     const parsedFilms = JSON.parse(saveFilms);
+     if(parsedFilms.length === 0) {
+            addScreenSaver();
+            return;
+      }
     //      ЗМІНИ ТУТ. БУЛО:
     // const renderWatched = makingMarkup(parsedFilms);
     // insertFilmsLibrary(renderWatched);
@@ -49,9 +58,21 @@ export function getWatchedFilms() {
 }
 
 export function getQueueFilms() {
+  clearLibrary();
   try {
     const saveFilms = localStorage.getItem('queue');
+    //Якщо в localStorage немає ключа queue - показуємо заглушку
+          if (saveFilms === null) {
+            addScreenSaver();
+            return;
+          }
+          
     const parsedFilms = JSON.parse(saveFilms);
+    // Перевірка на порожній масив в localStorage
+          if(parsedFilms.length === 0) {
+            addScreenSaver();
+            return;
+          }
     //      ЗМІНИ ТУТ. БУЛО:
     // const renderQueue = makingMarkup(parsedFilms);
     // insertFilmsLibrary(renderQueue);
@@ -62,3 +83,18 @@ export function getQueueFilms() {
     console.log(error);
   }
 }
+
+//   Фунуція для очищення попередніх результатів рендеру
+  function clearLibrary () {
+    refs.libraryCardsContainer.innerHTML = '';
+  }
+
+  // Функція для відмальовки "заглушки" (якщо localStorage порожній)
+  function addScreenSaver() {
+    refs.libraryCardsContainer.innerHTML = `<strong 
+    style="
+    font-size: 18px;
+    color: var(--secondary-text-cl);">
+    Sorry, no information has been added
+    </strong>`;
+  }
