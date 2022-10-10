@@ -17,13 +17,13 @@
   position: relative;
   //   background-image: url();
   background-color: rgba(67, 56, 56, 0.95);
-  max-width: 1140px;
+  // max-width: 1140px;
 
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 1100px;
-  height: 1100px;
+  width: 750px;
+  height: 750px;
   border-radius: 50%;
   border: 8px solid rgba(0, 0, 0, 0.442);
 }
@@ -38,11 +38,11 @@ ul#main {
   height: 100px;
   width: 100px;
   margin: 0 auto;
-  transform: translate(-100%, 400%);
+  transform: translate(-75%, 242%);
 }
 li.circle {
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   border: 2px solid var(--main-text-cl);
   border-radius: 50%;
 }
@@ -56,8 +56,8 @@ li.circle:focus {
 .metod {
   border: 8px solid rgba(0, 0, 0, 0.442);
   border-radius: 50%;
-  width: 500px;
-  height: 500px;
+  width: 400px;
+  height: 400px;
   position: absolute;
   left: 50%;
   top: 50%;
@@ -77,7 +77,7 @@ li.circle:focus {
 }
 .modal-btn_students {
   top: 8px;
-  right: 230px;
+  right: 30px;
   position: absolute;
   width: 40px;
   height: 40px;

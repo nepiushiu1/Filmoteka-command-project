@@ -80,4 +80,4 @@ const generate = function (n, r, id) {
   }
   setup(n, r, id);
 };
-generate(11, 400, 'main');
+generate(11, 280, 'main');
