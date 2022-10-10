@@ -15,7 +15,7 @@ function clickOnMovie(e) {
   const currentId = e.target.dataset.id;
   const unParsedCurrentArrayFilms = localStorage.getItem('currentFilm');
   const parsedCurrentArrayFilms = JSON.parse(unParsedCurrentArrayFilms);
-  // console.log(parsedCurrentArrayFilms.find(obj => obj.id == currentId));
+  console.log(parsedCurrentArrayFilms.find(obj => obj.id == currentId));
   makingModalCardMarkup(
     parsedCurrentArrayFilms.find(obj => obj.id == currentId)
   );
