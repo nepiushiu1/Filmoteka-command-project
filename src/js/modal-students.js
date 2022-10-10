@@ -20,13 +20,12 @@ function openModal(e) {
 function closeModal() {
   refs.backdrop.classList.add('is-hidden');
   window.addEventListener('keydown', closeKeyboard);
+  window.removeEventListener('keydown', closeKeyboard);
 }
 function onBackdropClick(event) {
   if (event.currentTarget === event.target) {
-    console.log('Кликнули именно в бекдроп!!!!');
     closeModal();
   }
-  window.removeEventListener('keydown', closeKeyboard);
 }
 
 function closeKeyboard(e) {
