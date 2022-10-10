@@ -2,6 +2,8 @@ import gettingGenresList from './gettingGenresList';
 // import MoviesApiService from './moviesApiServiceClass';
 import { refs } from '../refs';
 
+import { addWatchedLocalStorage, addQueueLocalStorage } from '../local_storage';
+
 refs.homeCardsContainer.addEventListener('click', clickOnMovie);
 refs.closeModalBtn.addEventListener('click', onCloseModalBtnClick);
 
@@ -18,6 +20,23 @@ function clickOnMovie(e) {
   makingModalCardMarkup(
     parsedCurrentArrayFilms.find(obj => obj.id == currentId)
   );
+
+  //////////////////////////////////////////////////////////////////
+//** Код для запису об'єктів в LOCAL STORAGE */
+
+  const currentMovie = parsedCurrentArrayFilms
+  .find(obj => obj.id == currentId);
+
+    document.querySelector('#watched-btn')
+    .addEventListener('click', () => {
+      return addWatchedLocalStorage(currentMovie);
+    });
+
+    document.querySelector('#queue-btn')
+    .addEventListener('click', () => {
+      return addQueueLocalStorage(currentMovie);
+    })
+  /////////////////////////////////////////////////////////////////////
 
   document.body.classList.add('show-modal');
   window.addEventListener('keydown', modalCloseByEsc);
@@ -105,9 +124,6 @@ function makingModalCardMarkup(obj) {
         </div>`;
   refs.modalCardContainer.insertAdjacentHTML('beforeend', markup);
 }
-
-
-
 
 
 
