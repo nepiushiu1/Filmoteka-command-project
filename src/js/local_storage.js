@@ -1,16 +1,12 @@
-// import { refs } from './refs';
+import { refs } from './refs';
 import makingMarkup from "./api/render-card-markup";
 // import { insertFilmsMarkup } from './api/main-home-file';
 
-// Створено для перевірки роботи ф-ції getWatchedFilms
-const header = document.querySelector('.page-header');
+//
 function insertFilmsLibrary(filmsMarkup) {
-    header.insertAdjacentHTML('afterend', filmsMarkup);
+    refs.libraryCardsContainer.insertAdjacentHTML('beforeend', filmsMarkup);
   }
- ///////////////////////////////////////////////////////////////////////////////////////// 
 
-
-  // MAIN CODE FOR PROJECT
   let arrayFilmsWatched = [];
   let arrayFilmsQueue = [];
   

@@ -5,27 +5,62 @@ const BASE_POSTER_URL = `https://image.tmdb.org/t/p/w500`;
 
 export default function makingMarkup(results) {
   const markup = results
-    .map(({ title, name, poster_path, genre_ids, id }) => {
-      return `<div class="movie-card">
-                <img width="280" height="402" class="movie-card__img" src="${BASE_POSTER_URL}/${poster_path}" alt="" loading="lazy"/>
-                <div class="info">
-                    <p class="info-item">
-                        <b>${title || name}</b>
+    .map(
+      ({
+        title,
+        name,
+        poster_path,
+        genre_ids,
+        release_date,
+        first_air_date,
+        vote_average,
+        id,
+      }) => {
+        let imagePath = ``;
+        poster_path === null
+          ? (imagePath = `https://raw.githubusercontent.com/marvall/filmoteka/main/src/images/no-poster.png`)
+          : (imagePath = `${BASE_POSTER_URL}/${BASE_POSTER_URL}/${poster_path}`);
+
+        return `<li class="movie-card">
+        <a class="movie-card__link" href="#">
+                <img data-id="${id}" width="280" height="402" class="movie-card__img" src="${imagePath}" alt="${
+          title || name
+        }" loading="lazy"/>
+                <div class="movie-card__cont">
+                  <h2 class="movie-card__title">${title || name}</h2>
+                    <p class="movie-card__info">
+                        <b>${gettingGenresList(genre_ids)} | </b>
                     </p>
-                    <p class="info-item">
-                        <b>Views ${gettingGenresList(genre_ids)}</b>
+                    <p class="movie-card__info">
+                        <b>${
+                          setReleaseDate(release_date) ||
+                          setReleaseDate(first_air_date)
+                        }</b>
                     </p>
-                    <p class="info-item">
-                        <b>Comments</b>
+                       <p class="movie-card__raiting">
+                        <b>${setReleaseVote(vote_average)}</b>
                     </p>
-                    <p class="info-item">
-                        <b>Downloads</b>
-                    </p>
-                </div>
-            </div>`;
-    })
+                    </div>
+                    </a>
+            </li>`;
+      }
+    )
     .join('');
   return insertFilmsMarkup(markup);
+}
+
+function setReleaseDate(year) {
+  if (!year) {
+    return 'No data';
+  }
+  return year.slice(0, 4);
+}
+
+function setReleaseVote(vote) {
+  if (!vote) {
+    return 'No vote';
+  }
+  return vote.toFixed(1);
 }
 
 // FUNCTION FOR INSERTING MARKUP TO HOME-CARDS-CONTAINER
