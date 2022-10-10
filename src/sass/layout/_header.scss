@@ -63,8 +63,8 @@
     
     &__icon{
         @include mq(mobile-only){
-            // -webkit-animation: slide-in-elliptic-right-fwd 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-            //     animation: slide-in-elliptic-right-fwd 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+            -webkit-animation: swirl-in-fwd 0.6s ease-out both;
+                animation: swirl-in-fwd 0.6s ease-out both;
         }
     }    
 
