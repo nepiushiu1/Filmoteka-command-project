@@ -29,7 +29,7 @@ export default function makingMarkup(results) {
                 <div class="movie-card__cont">
                   <h2 class="movie-card__title">${title || name}</h2>
                     <p class="movie-card__info">
-                        <b>${gettingGenresList(genre_ids)} | </b>
+                        <b>${gettingGenresList(genre_ids) || `Thriller`} | </b>
                     </p>
                     <p class="movie-card__info">
                         <b>${
@@ -46,7 +46,7 @@ export default function makingMarkup(results) {
       }
     )
     .join('');
-  return insertFilmsMarkup(markup);
+  return markup;
 }
 
 function setReleaseDate(year) {
@@ -63,10 +63,15 @@ function setReleaseVote(vote) {
   return vote.toFixed(1);
 }
 
-// FUNCTION FOR INSERTING MARKUP TO HOME-CARDS-CONTAINER
-function insertFilmsMarkup(filmsMarkup) {
-  refs.homeCardsContainer.insertAdjacentHTML('beforeend', filmsMarkup);
-}
+// // FUNCTION FOR INSERTING MARKUP TO HOME-CARDS-CONTAINER
+// function insertFilmsMarkupToHome(filmsMarkup) {
+//   refs.homeCardsContainer.insertAdjacentHTML('beforeend', filmsMarkup);
+// }
+
+// // FUNCTION FOR INSERTING MARKUP TO LIBRARY-CARDS-CONTAINER
+// function insertFilmsMarkupToLibrary(filmsMarkup) {
+//   refs.libraryCardsContainer.insertAdjacentHTML('beforeend', filmsMarkup);
+// }
 
 // export default function makingMarkup(data) {
 //   const res = data.results;
