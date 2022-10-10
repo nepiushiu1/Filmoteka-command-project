@@ -4,6 +4,7 @@ import { refs } from '../refs';
 
 refs.homeCardsContainer.addEventListener('click', clickOnMovie);
 refs.closeModalBtn.addEventListener('click', onCloseModalBtnClick);
+refs.modalCardBackdrop.addEventListener('click', onModalCardBackdropClick);
 
 // const moviesApiService = new MoviesApiService();
 
@@ -23,7 +24,7 @@ function clickOnMovie(e) {
   window.addEventListener('keydown', modalCloseByEsc);
 }
 
-function onCloseModalBtnClick(e) {
+function onCloseModalBtnClick() {
   window.removeEventListener('keydown', modalCloseByEsc);
   document.body.classList.remove('show-modal');
   refs.modalCardContainer.innerHTML = '';
@@ -31,6 +32,12 @@ function onCloseModalBtnClick(e) {
 
 function modalCloseByEsc(e) {
   if (e.code === 'Escape') {
+    onCloseModalBtnClick();
+  }
+}
+
+function onModalCardBackdropClick(e) {
+  if (e.currentTarget === e.target) {
     onCloseModalBtnClick();
   }
 }
@@ -105,27 +112,3 @@ function makingModalCardMarkup(obj) {
         </div>`;
   refs.modalCardContainer.insertAdjacentHTML('beforeend', markup);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
