@@ -19,7 +19,7 @@ function openModal(e) {
 
 function closeModal() {
   refs.backdrop.classList.add('is-hidden');
-  window.addEventListener('keydown', closeKeyboard);
+  // window.addEventListener('keydown', closeKeyboard);
   window.removeEventListener('keydown', closeKeyboard);
 }
 function onBackdropClick(event) {
