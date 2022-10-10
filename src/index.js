@@ -19,3 +19,6 @@ import './js/scroll-up-btn';
 
 // MODAL IN FOOTER
 import './js/modal-students';
+
+// animations
+import './js/vendors/aos';

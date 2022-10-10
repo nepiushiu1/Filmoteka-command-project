@@ -6,7 +6,7 @@ import { refs } from './refs';
 
 const moviesApiService = new MoviesApiService();
 
-export function createPagination(total_results) {
+export function createPagination(total_results, searchQuery) {
   const container = document.getElementById('pagination');
   const options = {
     totalItems: total_results,
@@ -51,8 +51,9 @@ export function createPagination(total_results) {
   pagination.on('afterMove', event => {
     refs.homeCardsContainer.innerHTML = '';
     moviesApiService.page = event.page;
+    moviesApiService.query = searchQuery;
     moviesApiService
-      .fetchTrendingMovies()
+      .fetchSearchingMovies()
       .then(({ results }) => {
         const markup = makingMarkup(results);
         insertFilmsMarkupToHome(markup);
