@@ -16,3 +16,6 @@ import './js/api/loadModalCard';
 
 // scroll-up-btn
 import './js/scroll-up-btn';
+
+// scroll-up-btn
+import './js/vendors/aos';
