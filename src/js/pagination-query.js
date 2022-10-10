@@ -1,6 +1,7 @@
 import Pagination from 'tui-pagination';
 import MoviesApiService from './api/moviesApiServiceClass';
 import makingMarkup from './api/render-card-markup';
+import { insertFilmsMarkupToHome } from './api/insertingIntoDifferentContainers';
 import { refs } from './refs';
 
 const moviesApiService = new MoviesApiService();
@@ -54,11 +55,9 @@ export function createPagination(total_results, searchQuery) {
     moviesApiService
       .fetchSearchingMovies()
       .then(({ results }) => {
-        makingMarkup(results);
+        const markup = makingMarkup(results);
+        insertFilmsMarkupToHome(markup);
         localStorage.setItem(`currentFilm`, JSON.stringify(results));
-        // for (const result of results) {
-        //   localStorage.setItem(`film_${result.id}`, JSON.stringify(result));
-        // }
       })
       .catch(error => console.log(error));
   });

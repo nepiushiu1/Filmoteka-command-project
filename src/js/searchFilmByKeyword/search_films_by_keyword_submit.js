@@ -2,6 +2,7 @@ import { refs } from './../refs';
 // import fetchFilms from './fetch_search_films';
 import MoviesApiService from '../api/moviesApiServiceClass';
 import makingMarkup from '../api/render-card-markup';
+import { insertFilmsMarkupToHome } from '../api/insertingIntoDifferentContainers';
 import { createPagination } from '../pagination-query';
 
 const movieApiServise = new MoviesApiService();
@@ -26,7 +27,8 @@ function onSearchFilmByKeyword(e) {
           return;
         }
         refs.homeCardsContainer.innerHTML = '';
-        makingMarkup(results);
+        const searchingMarkup = makingMarkup(results);
+        insertFilmsMarkupToHome(searchingMarkup);
         createPagination(total_results, searchFilms);
       });
   } catch (err) {
