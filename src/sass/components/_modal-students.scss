@@ -81,7 +81,7 @@ ul#main {
 li.circle {
   width: 200px;
   height: 200px;
-  border: 2px solid black;
+  border: 2px solid var(--main-text-cl);
   border-radius: 50%;
 }
 li.circle:hover,
@@ -104,7 +104,7 @@ li.circle:focus {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #ffffff;
+  background-color: var(--main-bg-cl);
 }
 .metod-name {
   font-size: 30;
@@ -119,7 +119,7 @@ li.circle:focus {
   position: absolute;
   width: 40px;
   height: 40px;
-  background: #ffffff;
+  background: var(--main-bg-cl);
   border-radius: 50%;
   border: 1px solid rgba(0, 0, 0, 0.955);
   display: flex;

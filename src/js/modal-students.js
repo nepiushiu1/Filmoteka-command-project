@@ -26,6 +26,7 @@ function onBackdropClick(event) {
     console.log('Кликнули именно в бекдроп!!!!');
     closeModal();
   }
+  window.removeEventListener('keydown', closeKeyboard);
 }
 
 function closeKeyboard(e) {
