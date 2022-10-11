@@ -27,6 +27,12 @@ export function addQueueLocalStorage(obj) {
     arrayFilmsQueue = JSON.parse(q);
   }
 
+  const currentId = obj.id;
+  if (arrayFilmsWatched.find(el => el.id === currentId)) {
+    return;
+  }
+
+  // Фільтрація раніше доданих фільмів
   arrayFilmsQueue.push(obj);
   localStorage.setItem('queue', JSON.stringify(arrayFilmsQueue));
   return arrayFilmsQueue;
