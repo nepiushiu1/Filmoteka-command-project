@@ -1,4 +1,4 @@
-import gettingGenresList from './gettingGenresList';
+import { gettingGenresListForCard } from './gettingGenresList';
 import { refs } from '../refs';
 
 const BASE_POSTER_URL = `https://image.tmdb.org/t/p/w500`;
@@ -43,7 +43,8 @@ export default function makingMarkup(results) {
                   <h2 class="movie-card__title">${title || name}</h2>
                     <p class="movie-card__info">
                         <b>${
-                          gettingGenresList(genre_ids) || `Genre not defined`
+                          gettingGenresListForCard(genre_ids) ||
+                          `Genre not defined`
                         } | </b>
                     </p>
                     <p class="movie-card__info">
