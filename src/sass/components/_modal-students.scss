@@ -1,0 +1,96 @@
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+.backdrop_students {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 1;
+
+  opacity: 1;
+}
+.modal-wrapper_students {
+  position: relative;
+  //   background-image: url();
+  background-color: rgba(67, 56, 56, 0.95);
+  // max-width: 1140px;
+
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 750px;
+  height: 750px;
+  border-radius: 50%;
+  border: 8px solid rgba(0, 0, 0, 0.442);
+}
+
+.students-img:hover,
+.students-img:focus {
+  transform: scale(1.1);
+}
+
+// -------------------------------------
+ul#main {
+  height: 100px;
+  width: 100px;
+  margin: 0 auto;
+  transform: translate(-75%, 242%);
+}
+li.circle {
+  width: 150px;
+  height: 150px;
+  border: 2px solid var(--main-text-cl);
+  border-radius: 50%;
+}
+li.circle:hover,
+li.circle:focus {
+  transform: scale(1.2);
+  border: 5px solid var(--secondary-text-cl);
+}
+
+// ------------------------------------------------
+.metod {
+  border: 8px solid rgba(0, 0, 0, 0.442);
+  border-radius: 50%;
+  width: 400px;
+  height: 400px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--main-bg-cl);
+}
+.metod-name {
+  font-size: 30;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+}
+.modal-btn_students {
+  top: 8px;
+  right: 30px;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: var(--main-bg-cl);
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.955);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-btn_students:hover,
+.modal-btn_students:focus {
+  transform: scale(1.5);
+  background: var(--secondary-text-cl);
+}

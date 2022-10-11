@@ -24,5 +24,9 @@
       <path fill="none" stroke="#fff" style="stroke:var(--color1, #fff)" stroke-linejoin="round" stroke-linecap="round"
         stroke-width="2.67" d="M14.67 25.33a10.67 10.67 0 1 0 0-21.33 10.67 10.67 0 0 0 0 21.33zM28 28l-5.8-5.8" />
     </symbol>
+<symbol id="icon-close-black-18dp-2-1-1" viewBox="0 0 32 32">
+<path d="M26.684 7.308l-1.971-1.971-7.813 7.813-7.813-7.813-1.971 1.971 7.813 7.813-7.813 7.813 1.971 1.971 7.813-7.813 7.813 7.813 1.971-1.971-7.813-7.813 7.813-7.813z"></path>
+</symbol>
+
   </defs>
 </svg>

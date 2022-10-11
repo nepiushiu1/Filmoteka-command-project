@@ -21,15 +21,30 @@ export default function makingMarkup(results) {
           ? (imagePath = `https://raw.githubusercontent.com/marvall/filmoteka/main/src/images/no-poster.png`)
           : (imagePath = `${BASE_POSTER_URL}/${BASE_POSTER_URL}/${poster_path}`);
 
-        return `<li class="movie-card">
-        <a class="movie-card__link" href="#">
+        return `<li data-aos="fade-up"
+    data-aos-offset="200"
+    data-aos-delay="100"
+    data-aos-duration="1000"
+    data-aos-easing="ease-in-out"
+     class="movie-card">
+        <div class="movie-card__link" href="#">
+        <p class="movie-card__raiting">
+                        <b>${setReleaseVote(vote_average)}</b>
+                    </p>
                 <img data-id="${id}" width="280" height="402" class="movie-card__img" src="${imagePath}" alt="${
           title || name
         }" loading="lazy"/>
-                <div class="movie-card__cont">
+    <div data-aos="fade-right"
+    data-aos-delay="50"
+    data-aos-duration="1000"
+    data-aos-easing="ease-in-out"
+    data-aos-once="false"
+     class="movie-card__cont">
                   <h2 class="movie-card__title">${title || name}</h2>
                     <p class="movie-card__info">
-                        <b>${gettingGenresList(genre_ids) || `Thriller`} | </b>
+                        <b>${
+                          gettingGenresList(genre_ids) || `Genre not defined`
+                        } | </b>
                     </p>
                     <p class="movie-card__info">
                         <b>${
@@ -37,11 +52,9 @@ export default function makingMarkup(results) {
                           setReleaseDate(first_air_date)
                         }</b>
                     </p>
-                       <p class="movie-card__raiting">
-                        <b>${setReleaseVote(vote_average)}</b>
-                    </p>
+                       
                     </div>
-                    </a>
+                    </div>
             </li>`;
       }
     )
