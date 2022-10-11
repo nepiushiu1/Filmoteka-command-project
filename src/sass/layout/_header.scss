@@ -1,5 +1,8 @@
 .page-header{
+    position: relative;
     height: 230px;
+
+    overflow: hidden;
 
     background-repeat: no-repeat;
     background-position: center;
@@ -26,33 +29,7 @@
         @include mq(retina) {
             background-image: url(../images/header/bg-header_des@2x.jpg);
         }
-    }
-
-    &--library{
-        background-image: url(../images/header/bg-header-lib_mob.jpg);
-    
-        @include mq(retina) {
-            background-image: url(../images/header/bg-header-lib_mob@2x.jpg);
-        }
-    
-        @include mq(tablet) {
-            height: 216px;
-    
-            background-image: url(../images/header/bg-header-lib_tab.jpg);
-    
-            @include mq(retina) {
-                background-image: url(../images/header/bg-header-lib_tab@2x.jpg);
-            }
-        }
-    
-        @include mq(desktop) {
-            background-image: url(../images/header/bg-header-lib_des.jpg);
-    
-            @include mq(retina) {
-                background-image: url(../images/header/bg-header-lib_des@2x.jpg);
-            }
-        }
-    }    
+    }   
 
     &__container {
         height: 100%;
@@ -65,6 +42,49 @@
             width: 480px;
         }
     }
+}
+
+.animation{
+    &__container{
+        width: 100%;
+        height: 100%;
+        // анимация фона
+        -webkit-animation: kenburns-top-right 10s ease-out both;
+            animation: kenburns-top-right 10s ease-out both;
+
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        background-image: url(../images/header/bg-header-lib_mob.jpg);
+        
+            @include mq(retina) {
+                background-image: url(../images/header/bg-header-lib_mob@2x.jpg);
+            }
+        
+            @include mq(tablet) {
+                background-image: url(../images/header/bg-header-lib_tab.jpg);
+        
+                @include mq(retina) {
+                    background-image: url(../images/header/bg-header-lib_tab@2x.jpg);
+                }
+            }
+        
+            @include mq(desktop) {
+                background-image: url(../images/header/bg-header-lib_des.jpg);
+        
+                @include mq(retina) {
+                    background-image: url(../images/header/bg-header-lib_des@2x.jpg);
+                }
+            }
+    }
+
+    &__content{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }  
 }
 
 .navigation{
