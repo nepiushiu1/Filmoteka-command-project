@@ -6,6 +6,7 @@ import { addWatchedLocalStorage, addQueueLocalStorage } from '../local_storage';
 
 refs.homeCardsContainer.addEventListener('click', clickOnMovie);
 refs.closeModalBtn.addEventListener('click', onCloseModalBtnClick);
+refs.modalCardBackdrop.addEventListener('click', onModalCardBackdropClick);
 
 // const moviesApiService = new MoviesApiService();
 
@@ -16,7 +17,7 @@ function clickOnMovie(e) {
   const currentId = e.target.dataset.id;
   const unParsedCurrentArrayFilms = localStorage.getItem('currentFilm');
   const parsedCurrentArrayFilms = JSON.parse(unParsedCurrentArrayFilms);
-  // console.log(parsedCurrentArrayFilms.find(obj => obj.id == currentId));
+  console.log(parsedCurrentArrayFilms.find(obj => obj.id == currentId));
   makingModalCardMarkup(
     parsedCurrentArrayFilms.find(obj => obj.id == currentId)
   );
@@ -42,7 +43,7 @@ function clickOnMovie(e) {
   window.addEventListener('keydown', modalCloseByEsc);
 }
 
-function onCloseModalBtnClick(e) {
+function onCloseModalBtnClick() {
   window.removeEventListener('keydown', modalCloseByEsc);
   document.body.classList.remove('show-modal');
   refs.modalCardContainer.innerHTML = '';
@@ -50,6 +51,12 @@ function onCloseModalBtnClick(e) {
 
 function modalCloseByEsc(e) {
   if (e.code === 'Escape') {
+    onCloseModalBtnClick();
+  }
+}
+
+function onModalCardBackdropClick(e) {
+  if (e.currentTarget === e.target) {
     onCloseModalBtnClick();
   }
 }
@@ -92,7 +99,8 @@ function makingModalCardMarkup(obj) {
                         <tr class="movie__info-rows movie__info-rows--last">
                             <td class="movie__info-name">Genre</td>
                             <td class="movie__info-value">${
-                              gettingGenresList(obj.genre_ids) || 'Thriller'
+                              gettingGenresList(obj.genre_ids) ||
+                              'Genre not defined'
                             }</td>
                         </tr>
                     </tbody>
@@ -124,24 +132,3 @@ function makingModalCardMarkup(obj) {
         </div>`;
   refs.modalCardContainer.insertAdjacentHTML('beforeend', markup);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

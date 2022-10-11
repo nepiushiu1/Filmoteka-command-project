@@ -1,24 +1,46 @@
 .scroll-btn {
   position: fixed;
+  padding: 0;
   bottom: 100px;
-  right: 30px;
+  right: 50px;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
+  @include mq(mobile) {
+      width: 30px;
+      height: 30px;
+      right: 30px;
+      bottom: 50px;
+    }
+  @include mq(tablet){
+    width: 40px;
+    height: 40px;
+    bottom: 70px;
+  }
+  z-index: 1;
   background-color: transparent;
-  color: #ff6b01;
-  border: 2px solid #ff6b01;
+  color: var(--button-bg-cl);
+  border: 2px solid var(--button-bg-cl);
+  transition: color var(--transition-duration) var(--transition-timing-function);
+
   &:hover {
-    color: white;
-    border: 2px solid white;
-    // background-color: #ff6b01;
+    color: var(--main-bg-cl);
+    border: 2px solid var(--main-bg-cl);
+    // background-color: var(--button-bg-cl);
     transform: translateY(-3px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    box-shadow: 0 10px 20px #ff6b01;
+    box-shadow: 0 10px 20px var(--button-bg-cl);
   }
+
   &:active {
     transform: translateY(-1px);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-    box-shadow: 0 5px 10px #ff6b01;
+    box-shadow: 0 5px 10px var(--button-bg-cl);
   }
+}
+
+.scroll-img {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
 }

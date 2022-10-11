@@ -18,6 +18,7 @@ export const refs = {
   filmsSearchList: document.querySelector('.search-form__list'),
 
   //modal-card
+  modalCardBackdrop: document.querySelector('.modal-card-backdrop'),
   modalCardContainer: document.querySelector('.movie__container'),
 
   inputSearch: document.querySelector('.search-form__input'),

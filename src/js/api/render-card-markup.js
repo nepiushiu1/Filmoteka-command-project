@@ -27,7 +27,7 @@ export default function makingMarkup(results) {
     data-aos-duration="1000"
     data-aos-easing="ease-in-out"
      class="movie-card">
-        <a class="movie-card__link" href="#">
+        <div class="movie-card__link" href="#">
         <p class="movie-card__raiting">
                         <b>${setReleaseVote(vote_average)}</b>
                     </p>
@@ -42,7 +42,9 @@ export default function makingMarkup(results) {
      class="movie-card__cont">
                   <h2 class="movie-card__title">${title || name}</h2>
                     <p class="movie-card__info">
-                        <b>${gettingGenresList(genre_ids) || `Thriller`} | </b>
+                        <b>${
+                          gettingGenresList(genre_ids) || `Genre not defined`
+                        } | </b>
                     </p>
                     <p class="movie-card__info">
                         <b>${
@@ -52,7 +54,7 @@ export default function makingMarkup(results) {
                     </p>
                        
                     </div>
-                    </a>
+                    </div>
             </li>`;
       }
     )
