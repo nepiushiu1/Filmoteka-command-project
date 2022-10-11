@@ -1,14 +1,18 @@
 import { refs } from './refs';
 import makingMarkup from './api/render-card-markup';
-import {
-  insertFilmsMarkupToLibrary,
-} from './api/insertingIntoDifferentContainers';
+import { insertFilmsMarkupToLibrary } from './api/insertingIntoDifferentContainers';
 
 export function addWatchedLocalStorage(obj) {
   let arrayFilmsWatched = [];
   const w = localStorage.getItem('watched');
   if (w) {
     arrayFilmsWatched = JSON.parse(w);
+  }
+
+  // Фільтрація раніше доданих фільмів
+  const currentId = obj.id;
+  if (arrayFilmsWatched.find(el => el.id === currentId)) {
+    return;
   }
 
   arrayFilmsWatched.push(obj);
