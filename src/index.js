@@ -22,3 +22,5 @@ import './js/modal-students';
 
 // animations
 import './js/vendors/aos';
+
+import './js/library-header-btns';
