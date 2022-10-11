@@ -1,11 +1,8 @@
 import { refs } from './refs';
 import makingMarkup from './api/render-card-markup';
 import {
-  insertFilmsMarkupToHome,
   insertFilmsMarkupToLibrary,
 } from './api/insertingIntoDifferentContainers';
-
-const arrayFilmsQueue = [];
 
 export function addWatchedLocalStorage(obj) {
   let arrayFilmsWatched = [];
@@ -20,14 +17,19 @@ export function addWatchedLocalStorage(obj) {
 }
 
 export function addQueueLocalStorage(obj) {
-  arrayFilmsQueue.push(obj);
+  let arrayFilmsQueue = [];
+  const q = localStorage.getItem('queue');
+  if (q) {
+    arrayFilmsQueue = JSON.parse(q);
+  }
 
+  arrayFilmsQueue.push(obj);
   localStorage.setItem('queue', JSON.stringify(arrayFilmsQueue));
   return arrayFilmsQueue;
 }
 
 export function getWatchedFilms() {
-  // clearLibrary();
+  clearLibrary();
   try {
     const saveFilms = localStorage.getItem('watched');
     //Якщо в localStorage немає ключа watched - показуємо заглушку
@@ -43,7 +45,7 @@ export function getWatchedFilms() {
     }
 
     const renderWatched = makingMarkup(parsedFilms);
-    insertFilmsMarkupToHome(renderWatched);
+    insertFilmsMarkupToLibrary(renderWatched);
   } catch (error) {
     console.log(error);
   }
@@ -67,7 +69,7 @@ export function getQueueFilms() {
     }
 
     const renderQueue = makingMarkup(parsedFilms);
-    insertFilmsMarkupToHome(renderQueue);
+    insertFilmsMarkupToLibrary(renderQueue);
   } catch (error) {
     console.log(error);
   }
@@ -75,12 +77,12 @@ export function getQueueFilms() {
 
 //   Фунуція для очищення попередніх результатів рендеру
 function clearLibrary() {
-  refs.homeCardsContainer.innerHTML = '';
+  refs.libraryCardsContainer.innerHTML = '';
 }
 
 // Функція для відмальовки "заглушки" (якщо localStorage порожній)
 function addScreenSaver() {
-  refs.homeCardsContainer.innerHTML = `<strong 
+  refs.libraryCardsContainer.innerHTML = `<strong 
     style="
     font-size: 18px;
     color: var(--secondary-text-cl);">
