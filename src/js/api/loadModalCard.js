@@ -1,4 +1,4 @@
-import gettingGenresList from './gettingGenresList';
+import { gettingGenresListForModal } from './gettingGenresList';
 // import MoviesApiService from './moviesApiServiceClass';
 import { refs } from '../refs';
 
@@ -23,20 +23,17 @@ function clickOnMovie(e) {
   );
 
   //////////////////////////////////////////////////////////////////
-//** Код для запису об'єктів в LOCAL STORAGE */
+  //** Код для запису об'єктів в LOCAL STORAGE */
 
-  const currentMovie = parsedCurrentArrayFilms
-  .find(obj => obj.id == currentId);
+  const currentMovie = parsedCurrentArrayFilms.find(obj => obj.id == currentId);
 
-    document.querySelector('#watched-btn')
-    .addEventListener('click', () => {
-      return addWatchedLocalStorage(currentMovie);
-    });
+  document.querySelector('#watched-btn').addEventListener('click', () => {
+    return addWatchedLocalStorage(currentMovie);
+  });
 
-    document.querySelector('#queue-btn')
-    .addEventListener('click', () => {
-      return addQueueLocalStorage(currentMovie);
-    })
+  document.querySelector('#queue-btn').addEventListener('click', () => {
+    return addQueueLocalStorage(currentMovie);
+  });
   /////////////////////////////////////////////////////////////////////
 
   document.body.classList.add('show-modal');
@@ -99,7 +96,7 @@ function makingModalCardMarkup(obj) {
                         <tr class="movie__info-rows movie__info-rows--last">
                             <td class="movie__info-name">Genre</td>
                             <td class="movie__info-value">${
-                              gettingGenresList(obj.genre_ids) ||
+                              gettingGenresListForModal(obj.genre_ids) ||
                               'Genre not defined'
                             }</td>
                         </tr>
