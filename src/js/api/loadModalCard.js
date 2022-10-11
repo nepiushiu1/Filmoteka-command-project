@@ -2,6 +2,7 @@ import { gettingGenresListForModal } from './gettingGenresList';
 import makingMarkup from '../api/render-card-markup';
 // import MoviesApiService from './moviesApiServiceClass';
 import { refs } from '../refs';
+import { insertModalMarkupHome } from './insertingIntoDifferentContainers';
 import { addWatchedLocalStorage, addQueueLocalStorage } from '../local_storage';
 
 // const moviesApiService = new MoviesApiService();
@@ -24,11 +25,11 @@ function clickOnMovie(e) {
 
   // console.log(parsedCurrentArrayFilms.find(obj => obj.id == currentId));
   let currentMovie = parsedCurrentArrayFilms.find(obj => obj.id == currentId);
-  makingModalCardMarkup(currentMovie);
 
+  const render = makingModalCardMarkup(currentMovie);
+  insertModalMarkupHome(render);
   ///////////////////////////////////////////////////////////////////////////
   //** Код для запису об'єктів в LOCAL STORAGE */
-
   document.querySelector('#watched-btn').addEventListener('click', () => {
     addWatchedLocalStorage(currentMovie);
   });
@@ -126,5 +127,7 @@ function makingModalCardMarkup(obj) {
                 </div>
             </div>
         </div>`;
-  refs.modalCardContainer.insertAdjacentHTML('beforeend', markup);
+  return markup;
 }
+
+export { makingModalCardMarkup };
