@@ -2,10 +2,6 @@ import { gettingGenresListForModal } from './gettingGenresList';
 import makingMarkup from '../api/render-card-markup';
 // import MoviesApiService from './moviesApiServiceClass';
 import { refs } from '../refs';
-import {
-  insertFilmsMarkupToHome,
-  insertFilmsMarkupToLibrary,
-} from '../api/insertingIntoDifferentContainers';
 import { addWatchedLocalStorage, addQueueLocalStorage } from '../local_storage';
 
 // const moviesApiService = new MoviesApiService();
@@ -28,30 +24,19 @@ function clickOnMovie(e) {
 
   // console.log(parsedCurrentArrayFilms.find(obj => obj.id == currentId));
   let currentMovie = parsedCurrentArrayFilms.find(obj => obj.id == currentId);
-
   makingModalCardMarkup(currentMovie);
 
-  //////////////////////////////////////////////////////////////////
+  ///////////////////////////////////////////////////////////////////////////
   //** Код для запису об'єктів в LOCAL STORAGE */
 
   document.querySelector('#watched-btn').addEventListener('click', () => {
-    // debugger;
-    // ФУНКЦИЯ addWatchedLocalStorage импортирована из local_storage.js
-    let array = addWatchedLocalStorage(currentMovie);
-    // console.log(array);
-    let markup = makingMarkup(array);
-    console.log(markup);
-
-    // НЕ РАБОТАЕТ ВСТАВКА 👇🏻!!!!!!!!!!!!!!!
-    refs.homeCardsContainer.insertAdjacentHTML('beforeend', markup);
-    // ВТОРОЙ ВАРИАНТ ВСТАВКИ ТОЖЕ НЕ РАБОТАЕТ 👇🏻!!!!!!!!!!!!!!!
-    // insertFilmsMarkupToHome(markup);
+    addWatchedLocalStorage(currentMovie);
   });
 
-  // document.querySelector('#queue-btn').addEventListener('click', () => {
-  //   return addQueueLocalStorage(currentMovie);
-  // });
-  /////////////////////////////////////////////////////////////////////
+  document.querySelector('#queue-btn').addEventListener('click', () => {
+    addQueueLocalStorage(currentMovie);
+  });
+  /////////////////////////////////////////////////////////////////////////////
 }
 
 function onCloseModalBtnClick() {
