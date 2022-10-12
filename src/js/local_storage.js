@@ -1,8 +1,6 @@
 import { refs } from './refs';
 import makingMarkup from './api/render-card-markup';
-import {
-  insertFilmsMarkupToLibrary,
-} from './api/insertingIntoDifferentContainers';
+import { insertFilmsMarkupToLibrary } from './api/insertingIntoDifferentContainers';
 
 //ДОДАТИ ДО КЛЮЧА "WATCHED" В LOCAL STORAGE
 export function addWatchedLocalStorage(obj) {
@@ -11,11 +9,13 @@ export function addWatchedLocalStorage(obj) {
   if (w) {
     arrayFilmsWatched = JSON.parse(w);
   }
+
   // Перевірка на наявність об'єкта в масиві фільмів "WATCHED"
   const isAddedFilm = arrayFilmsWatched.find(arr => arr.id === obj.id);
   if(isAddedFilm) {
     return;
   }
+  
   arrayFilmsWatched.push(obj);
   localStorage.setItem('watched', JSON.stringify(arrayFilmsWatched));
   return arrayFilmsWatched;
@@ -28,11 +28,13 @@ export function addQueueLocalStorage(obj) {
   if (q) {
     arrayFilmsQueue = JSON.parse(q);
   }
-  // Перевірка на наявність об'єкта в масиві фільмів "QUEUE"
+
+// Перевірка на наявність об'єкта в масиві фільмів "QUEUE"
   const isAddedFilm = arrayFilmsQueue.find(arr => arr.id === obj.id);
   if(isAddedFilm) {
     return;
   }
+  
   arrayFilmsQueue.push(obj);
   localStorage.setItem('queue', JSON.stringify(arrayFilmsQueue));
   return arrayFilmsQueue;

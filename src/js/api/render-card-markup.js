@@ -49,8 +49,8 @@ export default function makingMarkup(results) {
                     </p>
                     <p class="movie-card__info">
                         <b>${
-                          setReleaseDate(release_date) ||
-                          setReleaseDate(first_air_date)
+                          setReleaseDate(release_date, first_air_date) ||
+                          'No data'
                         }</b>
                     </p>
                        
@@ -63,11 +63,11 @@ export default function makingMarkup(results) {
   return markup;
 }
 
-function setReleaseDate(year) {
-  if (!year) {
-    return 'No data';
+function setReleaseDate(releaseDate, firstAirDate) {
+  if (!releaseDate) {
+    return firstAirDate.slice(0, 4);
   }
-  return year.slice(0, 4);
+  return releaseDate.slice(0, 4);
 }
 
 function setReleaseVote(vote) {
