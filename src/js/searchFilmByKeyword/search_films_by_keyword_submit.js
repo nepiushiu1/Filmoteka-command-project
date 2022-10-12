@@ -5,6 +5,7 @@ import makingMarkup from '../api/render-card-markup';
 import { insertFilmsMarkupToHome } from '../api/insertingIntoDifferentContainers';
 import { createPagination } from '../pagination-query';
 import timeoutForBadRequest from './timeoutForBadRequest';
+import { createSpinner } from '../spinner';
 
 const movieApiServise = new MoviesApiService();
 
@@ -17,6 +18,7 @@ function onSearchFilmByKeyword(e) {
   const searchFilms = e.currentTarget.elements.searchInput.value.trim();
   movieApiServise.query = searchFilms;
 
+  createSpinner();
   try {
     movieApiServise
       .fetchSearchingMovies()
