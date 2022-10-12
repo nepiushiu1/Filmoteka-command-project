@@ -3,6 +3,7 @@ import MoviesApiService from './api/moviesApiServiceClass';
 import makingMarkup from './api/render-card-markup';
 import { insertFilmsMarkupToHome } from './api/insertingIntoDifferentContainers';
 import { refs } from './refs';
+import { createSpinner } from './spinner';
 
 const moviesApiService = new MoviesApiService();
 
@@ -50,6 +51,9 @@ export function createPagination(total_results, searchQuery) {
 
   pagination.on('afterMove', event => {
     refs.homeCardsContainer.innerHTML = '';
+
+    createSpinner();
+    
     moviesApiService.page = event.page;
     moviesApiService.query = searchQuery;
     moviesApiService

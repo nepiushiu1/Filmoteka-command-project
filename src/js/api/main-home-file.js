@@ -3,6 +3,7 @@ import makingMarkup from './render-card-markup';
 import { insertFilmsMarkupToHome } from './insertingIntoDifferentContainers';
 import { refs } from '../refs';
 import { createPagination } from '../pagination';
+import { createSpinner } from '../spinner';
 
 const moviesApiService = new MoviesApiService();
 
@@ -20,6 +21,7 @@ moviesApiService
   .catch(error => console.log(error));
 
 // RENDERING MARKUP USING GENRES FROM LOCALSTORAGE
+createSpinner();
 moviesApiService
   .fetchTrendingMovies()
   .then(({ results, total_results }) => {
