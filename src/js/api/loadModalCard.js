@@ -3,7 +3,7 @@ import makingMarkup from '../api/render-card-markup';
 // import MoviesApiService from './moviesApiServiceClass';
 import { refs } from '../refs';
 import { addWatchedLocalStorage, addQueueLocalStorage } from '../local_storage';
-
+import { textModalBtn } from '../modal-btns';
 // const moviesApiService = new MoviesApiService();
 
 refs.homeCardsContainer.addEventListener('click', clickOnMovie);
@@ -31,10 +31,12 @@ function clickOnMovie(e) {
 
   document.querySelector('#watched-btn').addEventListener('click', () => {
     addWatchedLocalStorage(currentMovie);
+    textModalBtn(currentId);
   });
 
   document.querySelector('#queue-btn').addEventListener('click', () => {
     addQueueLocalStorage(currentMovie);
+    textModalBtn(currentId);
   });
   /////////////////////////////////////////////////////////////////////////////
 }
@@ -60,8 +62,9 @@ function onModalCardBackdropClick(e) {
 function makingModalCardMarkup(obj) {
   const markup = `<div class="movie__container--left-side">              
                   <img class="movie__image" src="https://www.themoviedb.org/t/p/w500${
-                  obj.poster_path || `https://raw.githubusercontent.com/marvall/filmoteka/main/src/images/no-poster.png`
-                }"
+                    obj.poster_path ||
+                    `https://raw.githubusercontent.com/marvall/filmoteka/main/src/images/no-poster.png`
+                  }"
                     alt="${obj.title || obj.name}" />
 
                     <button type="button" class="movie__btn-trailer">
@@ -129,9 +132,3 @@ function makingModalCardMarkup(obj) {
         </div>`;
   refs.modalCardContainer.insertAdjacentHTML('beforeend', markup);
 }
-
-
-
-
-
-
