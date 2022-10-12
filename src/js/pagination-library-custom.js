@@ -9,7 +9,7 @@ const pagination_element = document.getElementById('pagination-library-custom');
 const list_items = JSON.parse(localStorage.getItem('watched'));
 
 let current_page = 1;
-let rows = 5;
+let rows = 6;
 
 displayList(list_items, list_element, rows, current_page);
 setupPagination(list_items, pagination_element, rows);
@@ -22,17 +22,6 @@ function displayList(items, wrapper, rows_per_page, page) {
   let end = start + rows_per_page;
   let paginatedItems = items.slice(start, end);
 
-  //   for (let i = 0; i < paginatedItems.length; i++) {
-  //     let item = paginatedItems[i];
-
-  //     let item_element = document.createElement('div');
-  //     item_element.classList.add('item');
-  //     // item_element.innerText = item;
-
-  //     const markup = paginatedItems;
-  // 	console.log(markup);
-  //     wrapper.appendChild(item_element);
-  //   }
   const markup = paginatedItems;
   console.log(markup);
 
