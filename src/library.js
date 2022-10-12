@@ -8,5 +8,9 @@ import './js/library-header-btns';
 
 // OPEN MODAL CARD
 // import './js/api/loadModalCard';
+
 // MODAL IN FOOTER
 import './js/modal-students';
+
+// scroll-up-btn
+import './js/scroll-up-btn';
