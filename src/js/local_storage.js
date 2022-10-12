@@ -29,7 +29,7 @@ export function addQueueLocalStorage(obj) {
 
   // Фільтрація раніше доданих фільмів
   const currentId = obj.id;
-  if (arrayFilmsWatched.find(el => el.id === currentId)) {
+  if (arrayFilmsQueue.find(el => el.id === currentId)) {
     return;
   }
 
