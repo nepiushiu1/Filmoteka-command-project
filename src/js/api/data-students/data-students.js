@@ -1,9 +1,9 @@
 const data = [
   {
     id: '1',
-    name: 'name',
+    name: 'Anna Burenko',
     information: 'information',
-    url: 'http://dummyimage.com/80',
+    url: 'url("https://i.postimg.cc/1zYg7HRL/photo-1.jpg")',
   },
   {
     id: '2',

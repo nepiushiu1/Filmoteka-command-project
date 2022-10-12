@@ -1,5 +1,6 @@
 import { data } from './api/data-students/data-students';
-console.log(data);
+// console.log(data);
+
 // функция открытия и закрытия модального окна ,описывающего студентов
 const refs = {
   open: document.querySelector('[modal-open]'),
@@ -40,19 +41,6 @@ function closeKeyboard(e) {
 // функция вывода изображений участников
 const theta = [];
 
-// const foto = [
-//   'url ./../images/foto/photo_2.png',
-//   'url("./../images/foto/photo_1.jpg")',
-//   'url(../foto/photo_1.jpg)',
-//   'url("http://dummyimage.com/80")',
-//   'url("http://dummyimage.com/80")',
-//   'url("http://dummyimage.com/80")',
-//   'url("http://dummyimage.com/80")',
-//   'url("http://dummyimage.com/80")',
-//   'url("http://dummyimage.com/80")',
-//   'url("http://dummyimage.com/80")',
-//   'url("http://dummyimage.com/80")',
-// ];
 let setup = function (n, r, id) {
   let main = document.getElementById(id);
   let mainHeight = parseInt(window.getComputedStyle(main).height.slice(0, -2));
@@ -60,13 +48,13 @@ let setup = function (n, r, id) {
 
   for (let i = 0; i < n; i++) {
     const circle = document.createElement('li');
-    circle.className = 'circle number' + i;
+    circle.className = 'circle number_' + i;
     circleArray.push(circle);
     circleArray[i].posx = Math.round(r * Math.cos(theta[i])) + 'px';
     circleArray[i].posy = Math.round(r * Math.sin(theta[i])) + 'px';
     circleArray[i].style.position = 'absolute';
     circleArray[i].style.backgroundImage = data[i].url;
-    console.log(data[i].url);
+    circleArray[i].style.backgroundSize = 'contain';
     circleArray[i].style.top =
       mainHeight / 2 - parseInt(circleArray[i].posy.slice(0, -2)) + 'px';
     circleArray[i].style.left =

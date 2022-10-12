@@ -4,10 +4,10 @@ import { getWatchedFilms, getQueueFilms } from './local_storage';
 refs.btnWatched.addEventListener('click', onBtnWatchedClick);
 refs.btnQueue.addEventListener('click', onBtnQueueClick);
 
-getWatchedFilms();
+// getWatchedFilms();
 
 function onBtnWatchedClick(e) {
-  getWatchedFilms();
+  // getWatchedFilms();
 
   refs.btnWatched.style.backgroundColor = 'var(--button-bg-cl)';
   refs.btnWatched.style.borderColor = 'var(--button-bg-cl)';
@@ -16,7 +16,7 @@ function onBtnWatchedClick(e) {
 }
 
 function onBtnQueueClick(e) {
-  getQueueFilms();
+  // getQueueFilms();
 
   refs.btnQueue.style.backgroundColor = 'var(--button-bg-cl)';
   refs.btnQueue.style.borderColor = 'var(--button-bg-cl)';
