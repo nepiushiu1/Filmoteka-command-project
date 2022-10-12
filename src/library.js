@@ -12,3 +12,9 @@ import './js/pagination-library-custom';
 
 // OPEN MODAL CARD
 // import './js/api/loadModalCard';
+
+// MODAL IN FOOTER
+import './js/modal-students';
+
+// scroll-up-btn
+import './js/scroll-up-btn';
