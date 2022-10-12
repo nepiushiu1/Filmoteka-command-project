@@ -55,7 +55,8 @@ export function createPagination(total_results) {
   // pagination.on('afterMove', event => {
   //   console.log(event);
     refs.libraryCardsContainer.innerHTML = '';
-    getWatchedFilms();
+
+    // getWatchedFilms();
 
     // const markup = options.totalItems;
     // const renderWatched = makingMarkup(markup);
