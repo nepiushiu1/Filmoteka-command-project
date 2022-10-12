@@ -4,11 +4,11 @@ import { data } from './api/data-students/data-students';
 // функция открытия и закрытия модального окна ,описывающего студентов
 const refs = {
   open: document.querySelector('[modal-open]'),
-  close: document.querySelector('.modal-btn_students'),
+  // close: document.querySelector('.modal-btn_students'),
   backdrop: document.querySelector('.backdrop_students'),
 };
 
-refs.close.addEventListener('click', closeModal);
+// refs.close.addEventListener('click', closeModal);
 refs.open.addEventListener('click', openModal);
 refs.backdrop.addEventListener('click', onBackdropClick);
 
@@ -81,9 +81,25 @@ const openBtn = document.querySelector('.data-student');
 console.log(students);
 
 students.forEach(item => {
-  item.addEventListener('click', removeClass);
+  item.addEventListener(
+    'mouseover',
+    (removeClass = () => {
+      openBtn.classList.remove('is-hidden');
+    })
+  );
 });
 
-function removeClass() {
-  openBtn.classList.toggle('is-hidden');
-}
+// function removeClass() {
+//   openBtn.classList.remove('is-hidden');
+// }
+students.forEach(item => {
+  item.addEventListener(
+    'mouseout',
+    (addClass = () => {
+      openBtn.classList.add('is-hidden');
+    })
+  );
+});
+// function addClass() {
+//   openBtn.classList.add('is-hidden');
+// }
