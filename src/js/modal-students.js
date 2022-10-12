@@ -1,5 +1,5 @@
-// import { dataStudents } from './data-students';
-
+import { data } from './api/data-students/data-students';
+console.log(data);
 // функция открытия и закрытия модального окна ,описывающего студентов
 const refs = {
   open: document.querySelector('[modal-open]'),
@@ -19,7 +19,7 @@ function openModal(e) {
 
 function closeModal() {
   refs.backdrop.classList.add('is-hidden');
-  // window.addEventListener('keydown', closeKeyboard);
+
   window.removeEventListener('keydown', closeKeyboard);
 }
 function onBackdropClick(event) {
@@ -40,23 +40,24 @@ function closeKeyboard(e) {
 // функция вывода изображений участников
 const theta = [];
 
+// const foto = [
+//   'url ./../images/foto/photo_2.png',
+//   'url("./../images/foto/photo_1.jpg")',
+//   'url(../foto/photo_1.jpg)',
+//   'url("http://dummyimage.com/80")',
+//   'url("http://dummyimage.com/80")',
+//   'url("http://dummyimage.com/80")',
+//   'url("http://dummyimage.com/80")',
+//   'url("http://dummyimage.com/80")',
+//   'url("http://dummyimage.com/80")',
+//   'url("http://dummyimage.com/80")',
+//   'url("http://dummyimage.com/80")',
+// ];
 let setup = function (n, r, id) {
   let main = document.getElementById(id);
   let mainHeight = parseInt(window.getComputedStyle(main).height.slice(0, -2));
   let circleArray = [];
-  const foto = [
-    'url("http://dummyimage.com/80")',
-    'url("http://dummyimage.com/80")',
-    'url("http://dummyimage.com/80")',
-    'url("http://dummyimage.com/80")',
-    'url("http://dummyimage.com/80")',
-    'url("http://dummyimage.com/80")',
-    'url("http://dummyimage.com/80")',
-    'url("http://dummyimage.com/80")',
-    'url("http://dummyimage.com/80")',
-    'url("http://dummyimage.com/80")',
-    'url("http://dummyimage.com/80")',
-  ];
+
   for (let i = 0; i < n; i++) {
     const circle = document.createElement('li');
     circle.className = 'circle number' + i;
@@ -64,7 +65,8 @@ let setup = function (n, r, id) {
     circleArray[i].posx = Math.round(r * Math.cos(theta[i])) + 'px';
     circleArray[i].posy = Math.round(r * Math.sin(theta[i])) + 'px';
     circleArray[i].style.position = 'absolute';
-    circleArray[i].style.backgroundImage = foto[i];
+    circleArray[i].style.backgroundImage = data[i].url;
+    console.log(data[i].url);
     circleArray[i].style.top =
       mainHeight / 2 - parseInt(circleArray[i].posy.slice(0, -2)) + 'px';
     circleArray[i].style.left =
@@ -80,4 +82,20 @@ const generate = function (n, r, id) {
   }
   setup(n, r, id);
 };
-generate(11, 280, 'main');
+generate(10, 280, 'main');
+
+// ---------------------------------------------------------------------
+// функция открытия и закрытия описания по клику на карточку студента
+
+const students = document.querySelectorAll('.circle');
+const openBtn = document.querySelector('.data-student');
+
+console.log(students);
+
+students.forEach(item => {
+  item.addEventListener('click', removeClass);
+});
+
+function removeClass() {
+  openBtn.classList.toggle('is-hidden');
+}

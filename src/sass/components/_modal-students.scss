@@ -15,7 +15,7 @@
 }
 .modal-wrapper_students {
   position: relative;
-  //   background-image: url();
+  // background-image: url(./../images/foto/photo_1.jpg);
   background-color: rgba(67, 56, 56, 0.95);
   // max-width: 1140px;
 
@@ -62,11 +62,17 @@ li.circle:focus {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+
+  background-color: var(--main-bg-cl);
+}
+
+.metod-box {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: var(--main-bg-cl);
+  width: 400px;
+  height: 400px;
 }
 .metod-name {
   font-size: 30;
@@ -93,4 +99,29 @@ li.circle:focus {
 .modal-btn_students:focus {
   transform: scale(1.5);
   background: var(--secondary-text-cl);
+}
+.data-student {
+  border-radius: 50%;
+  width: 400px;
+  height: 400px;
+  position: absolute;
+  background-color: rgb(98, 139, 196);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  justify-content: flex-start;
+}
+.data-student_name {
+  font-size: 20;
+  margin-top: 50px;
+}
+.data-student_information {
+  font-size: 15;
+  margin-top: 30px;
+  margin-right: 50px;
+  margin-left: 50px;
 }
