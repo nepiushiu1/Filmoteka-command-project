@@ -1,6 +1,8 @@
 // CHANGE COLOR OF HEADER-BUTTONS
 import './js/library-header-btns';
 
+// PAGINATION FOR A LIBRARY PAGE
+import './js/pagination-library';
 
 
 //Усуває поимлку в консолі з модальним вікном
