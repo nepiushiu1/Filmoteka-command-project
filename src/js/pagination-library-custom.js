@@ -20,6 +20,10 @@ function displayList(items, wrapper, rows_per_page, page) {
 
   let start = rows_per_page * page;
   let end = start + rows_per_page;
+
+  if (!items) {
+    return;
+  }
   let paginatedItems = items.slice(start, end);
 
   const markup = paginatedItems;
@@ -31,7 +35,9 @@ function displayList(items, wrapper, rows_per_page, page) {
 
 function setupPagination(items, wrapper, rows_per_page) {
   wrapper.innerHTML = '';
-
+  if (!items) {
+    return;
+  }
   let page_count = Math.ceil(items.length / rows_per_page);
   for (let i = 1; i < page_count + 1; i++) {
     let btn = paginationButton(i, items);
