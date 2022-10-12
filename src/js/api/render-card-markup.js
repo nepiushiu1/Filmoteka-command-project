@@ -29,7 +29,7 @@ export default function makingMarkup(results) {
      class="movie-card">
         <div class="movie-card__link" href="#">
         <p class="movie-card__raiting">
-                        <b>${setReleaseVote(vote_average)}</b>
+                        <b>${vote_average}</b>
                     </p>
                 <img data-id="${id}" width="280" height="402" class="movie-card__img" src="${imagePath}" alt="${
           title || name
@@ -48,9 +48,7 @@ export default function makingMarkup(results) {
                         } | </b>
                     </p>
                     <p class="movie-card__info">
-                        <b>${
-                          setReleaseDate(release_date, first_air_date) ||
-                          'No data'
+                        <b>${release_date || first_air_date || 'No data'} 
                         }</b>
                     </p>
                        
@@ -63,16 +61,16 @@ export default function makingMarkup(results) {
   return markup;
 }
 
-function setReleaseDate(releaseDate, firstAirDate) {
-  if (!releaseDate) {
-    return firstAirDate.slice(0, 4);
-  }
-  return releaseDate.slice(0, 4);
-}
-
-function setReleaseVote(vote) {
-  if (!vote) {
-    return 'No vote';
-  }
-  return vote.toFixed(1);
-}
+// function setReleaseDate(releaseDate, firstAirDate) {
+//   if (!releaseDate) {
+//     return firstAirDate.slice(0, 4);
+//   }
+//   return releaseDate.slice(0, 4);
+// }
+1;
+// function setReleaseVote(vote) {
+//   if (!vote) {
+//     return 'No vote';
+//   }
+//   return vote.toFixed(1);
+// }
