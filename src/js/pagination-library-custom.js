@@ -24,10 +24,10 @@ function displayList(items, wrapper, rows_per_page, page) {
   if (!items) {
     return;
   }
-  let paginatedItems = items.slice(start, end);
 
-  const markup = paginatedItems;
-  console.log(markup);
+  const markup = items.slice(start, end);
+
+  // console.log(markup);
 
   const renderWatched = makingMarkup(markup);
   insertFilmsMarkupToLibrary(renderWatched);

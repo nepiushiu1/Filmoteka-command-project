@@ -2,8 +2,8 @@
 import './js/library-header-btns';
 
 // PAGINATION FOR A LIBRARY PAGE
-// import './js/pagination-library';
-import './js/pagination-library-custom';
+import './js/pagination-library';
+// import './js/pagination-library-custom';
 
 //Усуває поимлку в консолі з модальним вікном
 // Якщо розкоментувати - буде помилка
