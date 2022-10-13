@@ -218,8 +218,7 @@
 
     transform: scale(1);
 
-    transition: transform var(--transition-duration)
-      var(--transition-timing-function);
+    transition: transform var(--transition-duration) var(--transition-timing-function);
 
     @include mq(tablet) {
       min-width: 152px;
@@ -237,7 +236,8 @@
     border-color: var(--button-bg-cl);
   }
 
-  &__btn:hover {
+  &__btn:hover,
+  &__btn:focus {
     transform: scale(1.05);
   }
 }

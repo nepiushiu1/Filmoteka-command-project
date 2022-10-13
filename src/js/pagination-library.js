@@ -4,7 +4,8 @@ import { insertFilmsMarkupToLibrary } from './api/insertingIntoDifferentContaine
 import { refs } from './refs';
 import { createSpinner } from './spinner';
 
-// getWatchedFilms()
+
+ // getWatchedFilms()
 
 let fullLibrary = JSON.parse(localStorage.getItem('watched'));
 createLibraryPagination('watched');

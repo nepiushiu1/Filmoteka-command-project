@@ -1,3 +1,6 @@
 .film-cards{
-    position: relative;
+
+    &__container{
+        position: relative;
+    }
 }
