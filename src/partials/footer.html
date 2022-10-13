@@ -2,16 +2,21 @@
   <div class="footer__container container">
     <ul class="footer__list list">
       <li class="footer__item footer__item--info">
-        <p class="footer__text footer__text--indent">
-          &#169; 2022 | All Rights Reserved |
+        <span class="footer__text footer__text--indent">&#169; 2022</span>
+        <p class="footer__text footer__text--indent" data-key="rights">
+          | All Rights Reserved |
         </p>
       </li>
       <li class="footer__item footer__item--devs">
-        <p class="footer__text">Developed with</p>
+        <p class="footer__text" data-key="developed">Developed with</p>
         <svg class="footer__icon" width="14" height="13">
           <use href="images/symbol-defs.svg#heart-icon"></use>
         </svg>
-        <a class="footer__text footer__link link" modal-open href=""
+        <a
+          class="footer__text footer__link link"
+          data-key="students"
+          modal-open
+          href=""
           >by GoIT Students</a
         >
       </li>
