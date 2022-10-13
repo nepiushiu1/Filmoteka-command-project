@@ -12,7 +12,7 @@ import {
 import { textModalBtn } from '../modal-btns';
 // const moviesApiService = new MoviesApiService();
 
-refs.homeCardsContainer.addEventListener('click', clickOnMovie);
+refs.libraryCardsContainer.addEventListener('click', clickOnMovie);
 refs.closeModalBtn.addEventListener('click', onCloseModalBtnClick);
 refs.modalCardBackdrop.addEventListener('click', onModalCardBackdropClick);
 
@@ -36,39 +36,32 @@ function clickOnMovie(e) {
   ///////////////////////////////////////////////////////////////////////////
   //** Код для запису об'єктів в LOCAL STORAGE */
   document.querySelector('#watched-btn').addEventListener('click', () => {
-    // -----------Видалення фільму з сторінки Home----------
-    //  Потрібно узгодити із local.storage.js!!!!!!!!!!!
-    // let arrayFilmsWatched = [];
-    // const w = localStorage.getItem('watched');
-    // if (w) {
-    //   arrayFilmsWatched = JSON.parse(w);
-    // }
+    let arrayFilmsWatched = [];
+    const w = localStorage.getItem('watched');
+    if (w) {
+      arrayFilmsWatched = JSON.parse(w);
+    }
 
-    // // Перевірка на наявність об'єкта в масиві фільмів "WATCHED"
-    // const isAddedFilm = arrayFilmsWatched.find(arr => arr.id == currentId);
-    // isAddedFilm
-    //   ? deleteWatched(currentMovie)
-    //   : addWatchedLocalStorage(currentMovie);
-    // ----------------------------------
-    addWatchedLocalStorage(currentMovie);
+    // Перевірка на наявність об'єкта в масиві фільмів "WATCHED"
+    const isAddedFilm = arrayFilmsWatched.find(arr => arr.id == currentId);
+    isAddedFilm
+      ? deleteWatched(currentMovie)
+      : addWatchedLocalStorage(currentMovie);
     textModalBtn(currentId);
   });
 
   document.querySelector('#queue-btn').addEventListener('click', () => {
-    // ---------------Видалення фільму з сторінки Home----------
-    // let arrayFilmsQueue = [];
-    // const q = localStorage.getItem('queue');
-    // if (q) {
-    //   arrayFilmsQueue = JSON.parse(q);
-    // }
+    let arrayFilmsQueue = [];
+    const q = localStorage.getItem('queue');
+    if (q) {
+      arrayFilmsQueue = JSON.parse(q);
+    }
 
-    // // Перевірка на наявність об'єкта в масиві фільмів "QUEUE"
-    // const isAddedFilm = arrayFilmsQueue.find(arr => arr.id == currentId);
-    // isAddedFilm
-    //   ? deleteQueue(currentMovie)
-    //   : addQueueLocalStorage(currentMovie);
-    // -------------------------------------------------
-    addQueueLocalStorage(currentMovie);
+    // Перевірка на наявність об'єкта в масиві фільмів "QUEUE"
+    const isAddedFilm = arrayFilmsQueue.find(arr => arr.id == currentId);
+    isAddedFilm
+      ? deleteQueue(currentMovie)
+      : addQueueLocalStorage(currentMovie);
     textModalBtn(currentId);
   });
   /////////////////////////////////////////////////////////////////////////////
