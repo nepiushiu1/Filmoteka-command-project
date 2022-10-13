@@ -21,3 +21,4 @@ export default function renderMarkupSearchFilms(films) {
 
   refs.filmsSearchList.insertAdjacentHTML("beforeend", markup);
 };
+

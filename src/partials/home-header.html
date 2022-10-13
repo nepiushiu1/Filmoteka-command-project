@@ -7,30 +7,46 @@
         </svg>
         <span class="logo__text"> Filmoteka </span>
       </a>
-        <ul class="menu list">
-            <li class="menu__item">
-                <a class="menu__link link menu__link--current" href="./index.html">Home</a>
-            </li>
-            <li class="menu__item">
-                <a class="menu__link link menu__link--ancurrent" href="./library.html">My library</a>
-            </li>
-        </ul>
+      <ul class="menu list">
+        <li class="menu__item">
+          <a
+            class="menu__link link menu__link--current"
+            data-key="home"
+            href="./index.html"
+            >Home</a
+          >
+        </li>
+        <li class="menu__item">
+          <a
+            class="menu__link link menu__link--ancurrent"
+            data-key="library"
+            href="./library.html"
+            >My library</a
+          >
+        </li>
+      </ul>
+      <select name="" id="" data-switcher class="lang">
+        <option value="en-US" class="option-value">EN</option>
+        <option value="uk-UA" class="option-value">UA</option>
+      </select>
     </nav>
 
     <form class="search-form" name="search-form">
-        <label class="search-form__group">
-            <input 
-            class="search-form__input" 
-            type="text" 
-            name="searchInput" 
-            placeholder="Movie search">
-        </label>
-        <button class="search-form__button" type="submit">
-            <svg class="search-form__icon" width="12" height="12">
-                <use href="./images/symbol-defs.svg#search-icon"></use>
-            </svg>
-        </button>
-        <ul class="search-form__list list"></ul>
+      <label class="search-form__group">
+        <input
+          class="search-form__input"
+          type="text"
+          name="searchInput"
+          placeholder="Movie search"
+          data-key="search"
+        />
+      </label>
+      <button class="search-form__button" type="submit">
+        <svg class="search-form__icon" width="12" height="12">
+          <use href="./images/symbol-defs.svg#search-icon"></use>
+        </svg>
+      </button>
+      <ul class="search-form__list list"></ul>
     </form>
   </div>
 </header>

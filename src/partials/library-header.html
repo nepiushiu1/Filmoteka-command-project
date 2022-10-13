@@ -8,46 +8,46 @@
         </svg>
         <span class="logo__text"> Filmoteka </span>
       </a>
-
       <ul class="menu list">
         <li class="menu__item">
-          <a class="menu__link link menu__link--ancurrent" href="./index.html">Home
-          </a>
+          <a
+            class="menu__link link menu__link--current"
+            data-key="home"
+            href="./index.html"
+            >Home</a
+          >
         </li>
         <li class="menu__item">
-          <a class="menu__link link menu__link--current" href="./library.html">My library
-          </a>
+          <a
+            class="menu__link link menu__link--ancurrent"
+            data-key="library"
+            href="./library.html"
+            >My library</a
+          >
         </li>
       </ul>
+      <select name="" id="" data-switcher class="lang">
+        <option value="en-US" class="option-value">EN</option>
+        <option value="uk-UA" class="option-value">UA</option>
+      </select>
     </nav>
 
     <ul class="filter list">
       <li class="filter__item">
-        <button 
-          id="watched" 
-          class="filter__btn filter__btn--accent" 
-          type="button">Watched
+        <button
+          id="watched"
+          class="filter__btn filter__btn--accent"
+          type="button"
+          data-key="watched"
+        >
+          Watched
         </button>
       </li>
       <li class="filter__item">
-        <button 
-          id="queue" 
-          class="filter__btn" 
-          type="button">Queue
+        <button id="queue" class="filter__btn" data-key="queue" type="button">
+          Queue
         </button>
       </li>
     </ul>
-    <!-- <div class="library-btns">
-      <button
-        id="watched"
-        class="library-btns__item library-btns__item--watched"
-        type="button">Watched
-      </button>
-      <button 
-        id="queue"
-        class="library-btns__item" 
-        type="button">Queue
-      </button>
-    </div> -->
   </div>
 </header>

@@ -23,4 +23,7 @@ export const refs = {
   modalCardContainer: document.querySelector('.movie__container'),
 
   inputSearch: document.querySelector('.search-form__input'),
+
+  //spinner
+  spinner: document.querySelector('.lds-spinner'),
 };
