@@ -11,7 +11,7 @@ import './js/pagination-library';
 // import './js/modal-btns';
 
 // OPEN MODAL CARD
-// import './js/api/loadModalCard';
+import './js/api/loadModalCardLibrary';
 
 // MODAL IN FOOTER
 import './js/modal-students';
