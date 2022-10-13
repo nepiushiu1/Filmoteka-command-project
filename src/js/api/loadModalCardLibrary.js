@@ -11,10 +11,8 @@ import {
 } from '../local_storage';
 import { textModalBtn } from '../modal-btns';
 // const moviesApiService = new MoviesApiService();
-//* для відкриття трейлеру
-import { onTrailerClickBtn } from '../movie-trailer';
 
-refs.homeCardsContainer.addEventListener('click', clickOnMovie);
+refs.libraryCardsContainer.addEventListener('click', clickOnMovie);
 refs.closeModalBtn.addEventListener('click', onCloseModalBtnClick);
 refs.modalCardBackdrop.addEventListener('click', onModalCardBackdropClick);
 
@@ -44,62 +42,36 @@ function clickOnMovie(e) {
   ///////////////////////////////////////////////////////////////////////////
   //** Код для запису об'єктів в LOCAL STORAGE */
   document.querySelector('#watched-btn').addEventListener('click', () => {
-    // -----------Видалення фільму з сторінки Home----------
-    //  Потрібно узгодити із local.storage.js!!!!!!!!!!!
-    // let arrayFilmsWatched = [];
-    // const w = localStorage.getItem('watched');
-    // if (w) {
-    //   arrayFilmsWatched = JSON.parse(w);
-    // }
-
-    // // Перевірка на наявність об'єкта в масиві фільмів "WATCHED"
-    // const isAddedFilm = arrayFilmsWatched.find(arr => arr.id == currentId);
-    // isAddedFilm
-    //   ? deleteWatched(currentMovie)
-    //   : addWatchedLocalStorage(currentMovie);
-    // ----------------------------------
-    if (
-      document.querySelector('#watched-btn').textContent ===
-      'REMOVE FROM WATCHED'
-    ) {
-      document.querySelector('#watched-btn').textContent = 'ADD TO WATCHED';
+    let arrayFilmsWatched = [];
+    const w = localStorage.getItem('watched');
+    if (w) {
+      arrayFilmsWatched = JSON.parse(w);
     }
-    addWatchedLocalStorage(
-      currentMovie,
-      document.querySelector('#watched-btn')
-    );
-    // textModalBtn(currentId);
+
+    // Перевірка на наявність об'єкта в масиві фільмів "WATCHED"
+    const isAddedFilm = arrayFilmsWatched.find(arr => arr.id == currentId);
+    isAddedFilm
+      ? deleteWatched(currentMovie)
+      : addWatchedLocalStorage(currentMovie);
+    textModalBtn(currentId);
   });
 
   document.querySelector('#queue-btn').addEventListener('click', () => {
-    // ---------------Видалення фільму з сторінки Home----------
-    // let arrayFilmsQueue = [];
-    // const q = localStorage.getItem('queue');
-    // if (q) {
-    //   arrayFilmsQueue = JSON.parse(q);
-    // }
-
-    // // Перевірка на наявність об'єкта в масиві фільмів "QUEUE"
-    // const isAddedFilm = arrayFilmsQueue.find(arr => arr.id == currentId);
-    // isAddedFilm
-    //   ? deleteQueue(currentMovie)
-    //   : addQueueLocalStorage(currentMovie);
-    // -------------------------------------------------
-    if (
-      document.querySelector('#queue-btn').textContent === 'REMOVE FROM QUEUE'
-    ) {
-      document.querySelector('#queue-btn').textContent = 'ADD TO QUEUE';
+    let arrayFilmsQueue = [];
+    const q = localStorage.getItem('queue');
+    if (q) {
+      arrayFilmsQueue = JSON.parse(q);
     }
-    addQueueLocalStorage(currentMovie, document.querySelector('#queue-btn'));
-    // textModalBtn(currentId);
+
+    // Перевірка на наявність об'єкта в масиві фільмів "QUEUE"
+    const isAddedFilm = arrayFilmsQueue.find(arr => arr.id == currentId);
+    isAddedFilm
+      ? deleteQueue(currentMovie)
+      : addQueueLocalStorage(currentMovie);
+    textModalBtn(currentId);
   });
   /////////////////////////////////////////////////////////////////////////////
-
-  //* слухач на відкриття трейлеру
-  const btnTrailer = document.querySelector('.movie__btn-trailer');
-  btnTrailer.addEventListener('click', onTrailerClickBtn(currentId));
-
-  // textModalBtn(currentId);
+  textModalBtn(currentId);
 }
 
 function onCloseModalBtnClick() {
@@ -127,13 +99,14 @@ function makingModalCardMarkup(obj) {
                     `https://raw.githubusercontent.com/marvall/filmoteka/main/src/images/no-poster.png`
                   }"
                     alt="${obj.title || obj.name}" />
+
                     <button type="button" class="movie__btn-trailer">
-                        <svg width='120' height='80' class='youtube-icon' viewBox='0 -77 512.00213 512'>
+                        <svg width='100' height='60' class='youtube-icon' viewBox='0 -77 512.00213 512'>
                             <path
                                 d='m501.453125 56.09375c-5.902344-21.933594-23.195313-39.222656-45.125-45.128906-40.066406-10.964844-200.332031-10.964844-200.332031-10.964844s-160.261719 0-200.328125 10.546875c-21.507813 5.902344-39.222657 23.617187-45.125 45.546875-10.542969 40.0625-10.542969 123.148438-10.542969 123.148438s0 83.503906 10.542969 123.148437c5.90625 21.929687 23.195312 39.222656 45.128906 45.128906 40.484375 10.964844 200.328125 10.964844 200.328125 10.964844s160.261719 0 200.328125-10.546875c21.933594-5.902344 39.222656-23.195312 45.128906-45.125 10.542969-40.066406 10.542969-123.148438 10.542969-123.148438s.421875-83.507812-10.546875-123.570312zm0 0'
                                 fill='#f00'></path>
                             <path d='m204.96875 256 133.269531-76.757812-133.269531-76.757813zm0 0' fill='#fff'></path>
-                        </svg>
+                        </svg>                      
                     </button>                
             </div>
             <div class="movie__container--rigth-side">

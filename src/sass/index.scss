@@ -7,8 +7,7 @@
 
 @import 'layout/header', 'layout/home-cards', 'layout/footer';
 
-@import 'components/search_films_by_keywords';
+@import 'components/search_films_by_keywords', 'components/translation-select';
 
-@import 'components/form', 'components/footer-modal', 'components/pagination',
-  'components/modal', 'components/btn', 'components/card-markup',
-  'components/scroll-up-btn', 'components/modal-students', 'components/spinner', 'components/pagination-library-custom';
+@import 'components/advertising', 'components/form', 'components/footer-modal', 'components/pagination', 'components/modal', 'components/btn', 'components/card-markup', 'components/scroll-up-btn', 'components/modal-students', 'components/spinner', 'components/pagination-library-custom';
+

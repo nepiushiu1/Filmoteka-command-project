@@ -1,22 +1,25 @@
 import Pagination from 'tui-pagination';
-import MoviesApiService from './api/moviesApiServiceClass';
 import makingMarkup from './api/render-card-markup';
 import { insertFilmsMarkupToLibrary } from './api/insertingIntoDifferentContainers';
 import { refs } from './refs';
-import { getWatchedFilms, getQueueFilms } from './local_storage';
-import { createSpinner } from './spinner';
-
-// getWatchedFilms()
 
 let fullLibrary = JSON.parse(localStorage.getItem('watched'));
-createPagination('watched');
+createLibraryPagination('watched');
 
-export function createPagination(name) {
+export function createLibraryPagination(name) {
   fullLibrary = JSON.parse(localStorage.getItem(`${name}`));
   const container = document.getElementById('pagination-library');
+
+  if (!fullLibrary) {
+    container.innerHTML = '';
+    refs.libraryCardsContainer.innerHTML =
+      '<div style="font-size: 20px">Your list is still empty</div>';
+    return;
+  }
+
   const options = {
     totalItems: fullLibrary.length,
-    itemsPerPage: 10,
+    itemsPerPage: 6,
     visiblePages: 5,
     page: 1,
     centerAlign: true,
@@ -56,10 +59,6 @@ export function createPagination(name) {
 
   pagination.on('afterMove', event => {
     refs.libraryCardsContainer.innerHTML = '';
-
-    // спиннер не работает
-    // createSpinner();
-
     const currentPage = event.page;
     displayList(fullLibrary, options.itemsPerPage, currentPage);
   });

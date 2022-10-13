@@ -23,6 +23,8 @@ import './js/modal-students';
 // animations
 import './js/vendors/aos';
 
+// translation
+import './js/translation';
+
 //movie-trailer
 import './js/movie-trailer';
-

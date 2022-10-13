@@ -3,7 +3,7 @@ import makingMarkup from './api/render-card-markup';
 import { insertFilmsMarkupToLibrary } from './api/insertingIntoDifferentContainers';
 
 //ДОДАТИ ДО КЛЮЧА "WATCHED" В LOCAL STORAGE
-export function addWatchedLocalStorage(obj) {
+export function addWatchedLocalStorage(obj, btn) {
   let arrayFilmsWatched = [];
   const w = localStorage.getItem('watched');
   if (w) {
@@ -12,36 +12,40 @@ export function addWatchedLocalStorage(obj) {
 
   // Перевірка на наявність об'єкта в масиві фільмів "WATCHED"
   const isAddedFilm = arrayFilmsWatched.find(arr => arr.id === obj.id);
-  if(isAddedFilm) {
+  if (isAddedFilm) {
+    deleteWatched(obj);
     return;
   }
-  
+
   arrayFilmsWatched.push(obj);
   localStorage.setItem('watched', JSON.stringify(arrayFilmsWatched));
+  btn.textContent = 'REMOVE FROM WATCHED';
   return arrayFilmsWatched;
 }
 
 //ДОДАТИ ДО КЛЮЧА "QUEUE" В LOCAL STORAGE
-export function addQueueLocalStorage(obj) {
+export function addQueueLocalStorage(obj, btn) {
   let arrayFilmsQueue = [];
   const q = localStorage.getItem('queue');
   if (q) {
     arrayFilmsQueue = JSON.parse(q);
   }
 
-// Перевірка на наявність об'єкта в масиві фільмів "QUEUE"
+  // Перевірка на наявність об'єкта в масиві фільмів "QUEUE"
   const isAddedFilm = arrayFilmsQueue.find(arr => arr.id === obj.id);
-  if(isAddedFilm) {
+  if (isAddedFilm) {
+    deleteQueue(btn);
     return;
   }
-  
+
   arrayFilmsQueue.push(obj);
   localStorage.setItem('queue', JSON.stringify(arrayFilmsQueue));
+  btn.textContent = 'REMOVE FROM QUEUE';
   return arrayFilmsQueue;
 }
 
 export function getWatchedFilms() {
-  clearLibrary();
+  // clearLibrary();
   try {
     const saveFilms = localStorage.getItem('watched');
     //Якщо в localStorage немає ключа watched - показуємо заглушку
@@ -64,7 +68,7 @@ export function getWatchedFilms() {
 }
 
 export function getQueueFilms() {
-  clearLibrary();
+  // clearLibrary();
   try {
     const saveFilms = localStorage.getItem('queue');
     //Якщо в localStorage немає ключа queue - показуємо заглушку

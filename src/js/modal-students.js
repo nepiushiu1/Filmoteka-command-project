@@ -48,13 +48,15 @@ let setup = function (n, r, id) {
 
   for (let i = 0; i < n; i++) {
     const circle = document.createElement('li');
-    circle.className = 'circle number_' + i;
+    circle.className = 'circle number_' + data[i].id;
+
     circleArray.push(circle);
     circleArray[i].posx = Math.round(r * Math.cos(theta[i])) + 'px';
     circleArray[i].posy = Math.round(r * Math.sin(theta[i])) + 'px';
     circleArray[i].style.position = 'absolute';
     circleArray[i].style.backgroundImage = data[i].url;
     circleArray[i].style.backgroundSize = 'contain';
+
     circleArray[i].style.top =
       mainHeight / 2 - parseInt(circleArray[i].posy.slice(0, -2)) + 'px';
     circleArray[i].style.left =
@@ -75,31 +77,41 @@ generate(10, 280, 'main');
 // ---------------------------------------------------------------------
 // функция открытия и закрытия описания по клику на карточку студента
 
-const students = document.querySelectorAll('.circle');
+const students = document.querySelector('.students');
 const openBtn = document.querySelector('.data-student');
 
-console.log(students);
+students.addEventListener('mouseover', removeClass);
+students.addEventListener('mouseout', addClass);
 
-students.forEach(item => {
-  item.addEventListener(
-    'mouseover',
-    (removeClass = () => {
-      openBtn.classList.remove('is-hidden');
-    })
-  );
-});
+function removeClass(e) {
+  const numberPattern = /\d+/g;
+  openBtn.classList.remove('is-hidden');
 
-// function removeClass() {
-//   openBtn.classList.remove('is-hidden');
-// }
-students.forEach(item => {
-  item.addEventListener(
-    'mouseout',
-    (addClass = () => {
-      openBtn.classList.add('is-hidden');
-    })
-  );
+  const number = e.target.classList[1].match(numberPattern) - 1;
+  console.log(number);
+
+  metod.insertAdjacentHTML('beforeend', marcup[number]);
+}
+
+function addClass() {
+  openBtn.classList.add('is-hidden');
+  metod.innerHTML = '';
+}
+// console.log(studentDescriptionMarkup(data));
+// ____________________________________________________________
+
+const metod = document.querySelector('.data-student');
+// // // const render = studentDescriptionMarkup(marcup[2]);
+
+// function studentDescriptionMarkup(data) {
+const marcup = data.map(({ name, information }) => {
+  return `
+  <p class="data-student_name">${name}</p>
+  <p class="data-student_information">${information}
+  </p>
+`;
 });
-// function addClass() {
-//   openBtn.classList.add('is-hidden');
-// }
+// .join('');
+
+console.log(marcup[1]);
+// 111

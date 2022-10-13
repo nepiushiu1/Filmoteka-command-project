@@ -5,18 +5,18 @@ export async function textModalBtn(id) {
   const btnWatch = document.querySelector('#watched-btn');
   if (inList(id, 'watched')) {
     console.log('есть такой в watched');
-    btnWatch.textContent = 'Added to watched';
+    btnWatch.textContent = 'Adding to watched';
     btnWatch.disabled = true;
     function changeText() {
       console.log('Функція працює!!!!');
       btnWatch.disabled = false;
-      btnWatch.textContent = 'Remove from watched';
+      btnWatch.textContent = 'REMOVE FROM WATCHED';
       btnWatch.classList.add('active');
     }
     setTimeout(changeText, 1000);
   } else {
     console.log('нет такого в watched');
-    btnWatch.textContent = 'Add to watched';
+    btnWatch.textContent = 'ADD TO WATCHED';
     btnWatch.classList.remove('active');
     console.log('удаляем класс active');
     btnWatch.disabled = false;
@@ -24,17 +24,17 @@ export async function textModalBtn(id) {
 
   if (inList(id, 'queue')) {
     console.log('есть такой в queue');
-    btnQueue.textContent = 'Added to queue';
+    btnQueue.textContent = 'Adding to queue';
     btnQueue.disabled = true;
     function changeText() {
       btnQueue.disabled = false;
-      btnQueue.textContent = 'Remove from queue';
+      btnQueue.textContent = 'REMOVE FROM QUEUE';
       btnQueue.classList.add('active');
     }
     setTimeout(changeText, 1000);
   } else {
     console.log('нет такого в queue');
-    btnQueue.textContent = 'Add to queue';
+    btnQueue.textContent = 'ADD TO QUEUE';
     btnQueue.classList.remove('active');
     btnQueue.disabled = false;
   }

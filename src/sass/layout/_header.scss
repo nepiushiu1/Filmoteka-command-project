@@ -1,242 +1,243 @@
-.page-header{
-    position: relative;
-    height: 230px;
+.page-header {
+  position: relative;
+  height: 230px;
 
-    overflow: hidden;
+  overflow: hidden;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-image: url(../images/header/bg-header_mob.jpg);
+
+  @include mq(retina) {
+    background-image: url(../images/header/bg-header_mob@2x.jpg);
+  }
+
+  @include mq(tablet) {
+    height: 216px;
+
+    background-image: url(../images/header/bg-header_tab.jpg);
+
+    @include mq(retina) {
+      background-image: url(../images/header/bg-header_tab@2x.jpg);
+    }
+  }
+
+  @include mq(desktop) {
+    background-image: url(../images/header/bg-header_des.jpg);
+
+    @include mq(retina) {
+      background-image: url(../images/header/bg-header_des@2x.jpg);
+    }
+  }
+
+  &__container {
+    height: 100%;
+
+    @include mq(mobile-gummy) {
+      width: 100%;
+    }
+
+    @include mq(mobile-fixed) {
+      width: 480px;
+    }
+  }
+}
+
+.animation {
+  &__container {
+    width: 100%;
+    height: 100%;
+    // анимация фона
+    -webkit-animation: kenburns-top-right 10s ease-out both;
+    animation: kenburns-top-right 10s ease-out both;
 
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    background-image: url(../images/header/bg-header_mob.jpg);
+    background-image: url(../images/header/bg-header-lib_mob.jpg);
 
     @include mq(retina) {
-        background-image: url(../images/header/bg-header_mob@2x.jpg);
+      background-image: url(../images/header/bg-header-lib_mob@2x.jpg);
     }
 
-    @include mq(tablet){
-        height: 216px;
+    @include mq(tablet) {
+      background-image: url(../images/header/bg-header-lib_tab.jpg);
 
-        background-image: url(../images/header/bg-header_tab.jpg);
-
-        @include mq(retina){
-            background-image: url(../images/header/bg-header_tab@2x.jpg);
-        }
+      @include mq(retina) {
+        background-image: url(../images/header/bg-header-lib_tab@2x.jpg);
+      }
     }
 
     @include mq(desktop) {
-        background-image: url(../images/header/bg-header_des.jpg);
-    
-        @include mq(retina) {
-            background-image: url(../images/header/bg-header_des@2x.jpg);
-        }
-    }   
+      background-image: url(../images/header/bg-header-lib_des.jpg);
 
-    &__container {
-        height: 100%;
-
-        @include mq(mobile-gummy) {
-            width: 100%;
-        }
-        
-        @include mq(mobile-fixed) {
-            width: 480px;
-        }
+      @include mq(retina) {
+        background-image: url(../images/header/bg-header-lib_des@2x.jpg);
+      }
     }
+  }
+
+  &__content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
 }
 
-.animation{
-    &__container{
-        width: 100%;
-        height: 100%;
-        // анимация фона
-        -webkit-animation: kenburns-top-right 10s ease-out both;
-            animation: kenburns-top-right 10s ease-out both;
+.navigation {
+  display: flex;
+  //   justify-content: space-between;
+  align-items: flex-end;
 
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-        background-image: url(../images/header/bg-header-lib_mob.jpg);
-        
-            @include mq(retina) {
-                background-image: url(../images/header/bg-header-lib_mob@2x.jpg);
-            }
-        
-            @include mq(tablet) {
-                background-image: url(../images/header/bg-header-lib_tab.jpg);
-        
-                @include mq(retina) {
-                    background-image: url(../images/header/bg-header-lib_tab@2x.jpg);
-                }
-            }
-        
-            @include mq(desktop) {
-                background-image: url(../images/header/bg-header-lib_des.jpg);
-        
-                @include mq(retina) {
-                    background-image: url(../images/header/bg-header-lib_des@2x.jpg);
-                }
-            }
-    }
+  margin-bottom: 60px;
+  padding-top: 44px;
+  padding-bottom: 3px;
 
-    &__content{
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-    }  
+  @include mq(tablet) {
+    margin-bottom: 40px;
+  }
 }
 
-.navigation{
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
+.logo {
+  display: flex;
+  align-items: center;
+  margin-right: auto;
+  gap: 8px;
+  height: 24px;
 
-    margin-bottom: 60px;
-    padding-top: 44px;
-    padding-bottom: 3px;
+  color: var(--header-text-cl);
 
-    @include mq(tablet){
-        margin-bottom: 40px;
+  @include fonts(500, 30px, 35px);
+
+  @include mq(desktop) {
+    gap: 10px;
+  }
+
+  &__icon {
+    @include mq(mobile-only) {
+      -webkit-animation: swirl-in-fwd 0.6s ease-out both;
+      animation: swirl-in-fwd 0.6s ease-out both;
     }
+  }
+
+  &__text {
+    display: none;
+
+    @include mq(tablet) {
+      display: block;
+      -webkit-animation: tracking-in-contract-bck 1s
+        cubic-bezier(0.215, 0.61, 0.355, 1) both;
+      animation: tracking-in-contract-bck 1s cubic-bezier(0.215, 0.61, 0.355, 1)
+        both;
+    }
+  }
 }
 
-.logo{
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    height: 24px;
+.menu {
+  display: flex;
+  margin-right: 20px;
+  gap: 40px;
 
+  &__item {
     color: var(--header-text-cl);
 
-    @include fonts(500, 30px, 35px);
+    @include fonts(500, 12px, 14px, uppercase);
+  }
 
-    @include mq(desktop) {
-            gap: 10px;
-        }
-    
-    &__icon{
-        @include mq(mobile-only){
-            -webkit-animation: swirl-in-fwd 0.6s ease-out both;
-                animation: swirl-in-fwd 0.6s ease-out both;
-        }
-    }    
+  &__link {
+    position: relative;
+    display: block;
+    // padding-top: 44px;
+    padding-bottom: 3px;
+  }
 
-    &__text{
-        display: none;
+  &__link--current::after {
+    content: '';
 
-    @include mq(tablet){
-        display: block;
-        -webkit-animation: tracking-in-contract-bck 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
-            animation: tracking-in-contract-bck 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
-    }  
-    }
+    position: absolute;
+    bottom: 0;
+    left: 0;
 
+    display: block;
+    width: 100%;
+    height: 3px;
+
+    background-color: var(--error-cl);
+  }
+
+  &__link--ancurrent::after {
+    content: '';
+
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    display: block;
+    width: 100%;
+    height: 3px;
+
+    background-color: var(--error-cl);
+
+    transform: scaleX(0);
+    transition: transform var(--transition-duration)
+      var(--transition-timing-function);
+  }
+
+  &__link--ancurrent:hover::after {
+    transform: scaleX(1);
+  }
 }
 
-.menu{
-    display: flex;
-    gap: 40px;
+.filter {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
 
-    &__item{
-        color: var(--header-text-cl);
+  @include mq(tablet) {
+    gap: 32px;
+  }
 
-        @include fonts(500, 12px, 14px, uppercase);
-    }
+  @include mq(desktop) {
+    gap: 16px;
+  }
 
-    &__link{
-        position: relative;
-        display: block;
-        // padding-top: 44px;
-        padding-bottom: 3px;
-    }
+  &__btn {
+    min-width: 130px;
+    padding: 13px 36px;
+    border: 1px solid var(--header-text-cl);
+    border-radius: 5px;
+    cursor: pointer;
 
-    &__link--current::after {
-        content: '';
+    background-color: transparent;
+    color: var(--header-text-cl);
 
-        position: absolute;
-        bottom: 0;
-        left: 0;
+    @include fonts(500, 12px, 16px, uppercase);
 
-        display: block;
-        width: 100%;
-        height: 3px;
+    transform: scale(1);
 
-        background-color: var(--error-cl);
-    }
+    transition: transform var(--transition-duration) var(--transition-timing-function);
 
-    &__link--ancurrent::after {
-        content: '';
-        
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        
-        display: block;
-        width: 100%;
-        height: 3px;
-        
-        background-color: var(--error-cl);
-        
-        transform: scaleX(0);
-        transition: transform var(--transition-duration) var(--transition-timing-function);
-    }  
-    
-    &__link--ancurrent:hover::after {
-        transform: scaleX(1);
-    }
-}
-
-.filter{
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-
-    @include mq(tablet){
-        gap: 32px;
+    @include mq(tablet) {
+      min-width: 152px;
+      padding: 13px 46px;
     }
 
     @include mq(desktop) {
-        gap: 16px;
+      min-width: 148px;
+      padding: 13px 42px;
     }
+  }
 
-    &__btn{
-        min-width: 130px;
-        padding: 13px 36px;
-        border: 1px solid var(--header-text-cl);
-        border-radius: 5px;
-        cursor: pointer;
-        
-        background-color: transparent;
-        color: var(--header-text-cl);
-        
-        @include fonts(500, 12px, 16px, uppercase);
+  &__btn--accent {
+    background-color: var(--button-bg-cl);
+    border-color: var(--button-bg-cl);
+  }
 
-        transform: scale(1);
-        
-        transition: transform var(--transition-duration) var(--transition-timing-function);
-        
-        @include mq(tablet) {
-            min-width: 152px;
-            padding: 13px 46px;
-        }
-        
-        @include mq(desktop) {
-            min-width: 148px;
-            padding: 13px 42px;
-        }
-    }
-
-    &__btn--accent{
-        background-color: var(--button-bg-cl);
-        border-color: var(--button-bg-cl);
-    }
-
-    &__btn:hover{
-        transform: scale(1.05);
-    }
+  &__btn:hover,
+  &__btn:focus {
+    transform: scale(1.05);
+  }
 }
-
-
-
-
