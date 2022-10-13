@@ -24,7 +24,6 @@ function clickOnMovie(e) {
     e.target.nodeName !== 'H2' &&
     e.target.nodeName !== 'P'
   ) {
-    console.log(e.target.nodeName);
     return;
   }
 
@@ -57,7 +56,16 @@ function clickOnMovie(e) {
     //   ? deleteWatched(currentMovie)
     //   : addWatchedLocalStorage(currentMovie);
     // ----------------------------------
-    addWatchedLocalStorage(currentMovie);
+    if (
+      document.querySelector('#watched-btn').textContent ===
+      'REMOVE FROM WATCHED'
+    ) {
+      document.querySelector('#watched-btn').textContent = 'ADD TO WATCHED';
+    }
+    addWatchedLocalStorage(
+      currentMovie,
+      document.querySelector('#watched-btn')
+    );
     // textModalBtn(currentId);
   });
 
@@ -75,7 +83,12 @@ function clickOnMovie(e) {
     //   ? deleteQueue(currentMovie)
     //   : addQueueLocalStorage(currentMovie);
     // -------------------------------------------------
-    addQueueLocalStorage(currentMovie);
+    if (
+      document.querySelector('#queue-btn').textContent === 'REMOVE FROM QUEUE'
+    ) {
+      document.querySelector('#queue-btn').textContent = 'ADD TO QUEUE';
+    }
+    addQueueLocalStorage(currentMovie, document.querySelector('#queue-btn'));
     // textModalBtn(currentId);
   });
   /////////////////////////////////////////////////////////////////////////////
