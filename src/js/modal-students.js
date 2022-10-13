@@ -114,18 +114,4 @@ const marcup = data.map(({ name, information }) => {
 // .join('');
 
 console.log(marcup[1]);
-
-function removeClass() {
-  openBtn.classList.remove('is-hidden');
-}
-students.forEach(item => {
-  item.addEventListener(
-    'mouseout',
-    (addClass = () => {
-      openBtn.classList.add('is-hidden');
-    })
-  );
-});
-function addClass() {
-  openBtn.classList.add('is-hidden');
-}
+// 111
