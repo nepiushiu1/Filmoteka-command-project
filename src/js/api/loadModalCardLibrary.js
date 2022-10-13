@@ -17,7 +17,13 @@ refs.closeModalBtn.addEventListener('click', onCloseModalBtnClick);
 refs.modalCardBackdrop.addEventListener('click', onModalCardBackdropClick);
 
 function clickOnMovie(e) {
-  if (e.target.nodeName !== 'IMG' && e.target.nodeName !== 'B') {
+  if (
+    e.target.nodeName !== 'IMG' &&
+    e.target.nodeName !== 'DIV' &&
+    e.target.nodeName !== 'B' &&
+    e.target.nodeName !== 'H2' &&
+    e.target.nodeName !== 'P'
+  ) {
     return;
   }
 
