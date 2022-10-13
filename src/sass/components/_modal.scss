@@ -130,9 +130,9 @@ body.show-modal .modal-container {
    margin-bottom: 20px;
    overflow: hidden;    
 }
-.movie__container--left-side:hover .movie__btn-trailer {
+/*.movie__container--left-side:hover .movie__btn-trailer {
     transform: translateX(0);
-}
+}*/
 .movie__image {   
     width: 100%;
     max-width: 375px;
@@ -148,7 +148,7 @@ body.show-modal .modal-container {
     transform: scale(120%, 120%);
 }*/
 
-.movie__btn-trailer {
+/*.movie__btn-trailer {
     position: absolute;  
     display: block;       
     justify-content: center;
@@ -160,12 +160,28 @@ body.show-modal .modal-container {
     width: 100%; 
     height: 100%;
     border-radius: 5px;
-    border-color: transparent;    ;
-    background-color: rgba(255, 106, 0, 0.7);   
+    border-color: transparent;    
+    background-color: rgba(255, 106, 0, 0.7);       
     
     transform: translateX(-100%);  
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 300ms;
+}*/
+
+// Для моб.верисии при необходимости фиксированная кнопка Трейлера на постер//
+.movie__btn-trailer {  
+    position: absolute;  
+    display: block;       
+    justify-content: center;
+    align-items: center;  
+    text-align: center; 
+    top: 45%;
+    left: 35%;
+
+    width: 120px;
+    height: 60px;
+    border: 1px solid transparent;
+    background-color: transparent;
 }
 
 .movie__title {
@@ -304,12 +320,13 @@ body.show-modal .modal-container {
     }*/
     &.btn-queue:hover,
     &.btn-queue:focus {
-        background-color: var(--button-bg-cl);
-        color: var(--main-bg-cl);
-        border: none;
+        background-color: var(--main-bg-cl);
+        color: var(--secondary-text-cl);
+        border: 2px solid var(--secondary-text-cl);
 
         transition-duration: 300ms;
         transition-timing-function: ease-in-out;
+        transform: scale(120%, 120%);
     }
 
     &.btn--accent:hover,
@@ -317,6 +334,10 @@ body.show-modal .modal-container {
         background-color: var(--main-bg-cl);
         color: var(--secondary-text-cl);
         border: 2px solid var(--secondary-text-cl);
+
+        transition-duration: 300ms;
+        transition-timing-function: ease-in-out;
+        transform: scale(120%, 120%);
     }
 
 }
@@ -339,6 +360,9 @@ body.show-modal .modal-container {
                 width: 264px;
                 margin-bottom: 0px;
                 margin-top: 0;               
+            }
+            &--left-side:hover .movie__btn-trailer {
+                transform: translateX(0);
             }
 
             &--rigth-side {
@@ -369,7 +393,34 @@ body.show-modal .modal-container {
 
         transition: 500ms transform cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
-
+    .movie__btn {
+        &.btn--accent {
+            width: 125px;           
+          }
+    
+        &.btn-queue {
+            width: 125px;           
+    }
+}
+.movie__btn-trailer {
+    position: absolute;  
+    display: block;       
+    justify-content: center;
+    align-items: center;  
+    text-align: center; 
+    top: 0;
+    left: 0;
+  
+    width: 100%; 
+    height: 100%;
+    border-radius: 5px;
+    border-color: transparent;    
+    background-color: rgba(255, 106, 0, 0.7);   
+    
+    transform: translateX(-100%);  
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+}
 }
 
 // ======= desktop =====//
@@ -386,6 +437,9 @@ body.show-modal .modal-container {
                 width: 375px;
                 height: 478px;
                 overflow: hidden;
+            }
+            &--left-side:hover .movie__btn-trailer {
+                transform: translateX(0);
             }
             &--rigth-side {
                 width: 391px;
@@ -412,20 +466,32 @@ body.show-modal .modal-container {
     }
 
     .movie__btn {
-        &.btn-trailer {
-            display: flex;
-
-            width: 110px;
-            height: 44px;
-
-            border-color: var(--main-bg-cl);
-            color: var(--main-text-cl);
-            font-size: 12px;
-            font-weight: 500;
-            line-height: 1.33;
-            letter-spacing: 0em;
-            text-align: center;
-            border-radius: 5px;
+        &.btn--accent {
+            width: 136px;            
         }
+    
+        &.btn-queue {
+            width: 136px;            
     }
+}
+.movie__btn-trailer {
+    position: absolute;  
+    display: block;       
+    justify-content: center;
+    align-items: center;  
+    text-align: center; 
+    top: 0;
+    left: 0;
+  
+    width: 100%; 
+    height: 100%;
+    border-radius: 5px;
+    border-color: transparent;    
+    background-color: rgba(255, 106, 0, 0.7);   
+    
+    transform: translateX(-100%);  
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+}
+
 }
