@@ -1,18 +1,17 @@
-// window.onload = function () {
-//   document.body.classList.add('loaded_hiding');
-//   window.setTimeout(function () {
-//     document.body.classList.add('loaded');
-//     document.body.classList.remove('loaded_hiding');
-//   }, 500);
-// };
-// document.querySelector('body').insertAdjacentHTML('afterbegin', spinnerTpl());
+import { refs } from './refs';
 
-const spinner = document.querySelector('.lds-spinner');
-
-export function createSpinner() {
-  spinner.classList.remove('is-hidden');
-
-  setTimeout(() => {
-    spinner.classList.add('is-hidden');
-  }, 700);
+export default class Spinner {
+    constructor() {
+        this.refs = refs;
+    }
+  
+  //показать спиннер
+    show() {
+      this.refs.spinner.classList.remove('is-hidden');
+  };  
+  
+  //скрыть спиннер
+    hide() {
+      this.refs.spinner.classList.add('is-hidden'); 
+  };
 }

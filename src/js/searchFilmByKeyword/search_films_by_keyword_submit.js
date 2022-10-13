@@ -1,13 +1,14 @@
 import { refs } from './../refs';
 // import fetchFilms from './fetch_search_films';
 import MoviesApiService from '../api/moviesApiServiceClass';
+import Spinner from '../spinner';
 import makingMarkup from '../api/render-card-markup';
 import { insertFilmsMarkupToHome } from '../api/insertingIntoDifferentContainers';
 import { createPagination } from '../pagination-query';
 import timeoutForBadRequest from './timeoutForBadRequest';
-import { createSpinner } from '../spinner';
 
 const movieApiServise = new MoviesApiService();
+const spinner = new Spinner();
 
 refs.formSearch.addEventListener('submit', onSearchFilmByKeyword);
 
@@ -18,7 +19,8 @@ function onSearchFilmByKeyword(e) {
   const searchFilms = e.currentTarget.elements.searchInput.value.trim();
   movieApiServise.query = searchFilms;
 
-  createSpinner();
+  refs.homeCardsContainer.innerHTML = '';
+  spinner.show();
   try {
     movieApiServise
       .fetchSearchingMovies()
@@ -28,8 +30,9 @@ function onSearchFilmByKeyword(e) {
           return;
         };
 
-        refs.homeCardsContainer.innerHTML = '';
         const searchingMarkup = makingMarkup(results);
+
+        spinner.hide();
         insertFilmsMarkupToHome(searchingMarkup);
         createPagination(total_results, searchFilms);
       });
