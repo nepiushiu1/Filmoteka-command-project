@@ -3,7 +3,7 @@ import { setReleaseDate } from './setReleaseDate';
 import { setReleaseVote } from './setReleaseDate';
 import { refs } from '../refs';
 
-const BASE_POSTER_URL = `https://image.tmdb.org/t/p/w500`;
+export const BASE_POSTER_URL = `https://image.tmdb.org/t/p/w500`;
 
 export default function makingMarkup(results) {
   const markup = results
