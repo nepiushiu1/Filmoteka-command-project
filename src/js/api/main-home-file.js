@@ -14,8 +14,6 @@ moviesApiService
   .fetchGenres()
   .then(({ genres }) => {
     for (const { id, name } of genres) {
-      //   console.log(id);
-      //   console.log(name);
       localStorage.setItem(`genre_${id}`, name);
     }
   })
