@@ -159,9 +159,10 @@ body.show-modal .modal-container {
   
     width: 100%; 
     height: 100%;
+
+    background-color: transparent;   
     border-radius: 5px;
-    border-color: transparent;    
-    background-color: rgba(255, 106, 0, 0.7);       
+    background-color: rgba(255, 106, 0, 0.7);     
     
     transform: translateX(-100%);  
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -182,6 +183,10 @@ body.show-modal .modal-container {
     height: 60px;
     border: 1px solid transparent;
     background-color: transparent;
+}
+
+.movie__btn-trailer--bad {
+    background-color: var(--error-cl);
 }
 
 .movie__title {
