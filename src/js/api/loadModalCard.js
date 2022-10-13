@@ -51,7 +51,7 @@ function clickOnMovie(e) {
     //   : addWatchedLocalStorage(currentMovie);
     // ----------------------------------
     addWatchedLocalStorage(currentMovie);
-    textModalBtn(currentId);
+    // textModalBtn(currentId);
   });
 
   document.querySelector('#queue-btn').addEventListener('click', () => {
@@ -69,10 +69,10 @@ function clickOnMovie(e) {
     //   : addQueueLocalStorage(currentMovie);
     // -------------------------------------------------
     addQueueLocalStorage(currentMovie);
-    textModalBtn(currentId);
+    // textModalBtn(currentId);
   });
   /////////////////////////////////////////////////////////////////////////////
-  textModalBtn(currentId);
+  // textModalBtn(currentId);
 }
 
 function onCloseModalBtnClick() {
