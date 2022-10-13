@@ -18,3 +18,6 @@ import './js/modal-students';
 
 // scroll-up-btn
 import './js/scroll-up-btn';
+
+// translate
+import './js/translation';
