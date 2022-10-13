@@ -5,7 +5,7 @@ import { createLibraryPagination } from './pagination-library';
 refs.btnWatched.addEventListener('click', onBtnWatchedClick);
 refs.btnQueue.addEventListener('click', onBtnQueueClick);
 
-getWatchedFilms();
+// getWatchedFilms();
 
 function onBtnWatchedClick(e) {
   // getWatchedFilms();

@@ -2,10 +2,6 @@ import Pagination from 'tui-pagination';
 import makingMarkup from './api/render-card-markup';
 import { insertFilmsMarkupToLibrary } from './api/insertingIntoDifferentContainers';
 import { refs } from './refs';
-import { createSpinner } from './spinner';
-
-
- // getWatchedFilms()
 
 let fullLibrary = JSON.parse(localStorage.getItem('watched'));
 createLibraryPagination('watched');
@@ -23,7 +19,7 @@ export function createLibraryPagination(name) {
 
   const options = {
     totalItems: fullLibrary.length,
-    itemsPerPage: 10,
+    itemsPerPage: 6,
     visiblePages: 5,
     page: 1,
     centerAlign: true,
@@ -63,10 +59,6 @@ export function createLibraryPagination(name) {
 
   pagination.on('afterMove', event => {
     refs.libraryCardsContainer.innerHTML = '';
-
-    // спиннер не работает
-    // createSpinner();
-
     const currentPage = event.page;
     displayList(fullLibrary, options.itemsPerPage, currentPage);
   });
