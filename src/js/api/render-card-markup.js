@@ -28,31 +28,31 @@ export default function makingMarkup(results) {
     data-aos-duration="1000"
     data-aos-easing="ease-in-out"
      class="movie-card">
-        <div class="movie-card__link" href="#">
-        <p class="movie-card__raiting">
-                        <b>${setReleaseVote(vote_average)}</b>
+        <div data-id="${id}" class="movie-card__link" href="#">
+        <p data-id="${id}" class="movie-card__raiting">
+                        <b data-id="${id}">${setReleaseVote(vote_average)}</b>
                     </p>
                 <img data-id="${id}" width="280" height="402" class="movie-card__img" src="${imagePath}" alt="${
           title || name
         }" loading="lazy"/>
-    <div data-aos="fade-right"
+    <div data-id="${id}" data-aos="fade-right"
     data-aos-delay="50"
     data-aos-duration="1000"
     data-aos-easing="ease-in-out"
     data-aos-once="false"
      class="movie-card__cont">
-                  <h2 class="movie-card__title">${title || name}</h2>
-                    <p class="movie-card__info">
-                        <b>${
-                          gettingGenresListForCard(genre_ids) ||
-                          `Genre not defined`
-                        } | </b>
+                  <h2 data-id="${id}" class="movie-card__title">${
+          title || name
+        }</h2>
+                    <p data-id="${id}" class="movie-card__info">
+                        <b data-id="${id}">${
+          gettingGenresListForCard(genre_ids) || `Genre not defined`
+        } | </b>
                     </p>
-                    <p class="movie-card__info">
-                        <b>${setReleaseDate(release_date)} 
+                    <p data-id="${id}" class="movie-card__info">
+                        <b data-id="${id}">${setReleaseDate(release_date)} 
                         </b>
-                    </p>
-                       
+                    </p>   
                     </div>
                     </div>
             </li>`;
