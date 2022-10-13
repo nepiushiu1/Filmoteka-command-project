@@ -25,3 +25,7 @@ import './js/vendors/aos';
 
 // translation
 import './js/translation';
+
+// change BG color
+import './js/bg-color';
+

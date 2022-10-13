@@ -1,6 +1,5 @@
 export const refs = {
   // containers
-  // homeCardsContainer: document.querySelector('.cards__list--home'),
   homeCardsContainer: document.querySelector('.cards__list--home'),
   libraryCardsContainer: document.querySelector('.cards__list--library'),
 
@@ -26,4 +25,7 @@ export const refs = {
 
   //spinner
   spinner: document.querySelector('.lds-spinner'),
+
+  // bg-color-btn
+  bgColorBtn: document.querySelector('.page-header'),
 };
