@@ -2,24 +2,24 @@ const data = [
   {
     id: '1',
     name: 'Anna Burenko',
-    information: 'information',
+    information: 'information-11111',
     url: 'url("https://i.postimg.cc/1zYg7HRL/photo-1.jpg")',
   },
   {
     id: '2',
     name: 'Олександр',
-    information: 'information',
+    information: 'information-22222',
     url: 'url("https://i.postimg.cc/SNK6dcLK/photo-2022-10-12-15-26-08.jpg")',
   },
   {
     id: '3',
     name: 'Марина Янева',
-    information: 'information',
+    information: 'information-3333333',
     url: 'url("https://i.postimg.cc/BvFkvrtR/photo-2022-10-12-15-30-45.jpg")',
   },
   {
     id: '4',
-    name: 'Alexander',
+    name: 'Alexander ',
     information: 'information',
     url: 'url("https://i.postimg.cc/VstqVzpx/photo-2022-10-12-15-32-31.jpg")',
   },
@@ -31,9 +31,9 @@ const data = [
   },
   {
     id: '6',
-    name: 'Наталія Пасаман',
+    name: 'Nataliia Pasaman',
     information: 'information',
-    url: 'url("https://i.postimg.cc/7PC4vWN8/photo-2022-10-12-15-33-00.jpg")',
+    url: 'url("https://i.postimg.cc/bvyyP8qN/photo-2022-10-13-12-32-07.jpg")',
   },
   {
     id: '7',
