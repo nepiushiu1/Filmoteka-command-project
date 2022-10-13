@@ -89,9 +89,9 @@ students.forEach(item => {
   );
 });
 
-// function removeClass() {
-//   openBtn.classList.remove('is-hidden');
-// }
+function removeClass() {
+  openBtn.classList.remove('is-hidden');
+}
 students.forEach(item => {
   item.addEventListener(
     'mouseout',
@@ -100,6 +100,6 @@ students.forEach(item => {
     })
   );
 });
-// function addClass() {
-//   openBtn.classList.add('is-hidden');
-// }
+function addClass() {
+  openBtn.classList.add('is-hidden');
+}
