@@ -2,8 +2,8 @@
 import './js/library-header-btns';
 
 // PAGINATION FOR A LIBRARY PAGE
-// import './js/pagination-library';
-import './js/pagination-library-custom';
+import './js/pagination-library';
+// import './js/pagination-library-custom';
 
 //Усуває поимлку в консолі з модальним вікном
 // Якщо розкоментувати - буде помилка
@@ -11,10 +11,13 @@ import './js/pagination-library-custom';
 // import './js/modal-btns';
 
 // OPEN MODAL CARD
-// import './js/api/loadModalCard';
+import './js/api/loadModalCardLibrary';
 
 // MODAL IN FOOTER
 import './js/modal-students';
 
 // scroll-up-btn
 import './js/scroll-up-btn';
+
+// translate
+import './js/translation';
