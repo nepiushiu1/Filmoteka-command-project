@@ -159,13 +159,15 @@ body.show-modal .modal-container {
   
     width: 100%; 
     height: 100%;
-    border-radius: 5px;
-    border-color: transparent;    ;
-    background-color: rgba(255, 106, 0, 0.7);   
+    background-color: transparent;   
     
     transform: translateX(-100%);  
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 300ms;
+}
+
+.movie__btn-trailer--bad {
+    background-color: var(--error-cl);
 }
 
 .movie__title {
