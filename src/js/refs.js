@@ -26,4 +26,7 @@ export const refs = {
 
   //spinner
   spinner: document.querySelector('.lds-spinner'),
+
+  //advertising
+  advertising: document.querySelector('.advertising'),
 };
