@@ -1,6 +1,8 @@
 // FETCHING FOR THE FIRST TIME
 import * as fetchingApi from './js/api/main-home-file';
 
+import './js/swiper';
+
 // PAGINATION FOR A MAIN PAGE
 import './js/pagination';
 

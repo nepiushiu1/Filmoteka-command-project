@@ -1,9 +1,10 @@
 import Pagination from 'tui-pagination';
 import MoviesApiService from './api/moviesApiServiceClass';
-import Spinner from './spinner'
+import Spinner from './spinner';
 import makingMarkup from './api/render-card-markup';
 import { insertFilmsMarkupToHome } from './api/insertingIntoDifferentContainers';
 import { refs } from './refs';
+import { makingSwiper } from './api/render-slide-markup';
 
 const moviesApiService = new MoviesApiService();
 const spinner = new Spinner();
@@ -62,6 +63,7 @@ export function createPagination(total_results) {
         const markup = makingMarkup(results);
 
         spinner.hide();
+        // makingSwiper(results);
         insertFilmsMarkupToHome(markup);
         localStorage.setItem(`currentFilm`, JSON.stringify(results));
       })

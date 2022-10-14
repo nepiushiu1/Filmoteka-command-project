@@ -1,8 +1,9 @@
 export const refs = {
   // containers
-  // homeCardsContainer: document.querySelector('.cards__list--home'),
   homeCardsContainer: document.querySelector('.cards__list--home'),
   libraryCardsContainer: document.querySelector('.cards__list--library'),
+
+  swiperContainer: document.querySelector('.swiper-wrapper'),
 
   // buttons
   btnWatched: document.querySelector('#watched'),
