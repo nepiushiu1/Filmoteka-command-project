@@ -99,7 +99,6 @@ function makingModalCardMarkup(obj) {
                     `https://raw.githubusercontent.com/marvall/filmoteka/main/src/images/no-poster.png`
                   }"
                     alt="${obj.title || obj.name}" />
-
                     <button type="button" class="movie__btn-trailer">
                         <svg width='100' height='60' class='youtube-icon' viewBox='0 -77 512.00213 512'>
                             <path

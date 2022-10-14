@@ -12,7 +12,7 @@ import {
 import { textModalBtn } from '../modal-btns';
 // const moviesApiService = new MoviesApiService();
 //* для відкриття трейлеру
-import { onTrailerClickBtn } from '../movie-trailer';
+// import { onTrailerClickBtn } from '../movie-trailer';
 
 refs.homeCardsContainer.addEventListener('click', clickOnMovie);
 refs.closeModalBtn.addEventListener('click', onCloseModalBtnClick);
@@ -96,8 +96,8 @@ function clickOnMovie(e) {
   /////////////////////////////////////////////////////////////////////////////
 
   //* слухач на відкриття трейлеру
-  const btnTrailer = document.querySelector('.movie__btn-trailer');
-  btnTrailer.addEventListener('click', onTrailerClickBtn(currentId));
+  // const btnTrailer = document.querySelector('.movie__btn-trailer');
+  // btnTrailer.addEventListener('click', onTrailerClickBtn(currentId));
 
   // textModalBtn(currentId);
 }
