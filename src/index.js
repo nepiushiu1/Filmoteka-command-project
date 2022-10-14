@@ -27,4 +27,4 @@ import './js/vendors/aos';
 import './js/translation';
 
 //movie-trailer
-import './js/movie-trailer';
+// import './js/movie-trailer';
