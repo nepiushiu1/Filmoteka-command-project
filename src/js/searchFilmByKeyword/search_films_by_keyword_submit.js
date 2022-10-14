@@ -19,7 +19,7 @@ function onSearchFilmByKeyword(e) {
   e.preventDefault();
 
   if (e.currentTarget.elements.searchInput.value.trim() === '') {
-    return console.warn('Field cannot be empty');
+    return console.log('Field cannot be empty');
   }
 
   const searchFilms = e.currentTarget.elements.searchInput.value.trim();
@@ -31,14 +31,14 @@ function onSearchFilmByKeyword(e) {
     movieApiServise
       .fetchSearchingMovies()
       .then(({ results, total_results }) => {
+        spinner.hide();
+
         if (results.length === 0) {
           timeoutForBadRequest();
           return;
         }
 
         const searchingMarkup = makingMarkup(results);
-
-        spinner.hide();
         insertFilmsMarkupToHome(searchingMarkup);
         createPagination(total_results, searchFilms);
         localStorage.setItem(`currentFilm`, JSON.stringify(results));
