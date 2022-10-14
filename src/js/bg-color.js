@@ -10,21 +10,13 @@ function addChangeBgColorBtn() {
 
   const changeBgColorBtn = document.createElement('div');
   changeBgColorBtn.classList.add('switch');
-
-  refs.pageHeader.append(changeBgColorBtn);
-  changeBgColorBtn.insertAdjacentHTML('beforeend', bgColorBtn);
-
   // Добавляем цвет фона кнопки для Main
-const documentTitle = document.title;
-// console.log(documentTitle);
-if (documentTitle === 'Filmoteka') {
-  console.log('Filmoteka2', documentTitle);
-  changeBgColorBtn.classList.add('switch-home');
+  if (document.title === 'Filmoteka') {
+    changeBgColorBtn.classList.add('switch-home');
+  }
 
-//   const refsAllColorBtn = refs.pageHeader.querySelector('.switch');
-//   console.log(refsAllColorBtn);
-//   console.log('Filmoteka3');
-}
+  refs.pageHeader.forEach((a) => a.prepend(changeBgColorBtn));
+  changeBgColorBtn.insertAdjacentHTML('beforeend', bgColorBtn);
 }
 addChangeBgColorBtn();
 
@@ -66,4 +58,3 @@ refsChangeBgColorBtn.forEach(radio => {
     bgColorExportData.onBgColorBtnClick(radio);
   });
 });
-

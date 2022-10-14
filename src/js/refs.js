@@ -30,5 +30,5 @@ export const refs = {
   advertising: document.querySelector('.advertising'),
   
   // bg-color-btn
-  pageHeader: document.querySelector('.page-header'),
+  pageHeader: document.querySelectorAll('.navigation'),
 };
