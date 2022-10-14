@@ -24,7 +24,7 @@ export default function makingMarkup(results) {
           ? (imagePath = `https://raw.githubusercontent.com/marvall/filmoteka/main/src/images/no-poster.png`)
           : (imagePath = `${BASE_POSTER_URL}/${BASE_POSTER_URL}/${poster_path}`);
 
-        return `<li data-aos="fade-up"
+        return `<li id="${id}" data-aos="fade-up"
     data-aos-offset="200"
     data-aos-delay="100"
     data-aos-duration="1000"
@@ -48,12 +48,12 @@ export default function makingMarkup(results) {
         }</h2>
                     <p data-id="${id}" class="movie-card__info">
                         <b data-id="${id}">${
-          gettingGenresListForCard(genre_ids) || `Genre not defined`
+          gettingGenresListForCard(genre_ids) || genresNotFound()
         } | </b>
                     </p>
                     <p data-id="${id}" class="movie-card__info">
                       <b data-id="${id}">${
-          setReleaseDate(release_date, first_air_date) || `No data`
+          setReleaseDate(release_date, first_air_date) || noYearData()
         } 
                         </b>
                     </p>   
@@ -64,4 +64,24 @@ export default function makingMarkup(results) {
     )
     .join('');
   return markup;
+}
+
+function genresNotFound() {
+  const lang = localStorage.getItem('lang');
+  if (!lang || lang === 'en-US') {
+    return 'Genres not found';
+  }
+  if (lang === 'uk-UA') {
+    return 'Жанри не знайдено';
+  }
+}
+
+function noYearData() {
+  const lang = localStorage.getItem('lang');
+  if (!lang || lang === 'en-US') {
+    return 'No data';
+  }
+  if (lang === 'uk-UA') {
+    return 'Немає даних';
+  }
 }

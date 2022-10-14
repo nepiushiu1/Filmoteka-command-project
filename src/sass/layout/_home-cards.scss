@@ -1,4 +1,7 @@
 .film-cards{
+    // @include mq(tablet) {
+    //     padding-top: 30px;
+    // }
 
     &__container{
         position: relative;

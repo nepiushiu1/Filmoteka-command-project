@@ -18,6 +18,10 @@ refs.formSearch.addEventListener('submit', onSearchFilmByKeyword);
 function onSearchFilmByKeyword(e) {
   e.preventDefault();
 
+  if (e.currentTarget.elements.searchInput.value.trim() === '') {
+    return console.warn('Field cannot be empty');
+  }
+
   const searchFilms = e.currentTarget.elements.searchInput.value.trim();
   movieApiServise.query = searchFilms;
 
