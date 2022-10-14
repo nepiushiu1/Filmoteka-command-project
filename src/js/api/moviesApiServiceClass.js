@@ -6,12 +6,15 @@ export default class MoviesApiService {
   constructor() {
     this.searchQuery = '';
     this._page = 1;
+    this.language = 'en-US';
     // this.url = `${BASE_TRENDING_MOVIES_URL}trending/all/day?&api_key=${API_KEY}`;
   }
 
   // FETCHING FILMS FOR THE FIRST TIME
   fetchTrendingMovies() {
-    const url = `${BASE_TRENDING_MOVIES_URL}trending/all/day?&api_key=${API_KEY}&page=${this._page}`;
+    const url = `${BASE_TRENDING_MOVIES_URL}trending/all/day?&api_key=${API_KEY}&page=${
+      this._page
+    }&language=${this.setLanguage()}`;
 
     return fetch(url).then(response => {
       return response.json();
@@ -20,7 +23,7 @@ export default class MoviesApiService {
 
   // FETCHING GENRES FOR THE FIRST TIME
   fetchGenres() {
-    const url = `${BASE_GENRE_URL}&language=en-US&api_key=${API_KEY}`;
+    const url = `${BASE_GENRE_URL}&language=en-US&api_key=${API_KEY}&language=${this.setLanguage()}`;
     return fetch(url).then(response => {
       return response.json();
     });
@@ -28,11 +31,24 @@ export default class MoviesApiService {
 
   // FETCHING FILMS USING FORM
   fetchSearchingMovies() {
-    const url = `${BASE_TRENDING_MOVIES_URL}search/movie?api_key=${API_KEY}&page=${this._page}&query=${this.searchQuery}`;
+    const url = `${BASE_TRENDING_MOVIES_URL}search/movie?api_key=${API_KEY}&page=${
+      this._page
+    }&query=${this.searchQuery}&language=${this.setLanguage()}`;
 
     return fetch(url).then(response => {
       return response.json();
     });
+  }
+
+  setLanguage() {
+    if (!localStorage.getItem('lang')) {
+      return (this.language = 'en-US');
+    }
+    return (this.language = localStorage.getItem('lang'));
+  }
+
+  resetPage() {
+    this.page = 1;
   }
 
   get query() {
@@ -41,18 +57,6 @@ export default class MoviesApiService {
 
   set query(newQuery) {
     this.searchQuery = newQuery;
-  }
-
-  // incrementPage() {
-  //   this.page += 1;
-  // }
-
-  // decrementPage() {
-  //   this.page -= 1;
-  // }
-
-  resetPage() {
-    this.page = 1;
   }
 
   get page() {

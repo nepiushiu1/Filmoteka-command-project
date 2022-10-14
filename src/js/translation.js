@@ -1,9 +1,17 @@
 import i18next from 'i18next';
+import { refs } from './refs';
+import MoviesApiService from './api/moviesApiServiceClass';
+import makingMarkup from './api/render-card-markup';
+import { insertFilmsMarkupToHome } from './api/insertingIntoDifferentContainers';
+import Spinner from './spinner';
+
+const spinner = new Spinner();
+const moviesApiService = new MoviesApiService();
 
 i18next.init(
   {
     lng: localStorage.getItem('lang'),
-    debug: true,
+    debug: false,
     returnObjects: true,
     resources: {
       'en-US': {
@@ -17,6 +25,14 @@ i18next.init(
           developed: 'Developed with',
           students: 'by GoIT Students',
           support: 'Support',
+          emptyList: 'Your list is still empty',
+          votes: 'Vote / Votes',
+          popularity: 'Popularity',
+          originalTitle: 'Original Title',
+          genre: 'Genre',
+          about: 'About',
+          addToWatched: 'ADD TO WATCHED',
+          addToQueue: 'ADD TO QUEUE',
         },
       },
       'uk-UA': {
@@ -30,6 +46,14 @@ i18next.init(
           developed: 'Розроблено з',
           students: 'студентами GoIT',
           support: 'Підтримати',
+          emptyList: 'Наразі тут пусто',
+          votes: 'Рейтинг / Голосів',
+          popularity: 'Популярність',
+          originalTitle: 'Оригінальна назва',
+          genre: 'Жанр',
+          about: 'Опис',
+          addToWatched: 'ДОДАТИ ДО ПЕРЕГЛЯНУТИХ',
+          addToQueue: 'ДОДАТИ В ЧЕРГУ',
         },
       },
     },
@@ -39,7 +63,7 @@ i18next.init(
       i18next.changeLanguage('en-US');
     }
     updateContent();
-    bindLocaleSwitcher();
+    bindLanguageSwitcher();
   }
 );
 
@@ -54,14 +78,36 @@ function translateElement(element) {
   }
   element.innerText = i18next.t(key);
 }
-function bindLocaleSwitcher() {
+function bindLanguageSwitcher() {
   const switcher = document.querySelector('[data-switcher]');
   switcher.value = i18next.language;
   switcher.onchange = event => {
     updateContent();
     changeLanguage(event.target.value);
+    refs.homeCardsContainer.innerHTML = '';
+    moviesApiService
+      .fetchGenres()
+      .then(({ genres }) => {
+        for (const { id, name } of genres) {
+          localStorage.setItem(`genre_${id}`, name);
+        }
+      })
+      .catch(error => console.log(error));
+
+    spinner.show();
+    moviesApiService
+      .fetchTrendingMovies()
+      .then(({ results }) => {
+        const markup = makingMarkup(results);
+
+        spinner.hide();
+        insertFilmsMarkupToHome(markup);
+        localStorage.setItem(`currentFilm`, JSON.stringify(results));
+      })
+      .catch(error => console.log(error));
   };
 }
+
 function changeLanguage(lng) {
   localStorage.setItem('lang', lng);
   i18next.changeLanguage(lng);
