@@ -9,6 +9,7 @@ import {
   deleteQueue,
   deleteWatched,
 } from '../local_storage';
+import { translateItems } from '../translation';
 import { textModalBtn } from '../modal-btns';
 // const moviesApiService = new MoviesApiService();
 //* для відкриття трейлеру
@@ -40,6 +41,7 @@ function clickOnMovie(e) {
   let currentMovie = parsedCurrentArrayFilms.find(obj => obj.id == currentId);
 
   const render = makingModalCardMarkup(currentMovie);
+  translateItems('.movie__container--rigth-side [data-key]');
   insertModalMarkupHome(render);
   ///////////////////////////////////////////////////////////////////////////
   //** Код для запису об'єктів в LOCAL STORAGE */
