@@ -34,6 +34,7 @@ i18next.init(
           addToWatched: 'ADD TO WATCHED',
           addToQueue: 'ADD TO QUEUE',
           removeFromWatched: 'REMOVE FROM WATCHED',
+          other: 'Other',
         },
       },
       'uk-UA': {
@@ -56,6 +57,7 @@ i18next.init(
           addToWatched: 'ДОДАТИ ДО ПЕРЕГЛЯНУТИХ',
           addToQueue: 'ДОДАТИ В ЧЕРГУ',
           removeFromWatched: 'ВИДАЛИТИ З ПЕРЕГЛЯНУТИХ',
+          other: 'Інші',
         },
       },
     },

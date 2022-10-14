@@ -45,7 +45,7 @@ export function gettingGenresListForCard(array) {
       }
       counter += 1;
       if (counter === 3) {
-        genre_names += ', Other';
+        genre_names += ', ' + otherGenres();
         break;
       }
       if (genre_names) {
@@ -55,5 +55,15 @@ export function gettingGenresListForCard(array) {
       genre_names += genre_name;
     }
     return genre_names;
+  }
+}
+
+function otherGenres() {
+  const lang = localStorage.getItem('lang');
+  if (!lang || lang === 'en-US') {
+    return 'Other';
+  }
+  if (lang === 'uk-UA') {
+    return 'Інші';
   }
 }
