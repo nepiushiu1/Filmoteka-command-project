@@ -31,8 +31,44 @@
     }
   }
 
+  &--library{
+    height: 230px;
+    //анимация фона
+    -webkit-animation: kenburns-top-right 10s ease-out both;
+    animation: kenburns-top-right 10s ease-out both;
+    
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-image: url(../images/header/bg-header-lib_mob.jpg);
+    
+    @include mq(retina) {
+      background-image: url(../images/header/bg-header-lib_mob@2x.jpg);
+    }
+    
+    @include mq(tablet) {
+      background-image: url(../images/header/bg-header-lib_tab.jpg);
+    
+      @include mq(retina) {
+        background-image: url(../images/header/bg-header-lib_tab@2x.jpg);
+      }
+    }
+    
+    @include mq(desktop) {
+      background-image: url(../images/header/bg-header-lib_des.jpg);
+    
+      @include mq(retina) {
+        background-image: url(../images/header/bg-header-lib_des@2x.jpg);
+      }
+    }
+  }
+
   &__container {
+    position: absolute;
+    top: 0;
     height: 100%;
+    left: 0;
+    right: 0;
 
     @include mq(mobile-gummy) {
       width: 100%;
@@ -42,54 +78,23 @@
       width: 480px;
     }
   }
-}
 
-.animation {
-  &__container {
-    width: 100%;
-    height: 100%;
-    // анимация фона
-    -webkit-animation: kenburns-top-right 10s ease-out both;
-    animation: kenburns-top-right 10s ease-out both;
-
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    background-image: url(../images/header/bg-header-lib_mob.jpg);
-
-    @include mq(retina) {
-      background-image: url(../images/header/bg-header-lib_mob@2x.jpg);
-    }
-
-    @include mq(tablet) {
-      background-image: url(../images/header/bg-header-lib_tab.jpg);
-
-      @include mq(retina) {
-        background-image: url(../images/header/bg-header-lib_tab@2x.jpg);
-      }
-    }
-
-    @include mq(desktop) {
-      background-image: url(../images/header/bg-header-lib_des.jpg);
-
-      @include mq(retina) {
-        background-image: url(../images/header/bg-header-lib_des@2x.jpg);
-      }
-    }
-  }
-
-  &__content {
+  &__content{
     position: absolute;
     top: 0;
-    left: 0;
-    width: 100%;
     height: 100%;
+    left: 20px;
+    right: 20px;
+
+    @include mq(tablet){
+      left: 32px;
+      right: 32px;
+    }
   }
 }
 
 .navigation {
   display: flex;
-  //   justify-content: space-between;
   align-items: flex-end;
 
   margin-bottom: 60px;
@@ -138,20 +143,40 @@
 
 .menu {
   display: flex;
-  margin-right: 20px;
-  gap: 40px;
+  gap: 30px;
+  margin-right: 30px;
 
+  @include mq(tablet) {
+      gap: 40px;
+    }
+  
   &__item {
     color: var(--header-text-cl);
 
     @include fonts(500, 12px, 14px, uppercase);
+
+    @include mq(tablet){
+      @include fonts(500, 14px, 14px, uppercase);
+    }
+
+    @include mq(desktop) {
+      @include fonts(500, 16px, 14px, uppercase);
+    }
   }
 
   &__link {
     position: relative;
     display: block;
-    // padding-top: 44px;
+    padding-top: 3px;
     padding-bottom: 3px;
+
+    @include mq(tablet){
+      padding-bottom: 4px;
+    }
+
+    @include mq(desktop) {
+      padding-bottom: 5px;
+    }
   }
 
   &__link--current::after {
