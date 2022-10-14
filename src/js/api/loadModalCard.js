@@ -11,6 +11,7 @@ import {
 } from '../local_storage';
 import { translateItems } from '../translation';
 import { textModalBtn } from '../modal-btns';
+export const BASE_POSTER_URL = `https://image.tmdb.org/t/p/w500`;
 // const moviesApiService = new MoviesApiService();
 //* для відкриття трейлеру
 // import { onTrailerClickBtn } from '../movie-trailer';
@@ -121,13 +122,16 @@ function onModalCardBackdropClick(e) {
     onCloseModalBtnClick();
   }
 }
+//function creatPoster(poster_path) {
+  //return poster_path   
+ // ? `https://raw.githubusercontent.com/marvall/filmoteka/main/src/images/no-poster.png`
+ // : `${BASE_POSTER_URL}/${BASE_POSTER_URL}/${poster_path}`;
+//}
 
 function makingModalCardMarkup(obj) {
+  const noPosterPath = `https://raw.githubusercontent.com/marvall/filmoteka/main/src/images/no-poster.png`;
   const markup = `<div class="movie__container--left-side">              
-                  <img class="movie__image" src="https://www.themoviedb.org/t/p/w500${
-                    obj.poster_path ||
-                    `https://raw.githubusercontent.com/marvall/filmoteka/main/src/images/no-poster.png`
-                  }"
+                  <img class="movie__image" src="https://www.themoviedb.org/t/p/w500${ obj.poster_path || noPosterPath }"
                     alt="${obj.title || obj.name}" />
                     <button type="button" class="movie__btn-trailer">
                         <svg width='120' height='80' class='youtube-icon' viewBox='0 -77 512.00213 512'>

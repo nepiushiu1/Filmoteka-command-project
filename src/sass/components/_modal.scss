@@ -145,7 +145,7 @@ body.show-modal .modal-container {
     align-items: center;  
     text-align: center; 
     top: 45%;
-    left: 35%;
+    left: 65%;
 
     width: 120px;
     height: 60px;
@@ -297,9 +297,12 @@ body.show-modal .modal-container {
         color: var(--secondary-text-cl);
         border: 2px solid var(--secondary-text-cl);
 
-        transition-duration: 300ms;
-        transition-timing-function: ease-in-out;
-        transform: scale(120%, 120%);
+        //анимация
+        -webkit-animation: swing 6s ease-in-out infinite forwards;
+        animation: swing 6s ease-in-out infinite forwards;
+        
+        transition: box-shadow var(--transition-duration) var(--transition-timing-function);
+ 
     }
 
     &.btn--accent:hover,
@@ -308,9 +311,11 @@ body.show-modal .modal-container {
         color: var(--secondary-text-cl);
         border: 2px solid var(--secondary-text-cl);
 
-        transition-duration: 300ms;
-        transition-timing-function: ease-in-out;
-        transform: scale(120%, 120%);
+       //анимация
+       -webkit-animation: swing 6s ease-in-out infinite forwards;
+       animation: swing 6s ease-in-out infinite forwards;
+   
+   transition: box-shadow var(--transition-duration) var(--transition-timing-function);
     }
 
 }
