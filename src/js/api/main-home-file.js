@@ -4,6 +4,8 @@ import makingMarkup from './render-card-markup';
 import { insertFilmsMarkupToHome } from './insertingIntoDifferentContainers';
 import { refs } from '../refs';
 import { createPagination } from '../pagination';
+import { BASE_POSTER_URL } from './render-card-markup';
+import { makingSwiper } from './render-slide-markup';
 
 const moviesApiService = new MoviesApiService();
 const spinner = new Spinner();
@@ -27,6 +29,7 @@ moviesApiService
     const markup = makingMarkup(results);
 
     spinner.hide();
+    // makingSwiper(results);
     insertFilmsMarkupToHome(markup);
     createPagination(total_results);
     localStorage.setItem(`currentFilm`, JSON.stringify(results));
