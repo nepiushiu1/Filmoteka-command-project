@@ -25,3 +25,6 @@ import './js/vendors/aos';
 
 // translation
 import './js/translation';
+
+//movie-trailer
+// import './js/movie-trailer';

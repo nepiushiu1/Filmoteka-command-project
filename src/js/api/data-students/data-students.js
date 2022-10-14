@@ -2,61 +2,71 @@ const data = [
   {
     id: '1',
     name: 'Anna Burenko',
-    information: 'information',
+    information:
+      '(Scrum): организация ежедневных миттингов, контроль выполенения тасков, верстка хедера, переходы по логотипу, ссылкам "Home" "My library".Она же "массовик-затейник", она же кровельщик проекта. Верстка хедера и переходы',
     url: 'url("https://i.postimg.cc/1zYg7HRL/photo-1.jpg")',
   },
   {
     id: '2',
-    name: 'Олександр',
-    information: 'information',
+    name: 'Александр Матяш',
+    information:
+      'Добавление в очередь просмотра. Планирование наше все! Он знает, кто за кем занимал очередь и какие у Вас планы на вечер.',
     url: 'url("https://i.postimg.cc/SNK6dcLK/photo-2022-10-12-15-26-08.jpg")',
   },
   {
     id: '3',
     name: 'Марина Янева',
-    information: 'information',
+    information:
+      'Верстка и реализация модального окна. Ее стараниями наш клиент может смотреть вечно на 3 вещи: как горит костер, течет вода и как выглядит открытое модальное окно.',
     url: 'url("https://i.postimg.cc/BvFkvrtR/photo-2022-10-12-15-30-45.jpg")',
   },
   {
     id: '4',
-    name: 'Alexander',
-    information: 'information',
+    name: 'Александр Рудник',
+    information:
+      'Верстка, стилизация и настройка пагинации. Мастер "хлебных крошек": проложил путь куда пойти и как потом вернутся',
     url: 'url("https://i.postimg.cc/VstqVzpx/photo-2022-10-12-15-32-31.jpg")',
   },
   {
     id: '5',
     name: 'Ivan Roschin',
-    information: 'information',
+    information:
+      ' Верстка шаблона карточки фильма, загрузка популярных фильмов на главную страницу. Недовчив, недочитав, картежник, мастер делегировать процессы',
     url: 'url("https://i.postimg.cc/02bssHd1/photo-2022-10-12-15-32-47.jpg")',
   },
   {
     id: '6',
-    name: 'Наталія Пасаман',
-    information: 'information',
-    url: 'url("https://i.postimg.cc/7PC4vWN8/photo-2022-10-12-15-33-00.jpg")',
+    name: 'Nataliia Pasaman',
+    information:
+      'Добавление в список просмотренных фильмов .Вот этот уже смотрели! Наталья точно знает что было позавчера и вчера и может в случае чего напомнить',
+    url: 'url("https://i.postimg.cc/bvyyP8qN/photo-2022-10-13-12-32-07.jpg")',
   },
   {
     id: '7',
-    name: 'Sergey',
-    information: 'information',
+    name: 'Sergiy Vlasenko',
+    information:
+      'Верстка модалки с участниками в футере. Сергею не надо ничего говорить. Он знает о команде все. Легко может рассказать  и показать то, чем каждый студент занимался последнюю неделю. ',
     url: 'url("https://i.postimg.cc/tTWk9GRJ/A1-A43-FE3-3855-4856-9962-D3-DED582-D5-A4-1-201-a.jpg")',
   },
   {
     id: '8',
-    name: 'name',
-    information: 'information',
+    name: 'Анастасия Губа',
+    information:
+      ' (Team Lead): координация работы команды, код ревью, контейнеры страниц, верстка футера Архитектор проекта. Знает разницу между руководителем и лидером. Мастер кнута и пряника',
     url: 'url("https://i.postimg.cc/BQZstnTD/photo-2022-10-12-15-51-05.jpg")',
   },
   {
     id: '9',
-    name: 'name',
-    information: 'information',
+    name: 'Владислав Будко',
+    information:
+      '  Отрисовка фильмов при переходе на новую страницу.Рисувальник фильмов, организатор переходов по страницам сайта',
     url: 'url("https://i.postimg.cc/BQZstnTD/photo-2022-10-12-15-51-05.jpg")',
   },
   {
     id: '10',
-    name: 'name',
-    information: 'information',
+    name: 'Андрей Ярмош',
+    information:
+      ' Поиск и отображение фильмов по ключевому слову ."Шерлок Холмс" нашего проекта. Наш детектив организовал поиск и отрисовку по ключевому слову',
     url: 'url("https://i.postimg.cc/BQZstnTD/photo-2022-10-12-15-51-05.jpg")',
   },
 ];
