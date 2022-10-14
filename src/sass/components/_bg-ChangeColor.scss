@@ -39,13 +39,10 @@ body {
 
 .switch {
   position: absolute;
-  // left: 50%;
-  // top: 85px;
-  // bottom: 0;
   top: 0%;
   left: 0;
   right: 0;
-  // z-index: 1;
+  z-index: 1;
 
   margin: auto;
   display: grid;
@@ -63,7 +60,6 @@ body {
 
   to {
     transform: rotateX(25deg) rotateZ(90deg) scale(1);
-    // translate(-0%, 100%);
   }
 }
 
@@ -74,14 +70,30 @@ body {
   grid-column: 1 / -1;
   grid-row: 1 / -1;
   pointer-events: none;
+  width: calc(var(--size) * 1.6);
+  height: calc(var(--size) * 2.2);
+    // background-color: hsl(var(--h) var(--s) calc(var(--l) - 81%));
+  // background-color: rgb(38, 47, 53);
+  background-color: rgb(1, 1, 1);
+
+  transform: translateZ(-5px);
+  transition: background-color var(--dur) var(--ease);
+}
+
+// Home page
+.switch-home::before{
+  overflow: hidden;
+  content: '';
+  position: relative;
+  grid-column: 1 / -1;
+  grid-row: 1 / -1;
+  pointer-events: none;
   width: calc(var(--size) * 2);
   height: calc(var(--size) * 3);
-  //   background-color: hsl(var(--h) var(--s) calc(var(--l) - 81%));
-  background-color: rgb(38, 46, 53);
+  background-color: rgb(38, 47, 53);
   // background-color: rgb(1, 1, 1);
 
-  
-  transform: translateZ(-1px);
+  transform: translateZ(-5px);
   transition: background-color var(--dur) var(--ease);
 }
 
@@ -98,6 +110,8 @@ body {
 .switch label {
   --focus-border: 2px dashed dodgerblue;
   --focus-offset: -1vmin;
+  // writing-mode: vertical-lr;
+  // transform: rotate(90deg);
 
   grid-column: 1;
   display: flex;
@@ -108,7 +122,8 @@ body {
   font-size: calc(var(--size) / 3);
   line-height: 1;
   text-transform: uppercase;
-  text-shadow: hsla(0, 86%, 45%, 0.342) 2px 2px 0.2vmin;
+  text-shadow: hsl(60, 52%, 64%) 2px 2px 0.2vmin;
+
   color: hsl(var(--h) var(--s) calc(var(--l) - 60%));
   width: var(--size);
   height: var(--size);
@@ -148,7 +163,6 @@ body {
   cursor: initial;
   background-color: hsl(var(--h) var(--s) calc(var(--l) - 7%));
   text-shadow: hsla(0, 86%, 45%, 0.727) 2px 2px 0.2vmin;
-
 }
 
 .switch label:first-of-type {
@@ -180,10 +194,16 @@ body {
   background-color: hsl(var(--h) var(--s) calc(var(--l) - 15%));
 }
 
-.switch label::after {
+.switch-home label::after {
   width: calc(var(--size) / 2);
   transform-origin: center right;
   background-color: hsl(var(--h) var(--s) calc(var(--l) - 20%));
+}
+
+.switch label::after {
+  width: calc(var(--size) / 2);
+  transform-origin: center right;
+  background-color: hsl(var(--h) var(--s) calc(var(--l) - 10%));
 }
 
 .switch label:first-of-type::before {

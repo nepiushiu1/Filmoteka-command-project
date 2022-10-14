@@ -11,21 +11,22 @@ function addChangeBgColorBtn() {
   const changeBgColorBtn = document.createElement('div');
   changeBgColorBtn.classList.add('switch');
 
-  refs.bgColorBtn.append(changeBgColorBtn);
+  refs.pageHeader.append(changeBgColorBtn);
   changeBgColorBtn.insertAdjacentHTML('beforeend', bgColorBtn);
+
+  // Добавляем цвет фона кнопки для Main
+const documentTitle = document.title;
+// console.log(documentTitle);
+if (documentTitle === 'Filmoteka') {
+  console.log('Filmoteka2', documentTitle);
+  changeBgColorBtn.classList.add('switch-home');
+
+//   const refsAllColorBtn = refs.pageHeader.querySelector('.switch');
+//   console.log(refsAllColorBtn);
+//   console.log('Filmoteka3');
+}
 }
 addChangeBgColorBtn();
-
-// Добавляем цвет фона кнопки для Main
-// const documentTitle = document.title;
-// console.log(documentTitle);
-// if (documentTitle === 'Filmoteka') {
-//   console.log('Filmoteka', documentTitle);
-//   const refsAllColorBtn = document.querySelectorAll('.switch');
-//   console.log(refsAllColorBtn);
-
-//   console.log('22222Filmoteka2');
-// }
 
 // Доп функции
 const refsChangeBgColorBtn = document.querySelectorAll('.switch input');
@@ -65,3 +66,4 @@ refsChangeBgColorBtn.forEach(radio => {
     bgColorExportData.onBgColorBtnClick(radio);
   });
 });
+
