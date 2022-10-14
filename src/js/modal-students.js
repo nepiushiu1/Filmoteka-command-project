@@ -112,6 +112,3 @@ const marcup = data.map(({ name, information }) => {
 `;
 });
 // .join('');
-
-console.log(marcup[1]);
-// 111
