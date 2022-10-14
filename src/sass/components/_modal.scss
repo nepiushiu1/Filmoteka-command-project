@@ -429,6 +429,7 @@ body.show-modal .modal-container {
         }
         &__about-text {
             max-height: 160px;
+            overflow-y: scroll;
         }
     }
 
