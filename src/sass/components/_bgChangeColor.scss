@@ -18,7 +18,7 @@ body {
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
 
   // display: grid;
-  perspective: 50em;
+  // perspective: 50em;
   background-color: var(--bg);
   transition: background-color var(--dur) var(--ease);
 }
@@ -40,11 +40,12 @@ body {
 .switch {
   position: absolute;
   // left: 50%;
-  top: 85px;
+  // top: 85px;
   // bottom: 0;
-  // left: 0;
-  right: 3%;
-  z-index: 1;
+  top: 0%;
+  left: 0;
+  right: 0;
+  // z-index: 1;
 
   margin: auto;
   display: grid;
@@ -61,7 +62,7 @@ body {
   }
 
   to {
-    transform: rotateX(25deg) rotateZ(90deg) scale(1) 
+    transform: rotateX(25deg) rotateZ(90deg) scale(1);
     // translate(-0%, 100%);
   }
 }
@@ -76,13 +77,16 @@ body {
   width: calc(var(--size) * 2);
   height: calc(var(--size) * 3);
   //   background-color: hsl(var(--h) var(--s) calc(var(--l) - 81%));
-  background-color: #262626;
+  background-color: rgb(38, 46, 53);
+  // background-color: rgb(1, 1, 1);
+
+  
   transform: translateZ(-1px);
   transition: background-color var(--dur) var(--ease);
 }
 
 .switch input {
-  clip: rect(0 0 0 0);
+  // clip: rect(0 0 0 0);
   clip-path: inset(50%);
   height: 1px;
   overflow: hidden;
@@ -104,8 +108,8 @@ body {
   font-size: calc(var(--size) / 3);
   line-height: 1;
   text-transform: uppercase;
-  text-shadow: hsla(0, 70%, 36%, 0.318) 2px 2px 0.2vmin;
-  color: hsl(var(--h) var(--s) calc(var(--l) - 50%));
+  text-shadow: hsla(0, 86%, 45%, 0.342) 2px 2px 0.2vmin;
+  color: hsl(var(--h) var(--s) calc(var(--l) - 60%));
   width: var(--size);
   height: var(--size);
   background-color: hsl(var(--h) var(--s) var(--l));
@@ -142,7 +146,9 @@ body {
 
 .switch input:checked + label {
   cursor: initial;
-  background-color: hsl(var(--h) var(--s) calc(var(--l) - 5%));
+  background-color: hsl(var(--h) var(--s) calc(var(--l) - 7%));
+  text-shadow: hsla(0, 86%, 45%, 0.727) 2px 2px 0.2vmin;
+
 }
 
 .switch label:first-of-type {

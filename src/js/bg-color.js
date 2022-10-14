@@ -1,7 +1,7 @@
 import { refs } from './refs';
 
 // Добавление кнопки в HTML
-function changeBgColorBtn() {
+function addChangeBgColorBtn() {
   const bgColorBtn = `
   <input id="on" type="radio" name="status" value="on" checked="checked"/>
   <label for="on">on</label>
@@ -10,11 +10,22 @@ function changeBgColorBtn() {
 
   const changeBgColorBtn = document.createElement('div');
   changeBgColorBtn.classList.add('switch');
-  
+
   refs.bgColorBtn.append(changeBgColorBtn);
   changeBgColorBtn.insertAdjacentHTML('beforeend', bgColorBtn);
 }
-changeBgColorBtn();
+addChangeBgColorBtn();
+
+// Добавляем цвет фона кнопки для Main
+// const documentTitle = document.title;
+// console.log(documentTitle);
+// if (documentTitle === 'Filmoteka') {
+//   console.log('Filmoteka', documentTitle);
+//   const refsAllColorBtn = document.querySelectorAll('.switch');
+//   console.log(refsAllColorBtn);
+
+//   console.log('22222Filmoteka2');
+// }
 
 // Доп функции
 const refsChangeBgColorBtn = document.querySelectorAll('.switch input');
