@@ -3,7 +3,8 @@ import makingMarkup from './api/render-card-markup';
 import { insertFilmsMarkupToLibrary } from './api/insertingIntoDifferentContainers';
 
 //ДОДАТИ ДО КЛЮЧА "WATCHED" В LOCAL STORAGE
-export function addWatchedLocalStorage(obj, btn) {
+// Передано змінну style
+export function addWatchedLocalStorage(obj, btn, style) {
   let arrayFilmsWatched = [];
   const w = localStorage.getItem('watched');
   if (w) {
@@ -13,7 +14,7 @@ export function addWatchedLocalStorage(obj, btn) {
   // Перевірка на наявність об'єкта в масиві фільмів "WATCHED"
   const isAddedFilm = arrayFilmsWatched.find(arr => arr.id === obj.id);
   if (isAddedFilm) {
-    deleteWatched(obj);
+    deleteWatched(obj, style);
     return;
   }
 
@@ -24,7 +25,7 @@ export function addWatchedLocalStorage(obj, btn) {
 }
 
 //ДОДАТИ ДО КЛЮЧА "QUEUE" В LOCAL STORAGE
-export function addQueueLocalStorage(obj, btn) {
+export function addQueueLocalStorage(obj, btn, style) {
   let arrayFilmsQueue = [];
   const q = localStorage.getItem('queue');
   if (q) {
@@ -34,7 +35,7 @@ export function addQueueLocalStorage(obj, btn) {
   // Перевірка на наявність об'єкта в масиві фільмів "QUEUE"
   const isAddedFilm = arrayFilmsQueue.find(arr => arr.id === obj.id);
   if (isAddedFilm) {
-    deleteQueue(btn);
+    deleteQueue(btn, style);
     return;
   }
 
@@ -92,23 +93,39 @@ export function getQueueFilms() {
 }
 
 // Функція для видалення фільмів з масиву WATCHED
-export function deleteWatched(element) {
+export function deleteWatched(element, style) {
+  console.log('style', style);
   const arrayFromLocStorage = JSON.parse(localStorage.getItem('watched'));
   const index = arrayFromLocStorage.findIndex(arr => arr.id === element.id);
   arrayFromLocStorage.splice(index, 1);
 
   localStorage.setItem('watched', JSON.stringify(arrayFromLocStorage));
-  getWatchedFilms();
+  // Додано умову застосування функції getWatchedFilms()
+  if (style) {
+    console.log('Видалення з головної сторінки');
+    return;
+  } else {
+    getWatchedFilms();
+    console.log('Видалення з бібліотеки!!!!!!!!!!!!');
+  }
 }
 
 // Функція для видалення фільмів з масиву QUEUE
-export function deleteQueue(element) {
+export function deleteQueue(element, style) {
+  console.log('style', style);
   const arrayFromLocStorage = JSON.parse(localStorage.getItem('queue'));
   const index = arrayFromLocStorage.findIndex(arr => arr.id === element.id);
   arrayFromLocStorage.splice(index, 1);
 
   localStorage.setItem('queue', JSON.stringify(arrayFromLocStorage));
-  getQueueFilms();
+  // Додано умову застосування функції getWatchedFilms()
+  if (style) {
+    console.log('Видалення з головної сторінки');
+    return;
+  } else {
+    getQueueFilms();
+    console.log('Видалення з бібліотеки!!!!!!!!!!!!');
+  }
 }
 
 //   Фунуція для очищення попередніх результатів рендеру
