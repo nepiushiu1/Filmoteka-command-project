@@ -1,6 +1,7 @@
 import { gettingGenresListForCard } from './gettingGenresList';
 import { setReleaseDate } from './setReleaseDate';
 import { setReleaseVote } from './setReleaseDate';
+
 import { refs } from '../refs';
 
 export const BASE_POSTER_URL = `https://image.tmdb.org/t/p/w500`;
@@ -14,6 +15,7 @@ export default function makingMarkup(results) {
         poster_path,
         genre_ids,
         release_date,
+        first_air_date,
         vote_average,
         id,
       }) => {
@@ -50,7 +52,9 @@ export default function makingMarkup(results) {
         } | </b>
                     </p>
                     <p data-id="${id}" class="movie-card__info">
-                        <b data-id="${id}">${setReleaseDate(release_date)} 
+                      <b data-id="${id}">${
+          setReleaseDate(release_date, first_air_date) || `No data`
+        } 
                         </b>
                     </p>   
                     </div>
