@@ -13,7 +13,7 @@ export function createLibraryPagination(name) {
   if (!fullLibrary) {
     container.innerHTML = '';
     refs.libraryCardsContainer.innerHTML =
-      '<div style="font-size: 20px">Your list is still empty</div>';
+      '<div style="font-size: 20px" data-key="emptyList">Your list is still empty</div>';
     return;
   }
 

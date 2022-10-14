@@ -1,7 +1,9 @@
-export function setReleaseDate(releaseDate) {
-  if (!releaseDate) {
-    return 'No data';
-  } else return releaseDate.slice(0, 4);
+export function setReleaseDate(releaseDate, firstDate) {
+  if (releaseDate) {
+    return releaseDate.slice(0, 4);
+  } else if (firstDate) {
+    return firstDate.slice(0, 4);
+  }
 }
 
 export function setReleaseVote(vote) {

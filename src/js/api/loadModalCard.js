@@ -9,6 +9,7 @@ import {
   deleteQueue,
   deleteWatched,
 } from '../local_storage';
+import { translateItems } from '../translation';
 import { textModalBtn } from '../modal-btns';
 // const moviesApiService = new MoviesApiService();
 //* для відкриття трейлеру
@@ -40,6 +41,7 @@ function clickOnMovie(e) {
   let currentMovie = parsedCurrentArrayFilms.find(obj => obj.id == currentId);
 
   const render = makingModalCardMarkup(currentMovie);
+  translateItems('.movie__container--rigth-side [data-key]');
   insertModalMarkupHome(render);
   ///////////////////////////////////////////////////////////////////////////
   //** Код для запису об'єктів в LOCAL STORAGE */
@@ -141,7 +143,7 @@ function makingModalCardMarkup(obj) {
                 <table class="movie__info">
                     <tbody>
                         <tr class="movie__info-rows">
-                            <td class="movie__info-name">Vote / Votes</td>
+                            <td class="movie__info-name" data-key="votes">Vote / Votes</td>
                             <td class="movie__info-rating">
                                 <span class="movie__info-rating-value movie__info-rating--accent">${
                                   obj.vote_average
@@ -153,19 +155,19 @@ function makingModalCardMarkup(obj) {
                             </td>
                         </tr>
                         <tr class="movie__info-rows">
-                            <td class="movie__info-name">Popularity</td>
+                            <td class="movie__info-name" data-key="popularity">Popularity</td>
                             <td class="movie__info-numbers">${
                               obj.popularity
                             }</td>
                         </tr>
                         <tr class="movie__info-rows">
-                            <td class="movie__info-name">Original Title</td>
+                            <td class="movie__info-name" data-key="originalTitle">Original Title</td>
                             <td class="movie__info-value">${
                               obj.original_title || obj.original_name
                             }</td>
                         </tr>
                         <tr class="movie__info-rows movie__info-rows--last">
-                            <td class="movie__info-name">Genre</td>
+                            <td class="movie__info-name" data-key="genre">Genre</td>
                             <td class="movie__info-value">${
                               gettingGenresListForModal(obj.genre_ids) ||
                               'Genre not defined'
@@ -173,7 +175,7 @@ function makingModalCardMarkup(obj) {
                         </tr>
                     </tbody>
                 </table>
-                <h2 class="movie__about-title">About</h2>
+                <h2 class="movie__about-title" data-key="about">About</h2>
                 <p class="movie__about-text">
                     ${obj.overview || 'No text'}
                 </p>
