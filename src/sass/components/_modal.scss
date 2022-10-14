@@ -297,9 +297,12 @@ body.show-modal .modal-container {
         color: var(--secondary-text-cl);
         border: 2px solid var(--secondary-text-cl);
 
-        transition-duration: 300ms;
-        transition-timing-function: ease-in-out;
-        transform: scale(110%, 110%);
+        //анимация
+        -webkit-animation: swing 6s ease-in-out infinite forwards;
+        animation: swing 6s ease-in-out infinite forwards;
+        
+        transition: box-shadow var(--transition-duration) var(--transition-timing-function);
+ 
     }
 
     &.btn--accent:hover,
@@ -308,9 +311,11 @@ body.show-modal .modal-container {
         color: var(--secondary-text-cl);
         border: 2px solid var(--secondary-text-cl);
 
-        transition-duration: 300ms;
-        transition-timing-function: ease-in-out;
-        transform: scale(110%, 110%);
+       //анимация
+       -webkit-animation: swing 6s ease-in-out infinite forwards;
+       animation: swing 6s ease-in-out infinite forwards;
+   
+   transition: box-shadow var(--transition-duration) var(--transition-timing-function);
     }
 
 }
