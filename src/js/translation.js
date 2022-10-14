@@ -16,6 +16,7 @@ i18next.init(
           rights: '| All Rights Reserved |',
           developed: 'Developed with',
           students: 'by GoIT Students',
+          support: 'Support',
         },
       },
       'uk-UA': {
@@ -28,11 +29,15 @@ i18next.init(
           rights: '| Всі права захищено |',
           developed: 'Розроблено з',
           students: 'студентами GoIT',
+          support: 'Підтримати',
         },
       },
     },
   },
   function (err, t) {
+    if (!localStorage.getItem('lang')) {
+      i18next.changeLanguage('en-US');
+    }
     updateContent();
     bindLocaleSwitcher();
   }

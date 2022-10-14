@@ -29,3 +29,8 @@ import './js/translation';
 // change BG color
 import './js/bg-color';
 
+// advertising
+import './js/advertising';
+
+//movie-trailer
+// import './js/movie-trailer';

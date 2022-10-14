@@ -26,6 +26,9 @@ export const refs = {
   //spinner
   spinner: document.querySelector('.lds-spinner'),
 
+  //advertising
+  advertising: document.querySelector('.advertising'),
+  
   // bg-color-btn
   bgColorBtn: document.querySelector('.page-header'),
 };

@@ -1,53 +1,44 @@
 <header class="page-header">
-  <div class="animation__container"></div>
-  <div class="container page-header__container animation__content">
-    <nav class="navigation">
-      <a class="logo link" href="./index.html">
-        <svg class="logo__icon" width="24" height="24">
-          <use href="./images/symbol-defs.svg#film-icon"></use>
-        </svg>
-        <span class="logo__text"> Filmoteka </span>
-      </a>
-      <ul class="menu list">
-        <li class="menu__item">
-          <a
-            class="menu__link link menu__link--ancurrent"
-            data-key="home"
-            href="./index.html"
-            >Home</a
-          >
+  <div class="page-header--library">
+  </div>
+  
+  <div class="page-header__container container">
+    <div class="page-header__content">
+      <nav class="navigation">
+        <a class="logo link" href="./index.html">
+          <svg class="logo__icon" width="24" height="24">
+            <use href="./images/symbol-defs.svg#film-icon"></use>
+          </svg>
+          <span class="logo__text"> Filmoteka </span>
+        </a>
+      
+        <ul class="menu list">
+          <li class="menu__item">
+            <a class="menu__link link menu__link--ancurrent" data-key="home" href="./index.html">Home</a>
+          </li>
+          <li class="menu__item">
+            <a class="menu__link link menu__link--current" data-key="library" href="./library.html">My library</a>
+          </li>
+        </ul>
+      
+        <select name="" id="" data-switcher class="lang">
+          <option value="en-US" class="option-value">EN</option>
+          <option value="uk-UA" class="option-value">UA</option>
+        </select>
+      </nav>
+      
+      <ul class="filter list">
+        <li class="filter__item">
+          <button id="watched" class="filter__btn filter__btn--accent" type="button" data-key="watched">
+            Watched
+          </button>
         </li>
-        <li class="menu__item">
-          <a
-            class="menu__link link menu__link--current"
-            data-key="library"
-            href="./library.html"
-            >My library</a
-          >
+        <li class="filter__item">
+          <button id="queue" class="filter__btn" data-key="queue" type="button">
+            Queue
+          </button>
         </li>
       </ul>
-      <select name="" id="" data-switcher class="lang">
-        <option value="en-US" class="option-value">EN</option>
-        <option value="uk-UA" class="option-value">UA</option>
-      </select>
-    </nav>
-
-    <ul class="filter list">
-      <li class="filter__item">
-        <button
-          id="watched"
-          class="filter__btn filter__btn--accent"
-          type="button"
-          data-key="watched"
-        >
-          Watched
-        </button>
-      </li>
-      <li class="filter__item">
-        <button id="queue" class="filter__btn" data-key="queue" type="button">
-          Queue
-        </button>
-      </li>
-    </ul>
-  </div>
+    </div> 
+  </div>  
 </header>
