@@ -33,6 +33,7 @@ i18next.init(
           about: 'About',
           addToWatched: 'ADD TO WATCHED',
           addToQueue: 'ADD TO QUEUE',
+          removeFromWatched: 'REMOVE FROM WATCHED',
         },
       },
       'uk-UA': {
@@ -54,6 +55,7 @@ i18next.init(
           about: 'Опис',
           addToWatched: 'ДОДАТИ ДО ПЕРЕГЛЯНУТИХ',
           addToQueue: 'ДОДАТИ В ЧЕРГУ',
+          removeFromWatched: 'ВИДАЛИТИ З ПЕРЕГЛЯНУТИХ',
         },
       },
     },
@@ -118,5 +120,7 @@ i18next.on('languageChanged', () => {
 });
 
 export function translateItems(string) {
-  document.querySelectorAll('string').forEach(translateElement);
+  setTimeout(() => {
+    document.querySelectorAll(string).forEach(translateElement);
+  }, 200);
 }

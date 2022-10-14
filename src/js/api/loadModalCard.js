@@ -1,4 +1,3 @@
-import { translateItems } from '../translation';
 import { gettingGenresListForModal } from './gettingGenresList';
 import makingMarkup from '../api/render-card-markup';
 // import MoviesApiService from './moviesApiServiceClass';
@@ -41,8 +40,6 @@ function clickOnMovie(e) {
   let currentMovie = parsedCurrentArrayFilms.find(obj => obj.id == currentId);
 
   const render = makingModalCardMarkup(currentMovie);
-  console.log('RENDER', render);
-
   insertModalMarkupHome(render);
   ///////////////////////////////////////////////////////////////////////////
   //** Код для запису об'єктів в LOCAL STORAGE */
@@ -184,11 +181,11 @@ function makingModalCardMarkup(obj) {
                    
                     <button type="submit" id="watched-btn" data-id="${
                       obj.id
-                    }" class="movie__btn btn btn--accent" data-key="addToWatched">ADD TO WATCHED
+                    }" class="movie__btn btn btn--accent">ADD TO WATCHED
                         </button>
                     <button type="submit" id="queue-btn" data-id="${
                       obj.id
-                    }" class="movie__btn btn btn-queue" data-key="addToQueue">ADD TO QUEUE
+                    }" class="movie__btn btn btn-queue">ADD TO QUEUE
                         </button>
                 </div>
             </div>
