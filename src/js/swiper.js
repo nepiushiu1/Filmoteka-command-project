@@ -1,4 +1,4 @@
-const swiper = new Swiper('.swiper', {
+export const swiper = new Swiper('.swiper', {
   watchSlidesProgress: true,
   loop: true,
   grabCursor: true,
