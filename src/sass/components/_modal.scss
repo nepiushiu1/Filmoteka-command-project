@@ -145,7 +145,7 @@ body.show-modal .modal-container {
     align-items: center;  
     text-align: center; 
     top: 45%;
-    left: 35%;
+    left: 65%;
 
     width: 120px;
     height: 60px;
@@ -299,7 +299,7 @@ body.show-modal .modal-container {
 
         transition-duration: 300ms;
         transition-timing-function: ease-in-out;
-        transform: scale(120%, 120%);
+        transform: scale(110%, 110%);
     }
 
     &.btn--accent:hover,
@@ -310,7 +310,7 @@ body.show-modal .modal-container {
 
         transition-duration: 300ms;
         transition-timing-function: ease-in-out;
-        transform: scale(120%, 120%);
+        transform: scale(110%, 110%);
     }
 
 }
