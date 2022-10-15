@@ -20,7 +20,9 @@ export function addWatchedLocalStorage(obj, btn, style) {
 
   arrayFilmsWatched.push(obj);
   localStorage.setItem('watched', JSON.stringify(arrayFilmsWatched));
-  // btn.textContent = 'REMOVE FROM WATCHED';
+  if (btn.textContent === 'ADD TO WATCHED') {
+    btn.textContent = 'REMOVE FROM WATCHED';
+  }
   return arrayFilmsWatched;
 }
 
@@ -41,7 +43,9 @@ export function addQueueLocalStorage(obj, btn, style) {
 
   arrayFilmsQueue.push(obj);
   localStorage.setItem('queue', JSON.stringify(arrayFilmsQueue));
-  // btn.textContent = 'REMOVE FROM QUEUE';
+  if (btn.textContent === 'ADD TO QUEUE') {
+    btn.textContent = 'REMOVE FROM QUEUE';
+  }
   return arrayFilmsQueue;
 }
 
@@ -56,7 +60,6 @@ export function getWatchedFilms() {
     }
 
     const parsedFilms = JSON.parse(saveFilms);
-    console.log(parsedFilms.length);
     if (parsedFilms.length === 0) {
       addScreenSaver();
       return;
