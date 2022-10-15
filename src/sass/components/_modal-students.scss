@@ -12,11 +12,14 @@
   z-index: 1;
 
   opacity: 1;
+  @include mq(not-desktop) {
+    opacity: 0;
+    visibility: hidden;
+  }
 }
 .modal-wrapper_students {
   position: relative;
   background-color: rgba(67, 56, 56, 0.95);
-  // max-width: 1140px;
 
   left: 50%;
   top: 50%;
@@ -104,7 +107,7 @@ li.circle:focus {
   width: 400px;
   height: 400px;
   position: absolute;
-  background-color: rgb(226, 167, 47);
+  background-color: rgb(216, 162, 55);
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -115,12 +118,14 @@ li.circle:focus {
   justify-content: flex-start;
 }
 .data-student_name {
-  font-size: 20;
-  margin-top: 50px;
+  font-size: 30;
+  margin-top: 70px;
 }
 .data-student_information {
-  font-size: 15;
-  margin-top: 30px;
+  text-indent: 20px;
+  font-size: 20;
+  margin-top: 50px;
   margin-right: 50px;
   margin-left: 50px;
+  line-height: 25px;
 }
