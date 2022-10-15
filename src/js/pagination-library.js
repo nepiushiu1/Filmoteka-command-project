@@ -3,19 +3,18 @@ import makingMarkup from './api/render-card-markup';
 import { insertFilmsMarkupToLibrary } from './api/insertingIntoDifferentContainers';
 import { refs } from './refs';
 
-let fullLibrary = JSON.parse(localStorage.getItem('watched'));
-createLibraryPagination('watched');
-
 export function createLibraryPagination(name) {
-  fullLibrary = JSON.parse(localStorage.getItem(`${name}`));
+  let fullLibrary = JSON.parse(localStorage.getItem(`${name}`));
+  // console.log(fullLibrary);
   const container = document.getElementById('pagination-library');
 
-  if (!fullLibrary) {
+  if (!fullLibrary || fullLibrary.length === 0) {
     container.innerHTML = '';
     refs.libraryCardsContainer.innerHTML =
       '<div style="font-size: 20px" data-key="emptyList">Your list is still empty</div>';
     return;
   }
+  console.log(fullLibrary.length);
 
   const options = {
     totalItems: fullLibrary.length,
@@ -70,7 +69,8 @@ export function createLibraryPagination(name) {
     let start = rows_per_page * page;
     let end = start + rows_per_page;
 
-    if (!items) {
+    if (!items || items.length === 0) {
+      refs.libraryCardsContainer.innerHTML = '';
       return;
     }
 
