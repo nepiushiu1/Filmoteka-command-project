@@ -58,6 +58,7 @@ export function createPagination(total_results) {
     spinner.show();
 
     moviesApiService.page = event.page;
+    localStorage.setItem('page', moviesApiService.page);
     moviesApiService
       .fetchTrendingMovies()
       .then(({ results }) => {
