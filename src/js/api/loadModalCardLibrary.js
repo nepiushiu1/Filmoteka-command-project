@@ -10,6 +10,8 @@ import {
   deleteWatched,
 } from '../local_storage';
 import { textModalBtn } from '../modal-btns';
+import { BASE_POSTER_URL } from '../api/constants/baseUrls';
+import { setReleaseVote } from '../api/setReleaseDate';
 // const moviesApiService = new MoviesApiService();
 
 refs.libraryCardsContainer.addEventListener('click', clickOnMovie);

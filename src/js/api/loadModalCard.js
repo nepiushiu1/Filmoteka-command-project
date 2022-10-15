@@ -12,7 +12,9 @@ import {
 } from '../local_storage';
 import { translateItems } from '../translation';
 import { textModalBtn } from '../modal-btns';
-export const BASE_POSTER_URL = `https://image.tmdb.org/t/p/w500`;
+import { BASE_POSTER_URL } from '../api/constants/baseUrls';
+import { setReleaseVote } from '../api/setReleaseDate';
+
 // const moviesApiService = new MoviesApiService();
 //* для відкриття трейлеру
 // import { onTrailerClickBtn } from '../movie-trailer';
