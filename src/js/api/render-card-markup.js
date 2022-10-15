@@ -13,7 +13,6 @@ export default function makingMarkup(results) {
         title,
         name,
         poster_path,
-        profile_path,
         genre_ids,
         release_date,
         first_air_date,
@@ -21,9 +20,9 @@ export default function makingMarkup(results) {
         id,
       }) => {
         let imagePath = ``;
-        poster_path === null
+        !poster_path
           ? (imagePath = `https://raw.githubusercontent.com/marvall/filmoteka/main/src/images/no-poster.png`)
-          : (imagePath = `${BASE_POSTER_URL}/${BASE_POSTER_URL}/${poster_path}`);
+          : (imagePath = `${BASE_POSTER_URL}/${poster_path}`);
 
         return `<li data-aos="fade-up"
     data-aos-offset="200"
