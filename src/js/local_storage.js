@@ -139,6 +139,16 @@ function addScreenSaver() {
     style="
     font-size: 18px;
     color: var(--secondary-text-cl);">
-    Sorry, no information has been added
+    ${translateNoInformation()}
     </strong>`;
+}
+
+function translateNoInformation() {
+  const lang = localStorage.getItem('lang');
+  if (!lang || lang === 'en-US') {
+    return 'Sorry, no information has been added';
+  }
+  if (lang === 'uk-UA') {
+    return 'Вибачте, ще жодної інформації не додано';
+  }
 }
