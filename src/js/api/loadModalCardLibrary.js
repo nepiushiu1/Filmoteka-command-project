@@ -33,13 +33,18 @@ function clickOnMovie(e) {
   window.addEventListener('keydown', modalCloseByEsc);
 
   const currentId = e.target.dataset.id;
-  const unParsedCurrentArrayFilms = localStorage.getItem('currentFilm');
-  const parsedCurrentArrayFilms = JSON.parse(unParsedCurrentArrayFilms);
+
+  const unParsedCurrentArrayFilmsW = localStorage.getItem('watched');
+  const unParsedCurrentArrayFilmsQ = localStorage.getItem('queue');
+
+  const parsedCurrentArrayFilmsW = JSON.parse(unParsedCurrentArrayFilmsW);
+  const parsedCurrentArrayFilmsQ = JSON.parse(unParsedCurrentArrayFilmsQ);
 
   // console.log(parsedCurrentArrayFilms.find(obj => obj.id == currentId));
-  let currentMovie = parsedCurrentArrayFilms.find(obj => obj.id == currentId);
+  let libraryMovieWatched = parsedCurrentArrayFilmsW.find(obj => obj.id == currentId);
+  let libraryMovieQueue = parsedCurrentArrayFilmsQ.find(obj => obj.id == currentId);
 
-  const render = makingModalCardMarkup(currentMovie);
+  const render = makingModalCardMarkup(libraryMovieWatched || libraryMovieQueue);
   insertModalMarkupHome(render);
   ///////////////////////////////////////////////////////////////////////////
   //** Код для запису об'єктів в LOCAL STORAGE */
@@ -53,8 +58,8 @@ function clickOnMovie(e) {
     // Перевірка на наявність об'єкта в масиві фільмів "WATCHED"
     const isAddedFilm = arrayFilmsWatched.find(arr => arr.id == currentId);
     isAddedFilm
-      ? deleteWatched(currentMovie)
-      : addWatchedLocalStorage(currentMovie);
+      ? deleteWatched(libraryMovieWatched)
+      : addWatchedLocalStorage(libraryMovieQueue);
     textModalBtn(currentId);
   });
 
@@ -68,8 +73,8 @@ function clickOnMovie(e) {
     // Перевірка на наявність об'єкта в масиві фільмів "QUEUE"
     const isAddedFilm = arrayFilmsQueue.find(arr => arr.id == currentId);
     isAddedFilm
-      ? deleteQueue(currentMovie)
-      : addQueueLocalStorage(currentMovie);
+      ? deleteQueue(libraryMovieQueue)
+      : addQueueLocalStorage(libraryMovieWatched);
     textModalBtn(currentId);
   });
   /////////////////////////////////////////////////////////////////////////////
