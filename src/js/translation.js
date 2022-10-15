@@ -3,6 +3,7 @@ import { refs } from './refs';
 import MoviesApiService from './api/moviesApiServiceClass';
 import makingMarkup from './api/render-card-markup';
 import { insertFilmsMarkupToHome } from './api/insertingIntoDifferentContainers';
+import { createPagination } from './pagination';
 // import Spinner from './spinner';
 
 // const spinner = new Spinner();
@@ -80,6 +81,11 @@ function bindLanguageSwitcher() {
   const switcher = document.querySelector('[data-switcher]');
   switcher.value = i18next.language;
   switcher.onchange = event => {
+    if (!localStorage.getItem('page')) {
+      moviesApiService.page = 1;
+    } else {
+      moviesApiService.page = localStorage.getItem('page');
+    }
     changeLanguage(event.target.value);
     if (refs.homeCardsContainer !== null) {
       refs.homeCardsContainer.innerHTML = '';
@@ -96,12 +102,14 @@ function bindLanguageSwitcher() {
     // spinner.show();
     moviesApiService
       .fetchTrendingMovies()
-      .then(({ results }) => {
+      .then(({ results, total_results }) => {
         const markup = makingMarkup(results);
 
         // spinner.hide();
         insertFilmsMarkupToHome(markup);
+        createPagination(total_results);
         localStorage.setItem(`currentFilm`, JSON.stringify(results));
+        localStorage.removeItem('page');
       })
       .catch(error => console.log(error));
   };
