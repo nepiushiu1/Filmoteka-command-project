@@ -1,5 +1,6 @@
 import { gettingGenresListForModal } from './gettingGenresList';
 import makingMarkup from '../api/render-card-markup';
+import { setReleaseVote } from './setReleaseDate';
 // import MoviesApiService from './moviesApiServiceClass';
 import { refs } from '../refs';
 import { insertModalMarkupHome } from './insertingIntoDifferentContainers';
@@ -140,11 +141,12 @@ function onModalCardBackdropClick(e) {
 //}
 
 function makingModalCardMarkup(obj) {
-  const noPosterPath = `https://raw.githubusercontent.com/marvall/filmoteka/main/src/images/no-poster.png`;
+  let imagePath = ``;
+  !obj.poster_path
+    ? (imagePath = `https://raw.githubusercontent.com/marvall/filmoteka/main/src/images/no-poster.png`)
+    : (imagePath = `${BASE_POSTER_URL}/${obj.poster_path}`);
   const markup = `<div class="movie__container--left-side">              
-                  <img class="movie__image" src="https://www.themoviedb.org/t/p/w500${
-                    obj.poster_path || noPosterPath
-                  }"
+                  <img class="movie__image" src="${imagePath}"
                     alt="${obj.title || obj.name}" />
                     <button type="button" class="movie__btn-trailer">
                         <svg width='120' height='80' class='youtube-icon' viewBox='0 -77 512.00213 512'>
@@ -162,13 +164,13 @@ function makingModalCardMarkup(obj) {
                         <tr class="movie__info-rows">
                             <td class="movie__info-name" data-key="votes">Vote / Votes</td>
                             <td class="movie__info-rating">
-                                <span class="movie__info-rating-value movie__info-rating--accent">${
+                                <span class="movie__info-rating-value movie__info-rating--accent">${setReleaseVote(
                                   obj.vote_average
-                                }</span>
+                                )}</span>
                                 <span class="movie__info-rating-slash">/</span>
-                                <span class="movie__info-rating-value">${
+                                <span class="movie__info-rating-value">${setReleaseVote(
                                   obj.vote_count
-                                }</span>
+                                )}</span>
                             </td>
                         </tr>
                         <tr class="movie__info-rows">
