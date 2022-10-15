@@ -4,8 +4,8 @@ import Spinner from './spinner';
 import makingMarkup from './api/render-card-markup';
 import { insertFilmsMarkupToHome } from './api/insertingIntoDifferentContainers';
 import { refs } from './refs';
-import { makingSwiper } from './api/render-slide-markup';
-import { swiper } from './swiper';
+// import { makingSwiper } from './api/render-slide-markup';
+// import { swiper } from './swiper';
 
 const moviesApiService = new MoviesApiService();
 const spinner = new Spinner();
@@ -64,8 +64,6 @@ export function createPagination(total_results) {
         const markup = makingMarkup(results);
 
         spinner.hide();
-        // makingSwiper(results);
-        // swiper.update();
         insertFilmsMarkupToHome(markup);
         localStorage.setItem(`currentFilm`, JSON.stringify(results));
       })
