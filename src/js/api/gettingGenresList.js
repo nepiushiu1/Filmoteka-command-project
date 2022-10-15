@@ -1,6 +1,10 @@
 export function gettingGenresListForModal(array) {
   let genre_names = '';
 
+  if (!array) {
+    return `Genre not found`;
+  }
+
   for (const id of array) {
     const genre_name = localStorage.getItem(`genre_${id}`);
     if (!genre_name) {
@@ -16,6 +20,10 @@ export function gettingGenresListForModal(array) {
 
 export function gettingGenresListForCard(array) {
   let genre_names = '';
+
+  if (!array) {
+    return `Genre not found`;
+  }
 
   if (array.length <= 2) {
     for (const id of array) {

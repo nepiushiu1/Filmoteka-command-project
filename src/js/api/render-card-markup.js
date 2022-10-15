@@ -13,6 +13,7 @@ export default function makingMarkup(results) {
         title,
         name,
         poster_path,
+        profile_path,
         genre_ids,
         release_date,
         first_air_date,
@@ -24,7 +25,7 @@ export default function makingMarkup(results) {
           ? (imagePath = `https://raw.githubusercontent.com/marvall/filmoteka/main/src/images/no-poster.png`)
           : (imagePath = `${BASE_POSTER_URL}/${BASE_POSTER_URL}/${poster_path}`);
 
-        return `<li id="${id}" data-aos="fade-up"
+        return `<li data-aos="fade-up"
     data-aos-offset="200"
     data-aos-delay="100"
     data-aos-duration="1000"
@@ -34,9 +35,9 @@ export default function makingMarkup(results) {
         <p data-id="${id}" class="movie-card__raiting">
                         <b data-id="${id}">${setReleaseVote(vote_average)}</b>
                     </p>
-                <img data-id="${id}" width="280" height="402" class="movie-card__img" src="${imagePath}" alt="${
+<img data-id="${id}" width="280" height="402" class="movie-card__img" src="${imagePath}" alt="${
           title || name
-        }" loading="lazy"/>
+        } " loading="lazy"/>
     <div data-id="${id}" data-aos="fade-right"
     data-aos-delay="50"
     data-aos-duration="1000"
@@ -54,7 +55,7 @@ export default function makingMarkup(results) {
                     <p data-id="${id}" class="movie-card__info">
                       <b data-id="${id}">${
           setReleaseDate(release_date, first_air_date) || noYearData()
-        } 
+        }
                         </b>
                     </p>   
                     </div>
@@ -74,6 +75,7 @@ function genresNotFound() {
   if (lang === 'uk-UA') {
     return 'Жанри не знайдено';
   }
+  console.log('LAAAANG');
 }
 
 function noYearData() {

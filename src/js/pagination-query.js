@@ -54,7 +54,7 @@ export function createPagination(total_results, searchQuery) {
     refs.homeCardsContainer.innerHTML = '';
 
     spinner.show();
-    
+
     moviesApiService.page = event.page;
     moviesApiService.query = searchQuery;
     moviesApiService
