@@ -52,7 +52,8 @@ function clickOnMovie(e) {
   insertModalMarkupHome(render);
   ///////////////////////////////////////////////////////////////////////////
   //** Код для запису об'єктів в LOCAL STORAGE */
-  document.querySelector('#watched-btn').addEventListener('click', () => {
+  const watchedBtn = document.querySelector('#watched-btn');
+  watchedBtn.addEventListener('click', () => {
     // -----------Видалення фільму з сторінки Home----------
     //  Потрібно узгодити із local.storage.js!!!!!!!!!!!
     // let arrayFilmsWatched = [];
@@ -70,21 +71,19 @@ function clickOnMovie(e) {
     //   ? deleteWatched(currentMovie)
     //   : addWatchedLocalStorage(currentMovie);
     // ----------------------------------
-    if (
-      document.querySelector('#watched-btn').textContent ===
-      'REMOVE FROM WATCHED'
-    ) {
-      document.querySelector('#watched-btn').textContent = 'ADD TO WATCHED';
+
+    if (watchedBtn.textContent === 'REMOVE FROM WATCHED') {
+      watchedBtn.textContent = 'ADD TO WATCHED';
     }
     addWatchedLocalStorage(
       currentMovie,
-      document.querySelector('#watched-btn'),
+      watchedBtn,
       style
     );
-    // textModalBtn(currentId);
   });
 
-  document.querySelector('#queue-btn').addEventListener('click', () => {
+  const queueBtn = document.querySelector('#queue-btn');
+  queueBtn.addEventListener('click', () => {
     // ---------------Видалення фільму з сторінки Home----------
     // let arrayFilmsQueue = [];
     // const q = localStorage.getItem('queue');
@@ -98,14 +97,12 @@ function clickOnMovie(e) {
     //   ? deleteQueue(currentMovie)
     //   : addQueueLocalStorage(currentMovie);
     // -------------------------------------------------
-    if (
-      document.querySelector('#queue-btn').textContent === 'REMOVE FROM QUEUE'
-    ) {
-      document.querySelector('#queue-btn').textContent = 'ADD TO QUEUE';
+    if (queueBtn.textContent === 'REMOVE FROM QUEUE') {
+      queueBtn.textContent = 'ADD TO QUEUE';
     }
     addQueueLocalStorage(
       currentMovie,
-      document.querySelector('#queue-btn'),
+      queueBtn,
       style
     );
     // textModalBtn(currentId);
