@@ -46,7 +46,7 @@ export function addQueueLocalStorage(obj, btn, style) {
 }
 
 export function getWatchedFilms() {
-  // clearLibrary();
+  clearLibrary();
   try {
     const saveFilms = localStorage.getItem('watched');
     //Якщо в localStorage немає ключа watched - показуємо заглушку
@@ -69,7 +69,7 @@ export function getWatchedFilms() {
 }
 
 export function getQueueFilms() {
-  // clearLibrary();
+  clearLibrary();
   try {
     const saveFilms = localStorage.getItem('queue');
     //Якщо в localStorage немає ключа queue - показуємо заглушку
