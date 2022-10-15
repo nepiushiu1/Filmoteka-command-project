@@ -4,7 +4,8 @@ import { insertFilmsMarkupToLibrary } from './api/insertingIntoDifferentContaine
 import { refs } from './refs';
 
 export function createLibraryPagination(name) {
-  fullLibrary = JSON.parse(localStorage.getItem(`${name}`));
+  let fullLibrary = JSON.parse(localStorage.getItem(`${name}`));
+  // console.log(fullLibrary);
   const container = document.getElementById('pagination-library');
 
   if (!fullLibrary || fullLibrary.length === 0) {
@@ -13,7 +14,7 @@ export function createLibraryPagination(name) {
       '<div style="font-size: 20px" data-key="emptyList">Your list is still empty</div>';
     return;
   }
-console.log(fullLibrary.length);
+  console.log(fullLibrary.length);
 
   const options = {
     totalItems: fullLibrary.length,
