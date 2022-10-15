@@ -60,14 +60,14 @@ const data = [
     name: 'Владислав Будко',
     information:
       'Верстка, стилізація та налаштування домашньої пагінації. Винахідник кнопки-перемикача теми.',
-    url: 'url("https://i.postimg.cc/BQZstnTD/photo-2022-10-12-15-51-05.jpg")',
+    url: 'url("https://i.postimg.cc/xjgqP5d8/6531721-B-175-C-414-F-8-E08-0894-FBD9-DD14-1-201-a.jpg")',
   },
   {
     id: '10',
     name: 'Андрій Ярмош',
     information:
       '"Шерлок Холмс" нашого проєкту: пошук та відображення фільмів за ключовим словом. Реалізація можливості перегляду трейлерів',
-    url: 'url("https://i.postimg.cc/BQZstnTD/photo-2022-10-12-15-51-05.jpg")',
+    url: 'url("https://i.postimg.cc/TPyP2vjW/photo-2022-10-15-19-20-19.jpg")',
   },
 ];
 export { data };
