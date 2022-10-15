@@ -21,3 +21,7 @@ import './js/scroll-up-btn';
 
 // translate
 import './js/translation';
+
+// change BG color
+import './js/bg-color';
+
