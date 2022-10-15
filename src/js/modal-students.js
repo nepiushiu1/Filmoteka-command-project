@@ -75,7 +75,7 @@ const generate = function (n, r, id) {
 generate(10, 280, 'main');
 
 // ---------------------------------------------------------------------
-// функция открытия и закрытия описания по клику на карточку студента
+// функция открытия и закрытия описания по фокусу на карточку студента
 
 const students = document.querySelector('.students');
 const openBtn = document.querySelector('.data-student');
@@ -84,6 +84,10 @@ students.addEventListener('mouseover', removeClass);
 students.addEventListener('mouseout', addClass);
 
 function removeClass(e) {
+  if (!e.target.classList.contains('circle')) {
+    return;
+  }
+
   const numberPattern = /\d+/g;
   openBtn.classList.remove('is-hidden');
 
@@ -97,13 +101,9 @@ function addClass() {
   openBtn.classList.add('is-hidden');
   metod.innerHTML = '';
 }
-// console.log(studentDescriptionMarkup(data));
-// ____________________________________________________________
 
 const metod = document.querySelector('.data-student');
-// // // const render = studentDescriptionMarkup(marcup[2]);
 
-// function studentDescriptionMarkup(data) {
 const marcup = data.map(({ name, information }) => {
   return `
   <p class="data-student_name">${name}</p>
@@ -111,4 +111,3 @@ const marcup = data.map(({ name, information }) => {
   </p>
 `;
 });
-// .join('');
