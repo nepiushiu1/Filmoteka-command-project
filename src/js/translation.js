@@ -3,9 +3,9 @@ import { refs } from './refs';
 import MoviesApiService from './api/moviesApiServiceClass';
 import makingMarkup from './api/render-card-markup';
 import { insertFilmsMarkupToHome } from './api/insertingIntoDifferentContainers';
-import Spinner from './spinner';
+// import Spinner from './spinner';
 
-const spinner = new Spinner();
+// const spinner = new Spinner();
 const moviesApiService = new MoviesApiService();
 
 i18next.init(
@@ -31,15 +31,12 @@ i18next.init(
           originalTitle: 'Original Title',
           genre: 'Genre',
           about: 'About',
-          addToWatched: 'ADD TO WATCHED',
-          addToQueue: 'ADD TO QUEUE',
-          removeFromWatched: 'REMOVE FROM WATCHED',
           other: 'Other',
         },
       },
       'uk-UA': {
         translation: {
-          home: 'Додому',
+          home: 'Головна',
           library: 'Моя бібліотека',
           search: 'Пошук фільму',
           watched: 'Переглянуто',
@@ -54,9 +51,6 @@ i18next.init(
           originalTitle: 'Оригінальна назва',
           genre: 'Жанр',
           about: 'Опис',
-          addToWatched: 'ДОДАТИ ДО ПЕРЕГЛЯНУТИХ',
-          addToQueue: 'ДОДАТИ В ЧЕРГУ',
-          removeFromWatched: 'ВИДАЛИТИ З ПЕРЕГЛЯНУТИХ',
           other: 'Інші',
         },
       },
@@ -86,9 +80,10 @@ function bindLanguageSwitcher() {
   const switcher = document.querySelector('[data-switcher]');
   switcher.value = i18next.language;
   switcher.onchange = event => {
-    updateContent();
     changeLanguage(event.target.value);
-    refs.homeCardsContainer.innerHTML = '';
+    if (refs.homeCardsContainer !== null) {
+      refs.homeCardsContainer.innerHTML = '';
+    }
     moviesApiService
       .fetchGenres()
       .then(({ genres }) => {
@@ -98,13 +93,13 @@ function bindLanguageSwitcher() {
       })
       .catch(error => console.log(error));
 
-    spinner.show();
+    // spinner.show();
     moviesApiService
       .fetchTrendingMovies()
       .then(({ results }) => {
         const markup = makingMarkup(results);
 
-        spinner.hide();
+        // spinner.hide();
         insertFilmsMarkupToHome(markup);
         localStorage.setItem(`currentFilm`, JSON.stringify(results));
       })
