@@ -6,6 +6,7 @@ import makingMarkup from '../api/render-card-markup';
 import { insertFilmsMarkupToHome } from '../api/insertingIntoDifferentContainers';
 import { createPagination } from '../pagination-query';
 import timeoutForBadRequest from './timeoutForBadRequest';
+import { onFetchError } from '../api/onFetchError';
 
 // import { BASE_POSTER_URL } from '../api/render-card-markup';
 
@@ -44,7 +45,7 @@ function onSearchFilmByKeyword(e) {
         localStorage.setItem(`currentFilm`, JSON.stringify(results));
       });
   } catch (err) {
-    err => console.log(err);
+    onFetchError();
   }
 
   refs.inputSearch.value = '';

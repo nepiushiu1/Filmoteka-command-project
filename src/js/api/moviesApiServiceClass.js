@@ -16,7 +16,11 @@ export default class MoviesApiService {
       this._page
     }&language=${this.setLanguage()}`;
 
-    return fetch(url).then(response => {
+    return fetch(url)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(response.status);
+        }
       return response.json();
     });
   }
@@ -24,7 +28,11 @@ export default class MoviesApiService {
   // FETCHING GENRES FOR THE FIRST TIME
   fetchGenres() {
     const url = `${BASE_GENRE_URL}&language=en-US&api_key=${API_KEY}&language=${this.setLanguage()}`;
-    return fetch(url).then(response => {
+    return fetch(url)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(response.status);
+        }
       return response.json();
     });
   }
@@ -35,7 +43,11 @@ export default class MoviesApiService {
       this._page
     }&query=${this.searchQuery}&language=${this.setLanguage()}`;
 
-    return fetch(url).then(response => {
+    return fetch(url)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(response.status);
+        }
       return response.json();
     });
   }

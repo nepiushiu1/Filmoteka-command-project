@@ -4,6 +4,7 @@ import Spinner from './spinner';
 import makingMarkup from './api/render-card-markup';
 import { insertFilmsMarkupToHome } from './api/insertingIntoDifferentContainers';
 import { refs } from './refs';
+import { onFetchError } from './api/onFetchError';
 
 const moviesApiService = new MoviesApiService();
 const spinner = new Spinner();
@@ -66,6 +67,6 @@ export function createPagination(total_results, searchQuery) {
         insertFilmsMarkupToHome(markup);
         localStorage.setItem(`currentFilm`, JSON.stringify(results));
       })
-      .catch(error => console.log(error));
+      .catch(onFetchError);
   });
 }

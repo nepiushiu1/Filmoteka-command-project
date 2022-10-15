@@ -6,4 +6,13 @@
     &__container{
         position: relative;
     }
+
+    &__error{
+        margin-top: 100px;
+        text-align: center;
+
+        @include fonts(500, 20px, 35px);
+
+        color: var(--button-bg-cl);
+    }
 }
