@@ -2,6 +2,8 @@ import Pagination from 'tui-pagination';
 import makingMarkup from './api/render-card-markup';
 import { insertFilmsMarkupToLibrary } from './api/insertingIntoDifferentContainers';
 import { refs } from './refs';
+import { clearLibrary } from './local_storage';
+import { addScreenSaver } from './local_storage';
 
 export function createLibraryPagination(name) {
   let fullLibrary = JSON.parse(localStorage.getItem(`${name}`));
@@ -9,9 +11,8 @@ export function createLibraryPagination(name) {
   const container = document.getElementById('pagination-library');
 
   if (!fullLibrary || fullLibrary.length === 0) {
-    container.innerHTML = '';
-    refs.libraryCardsContainer.innerHTML =
-      '<div style="font-size: 20px" data-key="emptyList">Your list is still empty</div>';
+    clearLibrary();
+    addScreenSaver();
     return;
   }
   console.log(fullLibrary.length);

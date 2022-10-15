@@ -20,7 +20,7 @@ export function addWatchedLocalStorage(obj, btn, style) {
 
   arrayFilmsWatched.push(obj);
   localStorage.setItem('watched', JSON.stringify(arrayFilmsWatched));
-  btn.textContent = 'REMOVE FROM WATCHED';
+  // btn.textContent = 'REMOVE FROM WATCHED';
   return arrayFilmsWatched;
 }
 
@@ -41,7 +41,7 @@ export function addQueueLocalStorage(obj, btn, style) {
 
   arrayFilmsQueue.push(obj);
   localStorage.setItem('queue', JSON.stringify(arrayFilmsQueue));
-  btn.textContent = 'REMOVE FROM QUEUE';
+  // btn.textContent = 'REMOVE FROM QUEUE';
   return arrayFilmsQueue;
 }
 
@@ -56,6 +56,7 @@ export function getWatchedFilms() {
     }
 
     const parsedFilms = JSON.parse(saveFilms);
+    console.log(parsedFilms.length);
     if (parsedFilms.length === 0) {
       addScreenSaver();
       return;
@@ -129,12 +130,12 @@ export function deleteQueue(element, style) {
 }
 
 //   Фунуція для очищення попередніх результатів рендеру
-function clearLibrary() {
+export function clearLibrary() {
   refs.libraryCardsContainer.innerHTML = '';
 }
 
 // Функція для відмальовки "заглушки" (якщо localStorage порожній)
-function addScreenSaver() {
+export function addScreenSaver() {
   refs.libraryCardsContainer.innerHTML = `<strong 
     style="
     font-size: 18px;
