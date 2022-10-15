@@ -18,6 +18,9 @@ refs.libraryCardsContainer.addEventListener('click', clickOnMovie);
 refs.closeModalBtn.addEventListener('click', onCloseModalBtnClick);
 refs.modalCardBackdrop.addEventListener('click', onModalCardBackdropClick);
 
+// Додано змінну для умови видалення фільму: головна сторінка чи бібліотека
+const style = refs.homeCardsContainer;
+
 function clickOnMovie(e) {
   if (
     e.target.nodeName !== 'IMG' &&
@@ -48,7 +51,8 @@ function clickOnMovie(e) {
   insertModalMarkupHome(render);
   ///////////////////////////////////////////////////////////////////////////
   //** Код для запису об'єктів в LOCAL STORAGE */
-  document.querySelector('#watched-btn').addEventListener('click', () => {
+  const watchedBtn = document.querySelector('#watched-btn');
+  watchedBtn.addEventListener('click', () => {
     let arrayFilmsWatched = [];
     const w = localStorage.getItem('watched');
     if (w) {
@@ -59,11 +63,12 @@ function clickOnMovie(e) {
     const isAddedFilm = arrayFilmsWatched.find(arr => arr.id == currentId);
     isAddedFilm
       ? deleteWatched(libraryMovieWatched)
-      : addWatchedLocalStorage(libraryMovieQueue);
+      : addWatchedLocalStorage(libraryMovieQueue, watchedBtn, style);
     textModalBtn(currentId);
   });
 
-  document.querySelector('#queue-btn').addEventListener('click', () => {
+  const queueBtn = document.querySelector('#queue-btn');
+  queueBtn.addEventListener('click', () => {
     let arrayFilmsQueue = [];
     const q = localStorage.getItem('queue');
     if (q) {
@@ -74,7 +79,7 @@ function clickOnMovie(e) {
     const isAddedFilm = arrayFilmsQueue.find(arr => arr.id == currentId);
     isAddedFilm
       ? deleteQueue(libraryMovieQueue)
-      : addQueueLocalStorage(libraryMovieWatched);
+      : addQueueLocalStorage(libraryMovieWatched, queueBtn, style);
     textModalBtn(currentId);
   });
   /////////////////////////////////////////////////////////////////////////////

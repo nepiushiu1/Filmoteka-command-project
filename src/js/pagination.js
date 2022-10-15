@@ -4,6 +4,7 @@ import Spinner from './spinner';
 import makingMarkup from './api/render-card-markup';
 import { insertFilmsMarkupToHome } from './api/insertingIntoDifferentContainers';
 import { refs } from './refs';
+import { onFetchError } from './api/onFetchError';
 // import { makingSwiper } from './api/render-slide-markup';
 // import { swiper } from './swiper';
 
@@ -68,6 +69,6 @@ export function createPagination(total_results) {
         insertFilmsMarkupToHome(markup);
         localStorage.setItem(`currentFilm`, JSON.stringify(results));
       })
-      .catch(error => console.log(error));
+      .catch(onFetchError);
   });
 }

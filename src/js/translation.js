@@ -40,7 +40,7 @@ i18next.init(
         translation: {
           home: 'Головна',
           library: 'Моя бібліотека',
-          search: 'Пошук фільму',
+          search: 'Пошук фільмів',
           watched: 'Переглянуто',
           queue: 'В черзі',
           rights: '| Всі права захищено |',
@@ -109,13 +109,12 @@ function bindLanguageSwitcher() {
 
         // spinner.hide();
         insertFilmsMarkupToHome(markup);
-        createPagination(total_results);
         localStorage.setItem(`currentFilm`, JSON.stringify(results));
-        localStorage.removeItem('page');
       })
       .catch(error => console.log(error));
   };
 }
+localStorage.removeItem('page');
 
 function changeLanguage(lng) {
   localStorage.setItem('lang', lng);

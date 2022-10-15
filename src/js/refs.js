@@ -1,11 +1,12 @@
 export const refs = {
   // containers
+  messageContainer: document.querySelector('.film-cards__container'),
   homeCardsContainer: document.querySelector('.cards__list--home'),
   libraryCardsContainer: document.querySelector('.cards__list--library'),
 
   swiperContainer: document.querySelector('.swiper-wrapper'),
 
-  // buttons
+  // buttons'
   btnWatched: document.querySelector('#watched'),
   btnQueue: document.querySelector('#queue'),
 
