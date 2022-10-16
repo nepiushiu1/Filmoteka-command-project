@@ -11,7 +11,11 @@ export function createLibraryPagination(name) {
   // console.log(fullLibrary);
 
   if (!fullLibrary || fullLibrary.length === 0) {
-    container.innerHTML = '';
+    try {
+      container.innerHTML = '';
+    } catch {
+      console.log('Данных еще нет');
+    }
     clearLibrary();
     addScreenSaver();
     return;

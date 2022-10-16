@@ -69,7 +69,7 @@ export function getWatchedFilms() {
 
     // const renderWatched = makingMarkup(parsedFilms);
     // insertFilmsMarkupToLibrary(renderWatched);
-  createLibraryPagination(`${currentLibrary}`);
+    createLibraryPagination(`${currentLibrary}`);
   } catch (error) {
     console.log(error);
   }
@@ -94,7 +94,7 @@ export function getQueueFilms() {
 
     // const renderQueue = makingMarkup(parsedFilms);
     // insertFilmsMarkupToLibrary(renderQueue);
-  createLibraryPagination(`${currentLibrary}`);
+    createLibraryPagination(`${currentLibrary}`);
   } catch (error) {
     console.log(error);
   }
@@ -114,7 +114,7 @@ export function deleteWatched(element, style) {
     return;
   } else {
     // getWatchedFilms();
-  createLibraryPagination(`${currentLibrary}`);
+    createLibraryPagination(`${currentLibrary}`);
     console.log('Видалення з бібліотеки!!!!!!!!!!!!');
   }
 }
@@ -132,7 +132,7 @@ export function deleteQueue(element, style) {
     console.log('Видалення з головної сторінки');
     return;
   } else {
-  createLibraryPagination(`${currentLibrary}`);
+    createLibraryPagination(`${currentLibrary}`);
     // getQueueFilms();
     console.log('Видалення з бібліотеки!!!!!!!!!!!!');
   }
@@ -140,26 +140,33 @@ export function deleteQueue(element, style) {
 
 //   Фунуція для очищення попередніх результатів рендеру
 export function clearLibrary() {
-  refs.libraryCardsContainer.innerHTML = '';
+  try {
+    refs.libraryCardsContainer.innerHTML = '';
+  } catch {
+    console.log('Данных еще нет');
+  }
 }
 
 // Функція для відмальовки "заглушки" (якщо localStorage порожній)
 export function addScreenSaver() {
-  refs.libraryCardsContainer.innerHTML = `<strong 
-    style="
-    font-size: 18px;
-    color: var(--secondary-text-cl);">
-    ${translateNoInformation()}
-    </strong>`;
-  container.innerHTML = '';
-}
-
-function translateNoInformation() {
-  const lang = localStorage.getItem('lang');
-  if (!lang || lang === 'en-US') {
-    return 'Sorry, no information has been added';
-  }
-  if (lang === 'uk-UA') {
-    return 'Вибачте, ще жодної інформації не додано';
+  try {
+    refs.libraryCardsContainer.innerHTML = `<strong 
+      style="
+      font-size: 18px;
+      color: var(--secondary-text-cl);">
+      ${translateNoInformation()}
+      </strong>`;
+    container.innerHTML = '';
+    function translateNoInformation() {
+      const lang = localStorage.getItem('lang');
+      if (!lang || lang === 'en-US') {
+        return 'Sorry, no information has been added';
+      }
+      if (lang === 'uk-UA') {
+        return 'Вибачте, ще жодної інформації не додано';
+      }
+    }
+  } catch {
+    console.log('Данных еще нет');
   }
 }
