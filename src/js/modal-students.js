@@ -56,7 +56,9 @@ let setup = function (n, r, id) {
     circleArray[i].posy = Math.round(r * Math.sin(theta[i])) + 'px';
     circleArray[i].style.position = 'absolute';
     circleArray[i].style.backgroundImage = data[i].url;
-    circleArray[i].style.backgroundSize = 'contain';
+    circleArray[i].style.backgroundRepeat = 'no-repeat';
+    circleArray[i].style.backgroundPosition = 'center';
+    circleArray[i].style.backgroundSize = 'cover';
 
     circleArray[i].style.top =
       mainHeight / 2 - parseInt(circleArray[i].posy.slice(0, -2)) + 'px';

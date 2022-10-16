@@ -7,7 +7,7 @@ const data = [
     },
     information: {
       en: 'SCRUM-MASTER. Organization of daily meetings, control of tasks, layout of headers, spinner connection. Main designer of the project.',
-      ua: 'SCRUM-МАЙСТЕР. Організація щоденних мітингів, контроль виконання тасків, верстка хедерів, підключення спіннера. Головний дизайнер проєкту.',
+      ua: 'СКРАМ-МАЙСТЕР. Організація щоденних мітингів, контроль виконання тасків, верстка хедерів, підключення спіннера. Головний дизайнер проєкту.',
     },
     url: 'url("https://i.postimg.cc/1zYg7HRL/photo-1.jpg")',
   },
@@ -30,8 +30,8 @@ const data = [
       ua: 'Марина Янєва',
     },
     information: {
-      en: 'Layout and implementation of the modal window. Thanks to her, user can look for a long time at three things: how fire burns, water flows, and how open modal window looks like.',
-      ua: 'Верстка та реалізація модального вікна. Її стараннями наш клієнт може дивитися вічно на три речі: як горить багаття, тече вода та як виглядає відкрите модальне вікно.',
+      en: 'Implementation of the modal window. Thanks to her, user can look for a long time at three things: how fire burns, water flows, and how modal window looks like.',
+      ua: 'Реалізація модального вікна. Її стараннями наш клієнт може дивитися вічно на три речі: як горить багаття, тече вода та як виглядає відкрите модальне вікно.',
     },
     url: 'url("https://i.postimg.cc/BvFkvrtR/photo-2022-10-12-15-30-45.jpg")',
   },
@@ -90,10 +90,10 @@ const data = [
       ua: 'Анастасія Губа',
     },
     information: {
-      en: 'TEAM-LEAD. Coordination of the team"s work and assistance at each stage, code-review, page containers, footer layout. Project architect.',
+      en: 'TEAM-LEAD. Coordination of the team`s work and assistance at each stage, code-review, page containers, footer layout. Project architect.',
       ua: 'TEAM-LEAD. Координація роботи команди та допомога на кожному етапі, code-review, контейнери сторінок, верстка футера. Архітектор проєкту.',
     },
-    url: 'url("https://i.postimg.cc/BQZstnTD/photo-2022-10-12-15-51-05.jpg")',
+    url: 'url("https://i.postimg.cc/fy8wTgBD/Face-App-1656599890790-1.jpg")',
   },
   {
     id: '9',
