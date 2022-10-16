@@ -5,10 +5,13 @@ import { createLibraryPagination } from './pagination-library';
 refs.btnWatched.addEventListener('click', onBtnWatchedClick);
 refs.btnQueue.addEventListener('click', onBtnQueueClick);
 
-createLibraryPagination('watched');
+// createLibraryPagination('watched');
+export let currentLibrary = 'watched';
+createLibraryPagination(`${currentLibrary}`);
 
 function onBtnWatchedClick(e) {
-  createLibraryPagination('watched');
+  currentLibrary = 'watched';
+  createLibraryPagination(`${currentLibrary}`);
 
   refs.btnWatched.style.backgroundColor = 'var(--button-bg-cl)';
   refs.btnWatched.style.borderColor = 'var(--button-bg-cl)';
@@ -17,7 +20,8 @@ function onBtnWatchedClick(e) {
 }
 
 function onBtnQueueClick(e) {
-  createLibraryPagination('queue');
+  currentLibrary = 'queue';
+  createLibraryPagination(`${currentLibrary}`);
 
   refs.btnQueue.style.backgroundColor = 'var(--button-bg-cl)';
   refs.btnQueue.style.borderColor = 'var(--button-bg-cl)';

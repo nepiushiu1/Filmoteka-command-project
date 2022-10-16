@@ -2,7 +2,7 @@ import { refs } from './refs';
 import makingMarkup from './api/render-card-markup';
 import { insertFilmsMarkupToLibrary } from './api/insertingIntoDifferentContainers';
 import { createLibraryPagination, container } from './pagination-library';
-
+import { currentLibrary } from './library-header-btns';
 
 //ДОДАТИ ДО КЛЮЧА "WATCHED" В LOCAL STORAGE
 // Передано змінну style
@@ -67,9 +67,9 @@ export function getWatchedFilms() {
       return;
     }
 
-    const renderWatched = makingMarkup(parsedFilms);
+    // const renderWatched = makingMarkup(parsedFilms);
     // insertFilmsMarkupToLibrary(renderWatched);
-    createLibraryPagination('watched');
+  createLibraryPagination(`${currentLibrary}`);
   } catch (error) {
     console.log(error);
   }
@@ -92,10 +92,9 @@ export function getQueueFilms() {
       return;
     }
 
-    const renderQueue = makingMarkup(parsedFilms);
+    // const renderQueue = makingMarkup(parsedFilms);
     // insertFilmsMarkupToLibrary(renderQueue);
-    createLibraryPagination('queue');
-
+  createLibraryPagination(`${currentLibrary}`);
   } catch (error) {
     console.log(error);
   }
@@ -114,7 +113,8 @@ export function deleteWatched(element, style) {
     console.log('Видалення з головної сторінки');
     return;
   } else {
-    getWatchedFilms();
+    // getWatchedFilms();
+  createLibraryPagination(`${currentLibrary}`);
     console.log('Видалення з бібліотеки!!!!!!!!!!!!');
   }
 }
@@ -132,7 +132,8 @@ export function deleteQueue(element, style) {
     console.log('Видалення з головної сторінки');
     return;
   } else {
-    getQueueFilms();
+  createLibraryPagination(`${currentLibrary}`);
+    // getQueueFilms();
     console.log('Видалення з бібліотеки!!!!!!!!!!!!');
   }
 }
@@ -150,7 +151,7 @@ export function addScreenSaver() {
     color: var(--secondary-text-cl);">
     ${translateNoInformation()}
     </strong>`;
-    container.innerHTML = '';
+  container.innerHTML = '';
 }
 
 function translateNoInformation() {
