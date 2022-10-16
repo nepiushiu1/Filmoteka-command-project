@@ -3,6 +3,7 @@ import makingMarkup from './api/render-card-markup';
 import { insertFilmsMarkupToLibrary } from './api/insertingIntoDifferentContainers';
 import { createLibraryPagination, container } from './pagination-library';
 import { currentLibrary } from './library-header-btns';
+import { addElToLibrary } from './addElToLibrary'
 
 //ДОДАТИ ДО КЛЮЧА "WATCHED" В LOCAL STORAGE
 // Передано змінну style
@@ -124,16 +125,15 @@ export function deleteQueue(element, style) {
   console.log('style', style);
   const arrayFromLocStorage = JSON.parse(localStorage.getItem('queue'));
 
-  // try {
+  try {
     const index = arrayFromLocStorage.findIndex(arr => arr.id === element.id);
     arrayFromLocStorage.splice(index, 1);
-  // } catch (error) {
-    
+  } catch (error) {
     // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    // console.log(index);
-    // addElToLibrary(index);
-    // console.log('Данных еще нет');
-  // }
+    console.log(index);
+    addElToLibrary(index);
+    console.log('Данных еще нет');
+  }
 
   localStorage.setItem('queue', JSON.stringify(arrayFromLocStorage));
   // Додано умову застосування функції getWatchedFilms()
