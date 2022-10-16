@@ -113,7 +113,7 @@
   gap: 8px;
   height: 24px;
 
-  color: var(--header-text-cl);
+  color: var(--main-bg-cl);
 
   @include fonts(500, 30px, 35px);
 
@@ -151,7 +151,7 @@
     }
   
   &__item {
-    color: var(--header-text-cl);
+    color: var(--main-bg-cl);
 
     @include fonts(500, 12px, 14px, uppercase);
 
@@ -232,12 +232,12 @@
   &__btn {
     min-width: 130px;
     padding: 13px 36px;
-    border: 1px solid var(--header-text-cl);
+    border: 1px solid var(--main-bg-cl);
     border-radius: 5px;
     cursor: pointer;
 
     background-color: transparent;
-    color: var(--header-text-cl);
+    color: var(--main-bg-cl);
 
     @include fonts(500, 12px, 16px, uppercase);
 
