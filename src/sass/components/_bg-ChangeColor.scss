@@ -76,7 +76,7 @@ body {
   // background-color: rgb(38, 47, 53);
   background-color: rgb(1, 1, 1);
 
-  transform: translateZ(-5px);
+  transform: translateZ(-1px);
   transition: background-color var(--dur) var(--ease);
 }
 
@@ -93,13 +93,13 @@ body {
   background-color: rgb(38, 47, 53);
   // background-color: rgb(1, 1, 1);
 
-  transform: translateZ(-5px);
+  transform: translateZ(-1px);
   transition: background-color var(--dur) var(--ease);
 }
 
 .switch input {
   // clip: rect(0 0 0 0);
-  clip-path: inset(50%);
+  // clip-path: inset(50%);
   height: 1px;
   overflow: hidden;
   position: absolute;
