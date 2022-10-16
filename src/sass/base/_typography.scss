@@ -1,5 +1,15 @@
+@font-face {
+    font-family: Roboto-regular;
+    src: url('/src/fonts/Roboto-Regular.ttf');
+}
+
+@font-face {
+    font-family: Roboto-medium;
+    src: url('/src/fonts/Roboto-Medium.ttf');
+}
+
 body {
-    font-family: 'Roboto', 'Arial', sans-serif;
+    font-family: Roboto-medium, 'Arial', sans-serif;
     @include fonts(500, 12px, 20px);
     background-color: var(--main-bg-cl);
     color: var(--main-text-cl);

@@ -1,6 +1,7 @@
 .lang {
-  background-color: #ff6b08;
-  color: #f7f7f7;
+  background-color: var(--secondary-text-cl);
+  color: var(--secondary-bg-cl);
+  font-family: Roboto-regular;
   border: none;
   border-radius: 5px;
   outline: none;

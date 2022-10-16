@@ -64,7 +64,7 @@ main .list .item:hover {
 	margin: 5px;
 	transition: 0.4s;
 
-	color: #FFF;
+	color: var(--main-bg-cl);
 	font-size: 18px;
 	text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
 	box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
