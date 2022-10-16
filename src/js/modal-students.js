@@ -1,4 +1,5 @@
 import { data } from './api/data-students/data-students';
+import { translateMsg } from './teamInfoTranslate';
 // console.log(data);
 
 // функция открытия и закрытия модального окна ,описывающего студентов
@@ -55,7 +56,9 @@ let setup = function (n, r, id) {
     circleArray[i].posy = Math.round(r * Math.sin(theta[i])) + 'px';
     circleArray[i].style.position = 'absolute';
     circleArray[i].style.backgroundImage = data[i].url;
-    circleArray[i].style.backgroundSize = 'contain';
+    circleArray[i].style.backgroundRepeat = 'no-repeat';
+    circleArray[i].style.backgroundPosition = 'center';
+    circleArray[i].style.backgroundSize = 'cover';
 
     circleArray[i].style.top =
       mainHeight / 2 - parseInt(circleArray[i].posy.slice(0, -2)) + 'px';
@@ -92,9 +95,8 @@ function removeClass(e) {
   openBtn.classList.remove('is-hidden');
 
   const number = e.target.classList[1].match(numberPattern) - 1;
-  console.log(number);
 
-  metod.insertAdjacentHTML('beforeend', marcup[number]);
+  metod.insertAdjacentHTML('beforeend', newMarkup(data)[number]);
 }
 
 function addClass() {
@@ -104,10 +106,12 @@ function addClass() {
 
 const metod = document.querySelector('.data-student');
 
-const marcup = data.map(({ name, information }) => {
-  return `
-  <p class="data-student_name">${name}</p>
-  <p class="data-student_information">${information}
+function newMarkup(data) {
+  return data.map(({ name, information }) => {
+    return `
+  <p class="data-student_name">${translateMsg(name)}</p>
+  <p class="data-student_information">${translateMsg(information)}
   </p>
 `;
-});
+  });
+}

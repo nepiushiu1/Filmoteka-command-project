@@ -33,6 +33,7 @@ i18next.init(
           genre: 'Genre',
           about: 'About',
           other: 'Other',
+          four: 'Alexander Rudnyk',
         },
       },
       'uk-UA': {
@@ -53,6 +54,7 @@ i18next.init(
           genre: 'Жанр',
           about: 'Опис',
           other: 'Інші',
+          four: 'Олександр Рудник',
         },
       },
     },
