@@ -14,7 +14,7 @@ export function createLibraryPagination(name) {
     try {
       container.innerHTML = '';
     } catch {
-      console.log('Данных еще нет');
+      // console.log('Данных еще нет');
     }
     clearLibrary();
     addScreenSaver();

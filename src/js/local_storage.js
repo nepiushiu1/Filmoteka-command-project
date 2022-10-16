@@ -143,7 +143,7 @@ export function clearLibrary() {
   try {
     refs.libraryCardsContainer.innerHTML = '';
   } catch {
-    console.log('Данных еще нет');
+    // console.log('Данных еще нет');
   }
 }
 
@@ -167,6 +167,6 @@ export function addScreenSaver() {
       }
     }
   } catch {
-    console.log('Данных еще нет');
+    // console.log('Данных еще нет');
   }
 }

@@ -6,12 +6,16 @@ try {
   refs.btnWatched.addEventListener('click', onBtnWatchedClick);
   refs.btnQueue.addEventListener('click', onBtnQueueClick);
 } catch {
-  console.log('Данных еще нет');
+  // console.log('Данных еще нет');
 }
 
 // createLibraryPagination('watched');
 export let currentLibrary = 'watched';
-createLibraryPagination(`${currentLibrary}`);
+try {
+  createLibraryPagination(`${currentLibrary}`);
+} catch {
+  // console.log('Данных еще нет');
+}
 
 function onBtnWatchedClick(e) {
   currentLibrary = 'watched';
