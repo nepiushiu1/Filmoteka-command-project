@@ -1,11 +1,13 @@
 @font-face {
     font-family: Roboto-regular;
     src: url('/src/fonts/Roboto-Regular.ttf');
+    font-display: swap;
 }
 
 @font-face {
     font-family: Roboto-medium;
     src: url('/src/fonts/Roboto-Medium.ttf');
+    font-display: swap;
 }
 
 body {
