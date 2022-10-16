@@ -7,27 +7,27 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  background-image: url(../images/header/bg-header_mob.jpg);
+  background-image: url(../images/header/home/bg-header_mob.jpg);
 
   @include mq(retina) {
-    background-image: url(../images/header/bg-header_mob@2x.jpg);
+    background-image: url(../images/header/home/bg-header_mob@2x.jpg);
   }
 
   @include mq(tablet) {
     height: 216px;
 
-    background-image: url(../images/header/bg-header_tab.jpg);
+    background-image: url(../images/header/home/bg-header_tab.jpg);
 
     @include mq(retina) {
-      background-image: url(../images/header/bg-header_tab@2x.jpg);
+      background-image: url(../images/header/home/bg-header_tab@2x.jpg);
     }
   }
 
   @include mq(desktop) {
-    background-image: url(../images/header/bg-header_des.jpg);
+    background-image: url(../images/header/home/bg-header_des.jpg);
 
     @include mq(retina) {
-      background-image: url(../images/header/bg-header_des@2x.jpg);
+      background-image: url(../images/header/home/bg-header_des@2x.jpg);
     }
   }
 
@@ -40,25 +40,25 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    background-image: url(../images/header/bg-header-lib_mob.jpg);
+    background-image: url(../images/header/library/bg-header-lib_mob.jpg);
     
     @include mq(retina) {
-      background-image: url(../images/header/bg-header-lib_mob@2x.jpg);
+      background-image: url(../images/header/library/bg-header-lib_mob@2x.jpg);
     }
     
     @include mq(tablet) {
-      background-image: url(../images/header/bg-header-lib_tab.jpg);
+      background-image: url(../images/header/library/bg-header-lib_tab.jpg);
     
       @include mq(retina) {
-        background-image: url(../images/header/bg-header-lib_tab@2x.jpg);
+        background-image: url(../images/header/library/bg-header-lib_tab@2x.jpg);
       }
     }
     
     @include mq(desktop) {
-      background-image: url(../images/header/bg-header-lib_des.jpg);
+      background-image: url(../images/header/library/bg-header-lib_des.jpg);
     
       @include mq(retina) {
-        background-image: url(../images/header/bg-header-lib_des@2x.jpg);
+        background-image: url(../images/header/library/bg-header-lib_des@2x.jpg);
       }
     }
   }
