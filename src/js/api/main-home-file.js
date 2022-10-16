@@ -6,6 +6,8 @@ import { refs } from '../refs';
 import { createPagination } from '../pagination';
 import { BASE_POSTER_URL } from './render-card-markup';
 import { onFetchError } from './onFetchError';
+// import { makingSwiper } from './render-slide-markup';
+// import { swiper } from '../swiper';
 
 const moviesApiService = new MoviesApiService();
 const spinner = new Spinner();
