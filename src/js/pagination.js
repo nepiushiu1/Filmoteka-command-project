@@ -5,8 +5,6 @@ import makingMarkup from './api/render-card-markup';
 import { insertFilmsMarkupToHome } from './api/insertingIntoDifferentContainers';
 import { refs } from './refs';
 import { onFetchError } from './api/onFetchError';
-// import { makingSwiper } from './api/render-slide-markup';
-// import { swiper } from './swiper';
 
 const moviesApiService = new MoviesApiService();
 const spinner = new Spinner();
