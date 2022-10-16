@@ -15,7 +15,7 @@ export function createLibraryPagination(name) {
     addScreenSaver();
     return;
   }
-  console.log(fullLibrary.length);
+  // console.log(fullLibrary.length);
 
   const options = {
     totalItems: fullLibrary.length,

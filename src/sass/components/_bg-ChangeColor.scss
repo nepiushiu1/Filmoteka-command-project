@@ -14,7 +14,9 @@ body {
 
   // tablet sreen from 768px
   @include mq(tablet) {
-    --size: 4vmin;
+    // --size: 4vmin;
+    --size: 30px;
+
   }
 
   // display: grid;
