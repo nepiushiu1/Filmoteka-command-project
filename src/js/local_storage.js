@@ -1,6 +1,8 @@
 import { refs } from './refs';
 import makingMarkup from './api/render-card-markup';
 import { insertFilmsMarkupToLibrary } from './api/insertingIntoDifferentContainers';
+import { createLibraryPagination, container } from './pagination-library';
+
 
 //ДОДАТИ ДО КЛЮЧА "WATCHED" В LOCAL STORAGE
 // Передано змінну style
@@ -66,7 +68,8 @@ export function getWatchedFilms() {
     }
 
     const renderWatched = makingMarkup(parsedFilms);
-    insertFilmsMarkupToLibrary(renderWatched);
+    // insertFilmsMarkupToLibrary(renderWatched);
+    createLibraryPagination('watched');
   } catch (error) {
     console.log(error);
   }
@@ -90,7 +93,9 @@ export function getQueueFilms() {
     }
 
     const renderQueue = makingMarkup(parsedFilms);
-    insertFilmsMarkupToLibrary(renderQueue);
+    // insertFilmsMarkupToLibrary(renderQueue);
+    createLibraryPagination('queue');
+
   } catch (error) {
     console.log(error);
   }
@@ -145,6 +150,7 @@ export function addScreenSaver() {
     color: var(--secondary-text-cl);">
     ${translateNoInformation()}
     </strong>`;
+    container.innerHTML = '';
 }
 
 function translateNoInformation() {

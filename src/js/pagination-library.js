@@ -5,17 +5,18 @@ import { refs } from './refs';
 import { clearLibrary } from './local_storage';
 import { addScreenSaver } from './local_storage';
 
+export const container = document.getElementById('pagination-library');
 export function createLibraryPagination(name) {
   let fullLibrary = JSON.parse(localStorage.getItem(`${name}`));
   // console.log(fullLibrary);
-  const container = document.getElementById('pagination-library');
 
   if (!fullLibrary || fullLibrary.length === 0) {
+    container.innerHTML = '';
     clearLibrary();
     addScreenSaver();
     return;
   }
-  console.log(fullLibrary.length);
+  // console.log(fullLibrary.length);
 
   const options = {
     totalItems: fullLibrary.length,
@@ -72,6 +73,7 @@ export function createLibraryPagination(name) {
 
     if (!items || items.length === 0) {
       refs.libraryCardsContainer.innerHTML = '';
+      container.innerHTML = '';
       return;
     }
 
