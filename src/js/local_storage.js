@@ -104,8 +104,12 @@ export function getQueueFilms() {
 export function deleteWatched(element, style) {
   console.log('style', style);
   const arrayFromLocStorage = JSON.parse(localStorage.getItem('watched'));
-  const index = arrayFromLocStorage.findIndex(arr => arr.id === element.id);
-  arrayFromLocStorage.splice(index, 1);
+  try {
+    const index = arrayFromLocStorage.findIndex(arr => arr.id === element.id);
+    arrayFromLocStorage.splice(index, 1);
+  } catch (error) {
+    arrayFromLocStorage.splice(0, 1);
+  }
 
   localStorage.setItem('watched', JSON.stringify(arrayFromLocStorage));
   // Додано умову застосування функції getWatchedFilms()
