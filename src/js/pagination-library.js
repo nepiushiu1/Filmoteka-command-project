@@ -5,12 +5,17 @@ import { refs } from './refs';
 import { clearLibrary } from './local_storage';
 import { addScreenSaver } from './local_storage';
 
+export const container = document.getElementById('pagination-library');
 export function createLibraryPagination(name) {
   let fullLibrary = JSON.parse(localStorage.getItem(`${name}`));
   // console.log(fullLibrary);
-  const container = document.getElementById('pagination-library');
 
   if (!fullLibrary || fullLibrary.length === 0) {
+    try {
+      container.innerHTML = '';
+    } catch {
+      // console.log('Данных еще нет');
+    }
     clearLibrary();
     addScreenSaver();
     return;
@@ -72,6 +77,7 @@ export function createLibraryPagination(name) {
 
     if (!items || items.length === 0) {
       refs.libraryCardsContainer.innerHTML = '';
+      container.innerHTML = '';
       return;
     }
 

@@ -1,6 +1,8 @@
 import { refs } from './refs';
 import makingMarkup from './api/render-card-markup';
 import { insertFilmsMarkupToLibrary } from './api/insertingIntoDifferentContainers';
+import { createLibraryPagination, container } from './pagination-library';
+import { currentLibrary } from './library-header-btns';
 
 //ДОДАТИ ДО КЛЮЧА "WATCHED" В LOCAL STORAGE
 // Передано змінну style
@@ -65,8 +67,9 @@ export function getWatchedFilms() {
       return;
     }
 
-    const renderWatched = makingMarkup(parsedFilms);
-    insertFilmsMarkupToLibrary(renderWatched);
+    // const renderWatched = makingMarkup(parsedFilms);
+    // insertFilmsMarkupToLibrary(renderWatched);
+    createLibraryPagination(`${currentLibrary}`);
   } catch (error) {
     console.log(error);
   }
@@ -89,8 +92,9 @@ export function getQueueFilms() {
       return;
     }
 
-    const renderQueue = makingMarkup(parsedFilms);
-    insertFilmsMarkupToLibrary(renderQueue);
+    // const renderQueue = makingMarkup(parsedFilms);
+    // insertFilmsMarkupToLibrary(renderQueue);
+    createLibraryPagination(`${currentLibrary}`);
   } catch (error) {
     console.log(error);
   }
@@ -100,8 +104,12 @@ export function getQueueFilms() {
 export function deleteWatched(element, style) {
   console.log('style', style);
   const arrayFromLocStorage = JSON.parse(localStorage.getItem('watched'));
-  const index = arrayFromLocStorage.findIndex(arr => arr.id === element.id);
-  arrayFromLocStorage.splice(index, 1);
+  try {
+    const index = arrayFromLocStorage.findIndex(arr => arr.id === element.id);
+    arrayFromLocStorage.splice(index, 1);
+  } catch (error) {
+    arrayFromLocStorage.splice(0, 1);
+  }
 
   localStorage.setItem('watched', JSON.stringify(arrayFromLocStorage));
   // Додано умову застосування функції getWatchedFilms()
@@ -109,7 +117,8 @@ export function deleteWatched(element, style) {
     console.log('Видалення з головної сторінки');
     return;
   } else {
-    getWatchedFilms();
+    // getWatchedFilms();
+    createLibraryPagination(`${currentLibrary}`);
     console.log('Видалення з бібліотеки!!!!!!!!!!!!');
   }
 }
@@ -118,8 +127,13 @@ export function deleteWatched(element, style) {
 export function deleteQueue(element, style) {
   console.log('style', style);
   const arrayFromLocStorage = JSON.parse(localStorage.getItem('queue'));
-  const index = arrayFromLocStorage.findIndex(arr => arr.id === element.id);
-  arrayFromLocStorage.splice(index, 1);
+
+  try {
+    const index = arrayFromLocStorage.findIndex(arr => arr.id === element.id);
+    arrayFromLocStorage.splice(index, 1);
+  } catch (error) {
+    arrayFromLocStorage.splice(0, 1);
+  }
 
   localStorage.setItem('queue', JSON.stringify(arrayFromLocStorage));
   // Додано умову застосування функції getWatchedFilms()
@@ -127,32 +141,41 @@ export function deleteQueue(element, style) {
     console.log('Видалення з головної сторінки');
     return;
   } else {
-    getQueueFilms();
+    createLibraryPagination(`${currentLibrary}`);
+    // getQueueFilms();
     console.log('Видалення з бібліотеки!!!!!!!!!!!!');
   }
 }
 
 //   Фунуція для очищення попередніх результатів рендеру
 export function clearLibrary() {
-  refs.libraryCardsContainer.innerHTML = '';
+  try {
+    refs.libraryCardsContainer.innerHTML = '';
+  } catch {
+    // console.log('Данных еще нет');
+  }
 }
 
 // Функція для відмальовки "заглушки" (якщо localStorage порожній)
 export function addScreenSaver() {
-  refs.libraryCardsContainer.innerHTML = `<strong 
-    style="
-    font-size: 18px;
-    color: var(--secondary-text-cl);">
-    ${translateNoInformation()}
-    </strong>`;
-}
-
-function translateNoInformation() {
-  const lang = localStorage.getItem('lang');
-  if (!lang || lang === 'en-US') {
-    return 'Sorry, no information has been added';
-  }
-  if (lang === 'uk-UA') {
-    return 'Вибачте, ще жодної інформації не додано';
+  try {
+    refs.libraryCardsContainer.innerHTML = `<strong 
+      style="
+      font-size: 18px;
+      color: var(--secondary-text-cl);">
+      ${translateNoInformation()}
+      </strong>`;
+    container.innerHTML = '';
+    function translateNoInformation() {
+      const lang = localStorage.getItem('lang');
+      if (!lang || lang === 'en-US') {
+        return 'Sorry, no information has been added';
+      }
+      if (lang === 'uk-UA') {
+        return 'Вибачте, ще жодної інформації не додано';
+      }
+    }
+  } catch {
+    // console.log('Данных еще нет');
   }
 }
