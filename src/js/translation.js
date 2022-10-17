@@ -30,6 +30,7 @@ i18next.init(
           genre: 'Genre',
           about: 'About',
           other: 'Other',
+          responseError: 'Sorry, no response from server!',
         },
       },
       'uk-UA': {
@@ -50,6 +51,7 @@ i18next.init(
           genre: 'Жанр',
           about: 'Опис',
           other: 'Інші',
+          responseError: 'Вибачте, сервер не відповідає!',
         },
       },
     },
