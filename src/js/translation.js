@@ -84,27 +84,28 @@ function bindLanguageSwitcher() {
       moviesApiService.page = localStorage.getItem('page');
     }
     changeLanguage(event.target.value);
-    if (refs.homeCardsContainer !== null) {
+    const libraryLink = document.querySelector('.library');
+    if (!libraryLink.classList.contains('menu__link--current')) {
       refs.homeCardsContainer.innerHTML = '';
+      moviesApiService
+        .fetchGenres()
+        .then(({ genres }) => {
+          for (const { id, name } of genres) {
+            localStorage.setItem(`genre_${id}`, name);
+          }
+        })
+        .catch(error => console.log(error));
+
+      moviesApiService
+        .fetchTrendingMovies()
+        .then(({ results }) => {
+          const markup = makingMarkup(results);
+
+          insertFilmsMarkupToHome(markup);
+          localStorage.setItem(`currentFilm`, JSON.stringify(results));
+        })
+        .catch(error => console.log(error));
     }
-    moviesApiService
-      .fetchGenres()
-      .then(({ genres }) => {
-        for (const { id, name } of genres) {
-          localStorage.setItem(`genre_${id}`, name);
-        }
-      })
-      .catch(error => console.log(error));
-
-    moviesApiService
-      .fetchTrendingMovies()
-      .then(({ results, total_results }) => {
-        const markup = makingMarkup(results);
-
-        insertFilmsMarkupToHome(markup);
-        localStorage.setItem(`currentFilm`, JSON.stringify(results));
-      })
-      .catch(error => console.log(error));
   };
 }
 localStorage.removeItem('page');
