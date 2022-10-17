@@ -4,7 +4,7 @@ import { translateMsg } from './teamInfoTranslate';
 
 // функция открытия и закрытия модального окна ,описывающего студентов
 const refs = {
-  open: document.querySelector('[modal-open]'),
+  open: document.querySelector('[data-modal-open]'),
   // close: document.querySelector('.modal-btn_students'),
   backdrop: document.querySelector('.backdrop_students'),
 };

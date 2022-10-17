@@ -7,27 +7,33 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  background-image: url(../images/header/bg-header_mob.jpg);
+  background-image: url(../images/header/home/bg-header_mob.jpg);
+  background-image: url(../images/header/home/bg-header_mob.webp);
 
   @include mq(retina) {
-    background-image: url(../images/header/bg-header_mob@2x.jpg);
+    background-image: url(../images/header/home/bg-header_mob@2x.jpg);
+    background-image: url(../images/header/home/bg-header_mob@2x.webp);
   }
 
   @include mq(tablet) {
     height: 216px;
 
-    background-image: url(../images/header/bg-header_tab.jpg);
+    background-image: url(../images/header/home/bg-header_tab.jpg);
+    background-image: url(../images/header/home/bg-header_tab.webp);
 
     @include mq(retina) {
-      background-image: url(../images/header/bg-header_tab@2x.jpg);
+      background-image: url(../images/header/home/bg-header_tab@2x.jpg);
+      background-image: url(../images/header/home/bg-header_tab@2x.webp);
     }
   }
 
   @include mq(desktop) {
-    background-image: url(../images/header/bg-header_des.jpg);
-
+    background-image: url(../images/header/home/bg-header_des.jpg);
+    background-image: url(../images/header/home/bg-header_des.webp);
+    
     @include mq(retina) {
-      background-image: url(../images/header/bg-header_des@2x.jpg);
+      background-image: url(../images/header/home/bg-header_des@2x.jpg);
+      background-image: url(../images/header/home/bg-header_des@2x.webp);
     }
   }
 
@@ -40,25 +46,31 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    background-image: url(../images/header/bg-header-lib_mob.jpg);
+    background-image: url(../images/header/library/bg-header-lib_mob.jpg);
+    background-image: url(../images/header/library/bg-header-lib_mob.webp);
     
     @include mq(retina) {
-      background-image: url(../images/header/bg-header-lib_mob@2x.jpg);
+      background-image: url(../images/header/library/bg-header-lib_mob@2x.jpg);
+      background-image: url(../images/header/library/bg-header-lib_mob@2x.webp);
     }
     
     @include mq(tablet) {
-      background-image: url(../images/header/bg-header-lib_tab.jpg);
+      background-image: url(../images/header/library/bg-header-lib_tab.jpg);
+      background-image: url(../images/header/library/bg-header-lib_tab.webp);
     
       @include mq(retina) {
-        background-image: url(../images/header/bg-header-lib_tab@2x.jpg);
+        background-image: url(../images/header/library/bg-header-lib_tab@2x.jpg);
+        background-image: url(../images/header/library/bg-header-lib_tab@2x.webp);
       }
     }
     
     @include mq(desktop) {
-      background-image: url(../images/header/bg-header-lib_des.jpg);
+      background-image: url(../images/header/library/bg-header-lib_des.jpg);
+      background-image: url(../images/header/library/bg-header-lib_des.webp);
     
       @include mq(retina) {
-        background-image: url(../images/header/bg-header-lib_des@2x.jpg);
+        background-image: url(../images/header/library/bg-header-lib_des@2x.jpg);
+        background-image: url(../images/header/library/bg-header-lib_des@2x.webp);
       }
     }
   }
@@ -113,7 +125,7 @@
   gap: 8px;
   height: 24px;
 
-  color: var(--header-text-cl);
+  color: var(--main-bg-cl);
 
   @include fonts(500, 30px, 35px);
 
@@ -151,7 +163,7 @@
     }
   
   &__item {
-    color: var(--header-text-cl);
+    color: var(--main-bg-cl);
 
     @include fonts(500, 12px, 14px, uppercase);
 
@@ -232,12 +244,12 @@
   &__btn {
     min-width: 130px;
     padding: 13px 36px;
-    border: 1px solid var(--header-text-cl);
+    border: 1px solid var(--main-bg-cl);
     border-radius: 5px;
     cursor: pointer;
 
     background-color: transparent;
-    color: var(--header-text-cl);
+    color: var(--main-bg-cl);
 
     @include fonts(500, 12px, 16px, uppercase);
 
