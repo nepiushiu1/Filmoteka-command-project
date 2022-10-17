@@ -1,4 +1,5 @@
 import { gettingGenresListForModal } from './gettingGenresList';
+import { translateItems } from '../translation';
 import makingMarkup from '../api/render-card-markup';
 // import MoviesApiService from './moviesApiServiceClass';
 import { refs } from '../refs';
@@ -44,10 +45,17 @@ function clickOnMovie(e) {
   const parsedCurrentArrayFilmsQ = JSON.parse(unParsedCurrentArrayFilmsQ);
 
   // console.log(parsedCurrentArrayFilms.find(obj => obj.id == currentId));
-  let libraryMovieWatched = parsedCurrentArrayFilmsW.find(obj => obj.id == currentId);
-  let libraryMovieQueue = parsedCurrentArrayFilmsQ.find(obj => obj.id == currentId);
+  let libraryMovieWatched = parsedCurrentArrayFilmsW.find(
+    obj => obj.id == currentId
+  );
+  let libraryMovieQueue = parsedCurrentArrayFilmsQ.find(
+    obj => obj.id == currentId
+  );
 
-  const render = makingModalCardMarkup(libraryMovieWatched || libraryMovieQueue);
+  const render = makingModalCardMarkup(
+    libraryMovieWatched || libraryMovieQueue
+  );
+  translateItems('.movie__container--rigth-side [data-key]');
   insertModalMarkupHome(render);
   ///////////////////////////////////////////////////////////////////////////
   //** Код для запису об'єктів в LOCAL STORAGE */
