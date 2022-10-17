@@ -1,21 +1,20 @@
 :root {
-    /* text colors*/
-    --main-text-cl: #000000;
-    --secondary-text-cl: #FF6B08;
-    --footer-text-cl: #545454;
-    --modal-secondaty-text-cl: #8C8C8C;
-    --error-cl: #FF001B;
+  /* text colors*/
+  --main-text-cl: #000000;
+  --main-text-cl-dark: #eee4e4d3;
+  --secondary-text-cl: #ff6b08;
+  --footer-text-cl: #545454;
+  --modal-secondaty-text-cl: #8c8c8c;
+  --error-cl: #ff001b;
 
-    /* background colors */
-    --main-bg-cl: #FFFFFF;
-    --button-bg-cl: #ff6a00;
-    --secondary-bg-cl: #F7F7F7;
-    --adver-bg-cl: #f4f4f4;
-    --advert-border-cl: #e9e9e9;
+  /* background colors */
+  --main-bg-cl: #ffffff;
+  --button-bg-cl: #ff6a00;
+  --secondary-bg-cl: #f7f7f7;
+  --adver-bg-cl: #f4f4f4;
+  --advert-border-cl: #e9e9e9;
 
-    /* animation */
-    --transition-duration: 300ms;
-    --transition-timing-function: ease-in-out;
+  /* animation */
+  --transition-duration: 300ms;
+  --transition-timing-function: ease-in-out;
 }
-
-
