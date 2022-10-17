@@ -16,7 +16,6 @@ body {
   @include mq(tablet) {
     // --size: 4vmin;
     --size: 30px;
-
   }
 
   // display: grid;
@@ -29,11 +28,29 @@ body {
   --h: 0;
   --s: 0%;
   --l: 25%;
-}
 
-// [data-switch="off"] .info p {
-//     color: #eee4e4d3;
-// }
+  & .footer {
+    color: var(--main-text-cl-dark);
+    background-color: hsl(var(--h) var(--s) calc(var(--l) + 10%));
+    transition: background-color var(--dur) var(--ease);
+  }
+
+  & .footer__text {
+    color: var(--main-text-cl-dark);
+  }
+
+  & .movie-card__title {
+    color: var(--main-text-cl-dark);
+  }
+
+  & .tui-pagination .tui-page-btn {
+    color: var(--main-text-cl-dark);
+  }
+
+  & .tui-pagination .tui-page-btn:hover {
+    color: var(--main-text-cl);
+  }
+}
 
 .wrapper {
   position: relative;
@@ -135,6 +152,28 @@ body {
   transition-property: background-color, color, transform;
 }
 
+[data-switch='off'] .switch {
+  & label {
+    background-color: hsl(var(--h) var(--s) calc(var(--l) + 20%));
+  }
+
+  & input:checked + label {
+    cursor: initial;
+    background-color: hsl(var(--h) var(--s) calc(var(--l) + 10%));
+  }
+
+  & label::before {
+    height: calc(var(--size) / 2);
+    background-color: hsl(var(--h) var(--s) calc(var(--l) + 0%));
+  }
+
+  & label::after {
+    width: calc(var(--size) / 2);
+    transform-origin: center right;
+    background-color: hsl(var(--h) var(--s) calc(var(--l) + 5%));
+  }
+}
+
 .switch input:focus + label {
   outline: var(--focus-border);
   outline-offset: var(--focus-offset);
@@ -163,7 +202,7 @@ body {
 
 .switch input:checked + label {
   cursor: initial;
-  background-color: hsl(var(--h) var(--s) calc(var(--l) - 7%));
+  background-color: hsl(var(--h) var(--s) calc(var(--l) - 10%));
   text-shadow: hsla(0, 86%, 45%, 0.727) 2px 2px 0.2vmin;
 }
 

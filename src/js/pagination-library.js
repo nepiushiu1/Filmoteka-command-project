@@ -24,7 +24,7 @@ export function createLibraryPagination(name) {
 
   const options = {
     totalItems: fullLibrary.length,
-    itemsPerPage: 6,
+    itemsPerPage: 10,
     visiblePages: 5,
     page: 1,
     centerAlign: true,
