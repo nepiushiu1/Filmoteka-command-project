@@ -3,10 +3,7 @@ import { refs } from './refs';
 import MoviesApiService from './api/moviesApiServiceClass';
 import makingMarkup from './api/render-card-markup';
 import { insertFilmsMarkupToHome } from './api/insertingIntoDifferentContainers';
-import { createPagination } from './pagination';
-// import Spinner from './spinner';
 
-// const spinner = new Spinner();
 const moviesApiService = new MoviesApiService();
 
 i18next.init(
@@ -33,7 +30,6 @@ i18next.init(
           genre: 'Genre',
           about: 'About',
           other: 'Other',
-          four: 'Alexander Rudnyk',
         },
       },
       'uk-UA': {
@@ -54,7 +50,6 @@ i18next.init(
           genre: 'Жанр',
           about: 'Опис',
           other: 'Інші',
-          four: 'Олександр Рудник',
         },
       },
     },
@@ -101,13 +96,11 @@ function bindLanguageSwitcher() {
       })
       .catch(error => console.log(error));
 
-    // spinner.show();
     moviesApiService
       .fetchTrendingMovies()
       .then(({ results, total_results }) => {
         const markup = makingMarkup(results);
 
-        // spinner.hide();
         insertFilmsMarkupToHome(markup);
         localStorage.setItem(`currentFilm`, JSON.stringify(results));
       })
