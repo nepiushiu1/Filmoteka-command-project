@@ -114,8 +114,8 @@ const data = [
       ua: 'Андрій Ярмош',
     },
     information: {
-      en: '"Sherlock Holmes" of our project: searching and displaying movies by keyword. Implementation of viewing trailers',
-      ua: '"Шерлок Холмс" нашого проєкту: пошук та відображення фільмів за ключовим словом. Реалізація можливості перегляду трейлерів',
+      en: '"Sherlock Holmes" of our project: searching and displaying movies by keyword.',
+      ua: '"Шерлок Холмс" нашого проєкту: пошук та відображення фільмів за ключовим словом.',
     },
     url: 'url("https://i.postimg.cc/TPyP2vjW/photo-2022-10-15-19-20-19.jpg")',
   },
