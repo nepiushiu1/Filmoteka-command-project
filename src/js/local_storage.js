@@ -102,7 +102,7 @@ export function getQueueFilms() {
 
 // Функція для видалення фільмів з масиву WATCHED
 export function deleteWatched(element, style) {
-  console.log('style', style);
+  // console.log('style', style);
   const arrayFromLocStorage = JSON.parse(localStorage.getItem('watched'));
   try {
     const index = arrayFromLocStorage.findIndex(arr => arr.id === element.id);
@@ -114,18 +114,18 @@ export function deleteWatched(element, style) {
   localStorage.setItem('watched', JSON.stringify(arrayFromLocStorage));
   // Додано умову застосування функції getWatchedFilms()
   if (style) {
-    console.log('Видалення з головної сторінки');
+    // console.log('Видалення з головної сторінки');
     return;
   } else {
     // getWatchedFilms();
     createLibraryPagination(`${currentLibrary}`);
-    console.log('Видалення з бібліотеки!!!!!!!!!!!!');
+    // console.log('Видалення з бібліотеки!!!!!!!!!!!!');
   }
 }
 
 // Функція для видалення фільмів з масиву QUEUE
 export function deleteQueue(element, style) {
-  console.log('style', style);
+  // console.log('style', style);
   const arrayFromLocStorage = JSON.parse(localStorage.getItem('queue'));
 
   try {
@@ -138,12 +138,12 @@ export function deleteQueue(element, style) {
   localStorage.setItem('queue', JSON.stringify(arrayFromLocStorage));
   // Додано умову застосування функції getWatchedFilms()
   if (style) {
-    console.log('Видалення з головної сторінки');
+    // console.log('Видалення з головної сторінки');
     return;
   } else {
     createLibraryPagination(`${currentLibrary}`);
     // getQueueFilms();
-    console.log('Видалення з бібліотеки!!!!!!!!!!!!');
+    // console.log('Видалення з бібліотеки!!!!!!!!!!!!');
   }
 }
 
