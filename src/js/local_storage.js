@@ -25,6 +25,9 @@ export function addWatchedLocalStorage(obj, btn, style) {
   if (btn.textContent === 'ADD TO WATCHED') {
     btn.textContent = 'REMOVE FROM WATCHED';
   }
+  try {
+    createLibraryPagination(`${currentLibrary}`);
+  } catch (error) {}
   return arrayFilmsWatched;
 }
 
@@ -48,6 +51,9 @@ export function addQueueLocalStorage(obj, btn, style) {
   if (btn.textContent === 'ADD TO QUEUE') {
     btn.textContent = 'REMOVE FROM QUEUE';
   }
+  try {
+    createLibraryPagination(`${currentLibrary}`);
+  } catch (error) {}
   return arrayFilmsQueue;
 }
 
