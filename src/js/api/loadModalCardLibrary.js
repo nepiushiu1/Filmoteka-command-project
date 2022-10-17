@@ -38,8 +38,8 @@ function clickOnMovie(e) {
 
   const currentId = e.target.dataset.id;
 
-  const unParsedCurrentArrayFilmsW = localStorage.getItem('watched');
-  const unParsedCurrentArrayFilmsQ = localStorage.getItem('queue');
+  const unParsedCurrentArrayFilmsW = localStorage.getItem('currentFilm');
+  const unParsedCurrentArrayFilmsQ = localStorage.getItem('currentFilm');
 
   const parsedCurrentArrayFilmsW = JSON.parse(unParsedCurrentArrayFilmsW);
   const parsedCurrentArrayFilmsQ = JSON.parse(unParsedCurrentArrayFilmsQ);
