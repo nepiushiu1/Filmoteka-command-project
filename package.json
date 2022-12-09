@@ -2,14 +2,14 @@
   "name": "filmoteka-command-project",
   "version": "2.0.0",
   "description": "",
-  "homepage": "https://fantusya.github.io/Filmoteka",
+  "homepage": "https://nepiushiu1.github.io/Filmoteka-command-project/",
   "scripts": {
     "start": "parcel src/*.html",
     "build": "parcel build src/*.html --public-url /Filmoteka/"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/goitacademy/parcel-project-template.git"
+    "url": "git+https://nepiushiu1.github.io/Filmoteka-command-project.git"
   },
   "keywords": [],
   "author": "Alexander Repeta <alexander.repeta@gmail.com>",
